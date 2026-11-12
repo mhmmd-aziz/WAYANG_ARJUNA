@@ -13,6 +13,7 @@ import { LandingPage } from './pages/LandingPage';
 import { LearningDashboardPage } from './pages/LearningDashboardPage';
 import { ResultPage } from './pages/ResultPage';
 import { TutorialModePage } from './pages/TutorialModePage';
+import { WayangBattlePage } from './pages/WayangBattlePage';
 import type {
   AppPage,
   ChallengeResult,
@@ -139,6 +140,13 @@ export function App() {
 
         {currentPage === 'studio' && (
           <HandDetectionStudioPage
+            selectedCharacterId={progress.selectedCharacterId}
+            onSelectCharacter={handleSelectCharacter}
+          />
+        )}
+
+        {currentPage === 'battle' && (
+          <WayangBattlePage
             selectedCharacterId={progress.selectedCharacterId}
             onSelectCharacter={handleSelectCharacter}
           />

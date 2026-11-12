@@ -5,6 +5,7 @@ import {
   createInitialProgress,
   recordLevelCompletion,
 } from '../achievementManager';
+import { WayangBattleEngine } from '../battleEngine';
 import { ChallengeEvaluator } from '../challengeManager';
 import { GAME_LEVELS, getLevelById } from '../levelManager';
 import { buildChallengeResult } from '../scoreManager';
@@ -78,6 +79,140 @@ describe('Gamification Engine', () => {
     expect(nextState.levels[1].completed).toBe(true);
     expect(nextState.levels[2].unlocked).toBe(true);
     expect(nextState.earnedBadgeIds).toContain('first_wayang');
+  });
+
+  it('handles battle strikes, defense blocking, and jurus projectiles', () => {
+    const engine = new WayangBattleEngine();
+    const baseGesture = getEmptyGestureState();
+    const leftPose = { ...createDefaultPose(), x: 0.42, y: 0.55 };
+    const rightPose = { ...createDefaultPose(), x: 0.58, y: 0.55 };
+
+    // Fast swing by left wayang deals melee damage + whoosh/slash/hit sounds
+    const { snapshot: snap1, sounds: sounds1 } = engine.update({
+      dtSec: 0.05,
+      leftPose,
+      rightPose,
+      leftGesture: {
+        ...baseGesture,
+        primary: 'open_palm',
+        isOpenPalm: true,
+        velocity: { vx: 1.1, vy: 0 },
+      },
+      rightGesture: {
+        ...baseGesture,
+        primary: 'open_palm',
+        isOpenPalm: true,
+      },
+      leftActive: true,
+      rightActive: true,
+    });
+
+    expect(snap1.right.hp).toBeLessThan(100);
+    expect(sounds1.some((s) => s.type === 'slash')).toBe(true);
+    expect(sounds1.some((s) => s.type === 'hit')).toBe(true);
+
+    // Right wayang closes fist to defend and triggers block clang
+    const { snapshot: snap2, sounds: sounds2 } = engine.update({
+      dtSec: 0.75,
+      leftPose,
+      rightPose,
+      leftGesture: {
+        ...baseGesture,
+        primary: 'open_palm',
+        isOpenPalm: true,
+        velocity: { vx: 1.2, vy: 0 },
+      },
+      rightGesture: {
+        ...baseGesture,
+        primary: 'closed_fist',
+        isFist: true,
+      },
+      leftActive: true,
+      rightActive: true,
+    });
+
+    expect(snap2.right.isDefending).toBe(true);
+    expect(sounds2.some((s) => s.type === 'block')).toBe(true);
+
+    // Pinch from a distance launches a Jurus projectile in flight
+    const farLeft = { ...createDefaultPose(), x: 0.2, y: 0.55 };
+    const farRight = { ...createDefaultPose(), x: 0.8, y: 0.55 };
+    const { snapshot: snap3, sounds: sounds3 } = engine.update({
+      dtSec: 0.05,
+      leftPose: farLeft,
+      rightPose: farRight,
+      leftGesture: {
+        ...baseGesture,
+        primary: 'pinch',
+        isPinching: true,
+      },
+      rightGesture: {
+        ...baseGesture,
+        primary: 'open_palm',
+        isOpenPalm: true,
+      },
+      leftActive: true,
+      rightActive: true,
+    });
+
+    expect(snap3.projectiles.length).toBe(1);
+    expect(snap3.projectiles[0].kind).toBe('jurus');
+    expect(sounds3.some((s) => s.type === 'jurus')).toBe(true);
+
+    // Advance cooldown cleanly before testing ranged slash & arrow projectiles
+    engine.update({
+      dtSec: 0.75,
+      leftPose: farLeft,
+      rightPose: farRight,
+      leftGesture: { ...baseGesture, primary: 'open_palm', isOpenPalm: true },
+      rightGesture: { ...baseGesture, primary: 'open_palm', isOpenPalm: true },
+      leftActive: true,
+      rightActive: true,
+    });
+
+    // Fast swing from a distance launches a ranged 'slash' wave
+    const { snapshot: snap4, sounds: sounds4 } = engine.update({
+      dtSec: 0.05,
+      leftPose: farLeft,
+      rightPose: farRight,
+      leftGesture: {
+        ...baseGesture,
+        primary: 'open_palm',
+        isOpenPalm: true,
+        velocity: { vx: 1.0, vy: 0 },
+      },
+      rightGesture: {
+        ...baseGesture,
+        primary: 'open_palm',
+        isOpenPalm: true,
+      },
+      leftActive: true,
+      rightActive: true,
+    });
+
+    expect(snap4.projectiles.some((p) => p.kind === 'slash')).toBe(true);
+    expect(sounds4.some((s) => s.type === 'slash')).toBe(true);
+
+    // Pointing index finger up fires a quick 'arrow' shot
+    const { snapshot: snap5 } = engine.update({
+      dtSec: 0.05,
+      leftPose: farLeft,
+      rightPose: farRight,
+      leftGesture: {
+        ...baseGesture,
+        primary: 'open_palm',
+        isOpenPalm: true,
+      },
+      rightGesture: {
+        ...baseGesture,
+        primary: 'index_up',
+        isIndexUp: true,
+      },
+      leftActive: true,
+      rightActive: true,
+    });
+
+    expect(snap5.projectiles.some((p) => p.kind === 'arrow')).toBe(true);
   });
 });
 

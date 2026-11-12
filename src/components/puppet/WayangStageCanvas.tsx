@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import type { BattleSnapshot } from '../../game/battleEngine';
 import type { PuppetController } from '../../puppet-engine/PuppetController';
 import type {
   InteractiveStoryObject,
@@ -15,6 +16,7 @@ interface WayangStageCanvasProps {
   holdProgress?: number;
   storyObject?: InteractiveStoryObject | null;
   statusBanner?: string | null;
+  battleSnapshotRef?: React.MutableRefObject<BattleSnapshot | null>;
 }
 
 function drawKelirDecor(
@@ -248,6 +250,241 @@ function drawStoryObject(
   ctx.restore();
 }
 
+function drawBattleOverlay(
+  ctx: CanvasRenderingContext2D,
+  snap: BattleSnapshot,
+  leftName: string,
+  rightName: string,
+  leftPoseX: number,
+  leftPoseY: number,
+  rightPoseX: number,
+  rightPoseY: number,
+  width: number,
+  height: number
+): void {
+  ctx.save();
+
+  // Top-of-Kelir Arcade Health & Energy HUD Bars (always visible inside battle stage)
+  const padX = 16;
+  const barW = Math.min(210, width * 0.34);
+  const barH = 14;
+  const topY = 14;
+
+  const drawTopBar = (
+    x: number,
+    name: string,
+    hp: number,
+    maxHp: number,
+    energy: number,
+    alignRight: boolean,
+    fillColor: string
+  ) => {
+    const ratio = Math.max(0, Math.min(1, hp / Math.max(1, maxHp)));
+    const energyRatio = Math.max(0, Math.min(1, energy / 100));
+
+    // Name & HP number
+    ctx.font = 'bold 12px "Fredoka", sans-serif';
+    ctx.fillStyle = '#2B211A';
+    ctx.textAlign = alignRight ? 'right' : 'left';
+    const labelX = alignRight ? x + barW : x;
+    ctx.fillText(`${name} • ${hp} HP`, labelX, topY + 10);
+
+    // HP Bar track
+    const barY = topY + 15;
+    ctx.fillStyle = 'rgba(43, 33, 26, 0.82)';
+    ctx.beginPath();
+    ctx.roundRect(x, barY, barW, barH, 7);
+    ctx.fill();
+
+    // HP Bar fill
+    if (ratio > 0) {
+      const fillW = Math.max(6, (barW - 4) * ratio);
+      const fillX = alignRight ? x + barW - 2 - fillW : x + 2;
+      ctx.fillStyle = ratio > 0.35 ? fillColor : '#DC2626';
+      ctx.beginPath();
+      ctx.roundRect(fillX, barY + 2, fillW, barH - 4, 5);
+      ctx.fill();
+    }
+
+    // Gold border
+    ctx.strokeStyle = '#D4A843';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.roundRect(x, barY, barW, barH, 7);
+    ctx.stroke();
+
+    // Thin energy bar underneath
+    const energyY = barY + barH + 4;
+    ctx.fillStyle = 'rgba(43, 33, 26, 0.35)';
+    ctx.beginPath();
+    ctx.roundRect(x, energyY, barW, 5, 3);
+    ctx.fill();
+    if (energyRatio > 0) {
+      const ew = Math.max(4, barW * energyRatio);
+      const ex = alignRight ? x + barW - ew : x;
+      ctx.fillStyle = '#D4A843';
+      ctx.beginPath();
+      ctx.roundRect(ex, energyY, ew, 5, 3);
+      ctx.fill();
+    }
+  };
+
+  drawTopBar(
+    padX,
+    leftName.replace('Raden ', '').replace('Dewi ', '').replace('Ki Lurah ', ''),
+    snap.left.hp,
+    snap.left.maxHp,
+    snap.left.energy,
+    false,
+    '#16A34A'
+  );
+  drawTopBar(
+    width - padX - barW,
+    rightName.replace('Raden ', '').replace('Dewi ', '').replace('Ki Lurah ', ''),
+    snap.right.hp,
+    snap.right.maxHp,
+    snap.right.energy,
+    true,
+    '#DC2626'
+  );
+
+  // Center VS & Timer pill
+  ctx.fillStyle = '#4A2C1D';
+  ctx.beginPath();
+  ctx.roundRect(width / 2 - 24, topY + 6, 48, 28, 12);
+  ctx.fill();
+  ctx.strokeStyle = '#D4A843';
+  ctx.lineWidth = 1.6;
+  ctx.stroke();
+  ctx.font = 'bold 13px "Fredoka", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#F7DF8D';
+  ctx.fillText(`${snap.remainingSec}s`, width / 2, topY + 25);
+
+  // Floating mini health bar directly above each puppet
+  const drawMiniHp = (px: number, py: number, hp: number, maxHp: number, color: string) => {
+    const mw = 54;
+    const mh = 7;
+    const mx = Math.max(8, Math.min(width - mw - 8, px * width - mw / 2));
+    const my = Math.max(54, py * height - 135);
+    const ratio = Math.max(0, Math.min(1, hp / Math.max(1, maxHp)));
+
+    ctx.fillStyle = 'rgba(43, 33, 26, 0.82)';
+    ctx.beginPath();
+    ctx.roundRect(mx, my, mw, mh, 3.5);
+    ctx.fill();
+
+    if (ratio > 0) {
+      ctx.fillStyle = ratio > 0.35 ? color : '#EF4444';
+      ctx.beginPath();
+      ctx.roundRect(mx + 1.5, my + 1.5, Math.max(3, (mw - 3) * ratio), mh - 3, 2);
+      ctx.fill();
+    }
+  };
+
+  drawMiniHp(leftPoseX, leftPoseY, snap.left.hp, snap.left.maxHp, '#22C55E');
+  drawMiniHp(rightPoseX, rightPoseY, snap.right.hp, snap.right.maxHp, '#EF4444');
+
+  // Defense Perisai rings when holding Closed Fist
+  const drawShield = (px: number, py: number, color: string) => {
+    const cx = px * width;
+    const cy = py * height - 26;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, 58, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(212, 168, 67, 0.14)';
+    ctx.fill();
+    ctx.lineWidth = 3.5;
+    ctx.strokeStyle = color;
+    ctx.setLineDash([10, 6]);
+    ctx.stroke();
+    ctx.restore();
+  };
+
+  if (snap.left.isDefending) {
+    drawShield(leftPoseX, leftPoseY, '#3D7A5A');
+  }
+  if (snap.right.isDefending) {
+    drawShield(rightPoseX, rightPoseY, '#C65D3B');
+  }
+
+  // Flying attacks: crescent punch slash, arrow shot, or Jurus Pusaka orb
+  for (const proj of snap.projectiles) {
+    const px = proj.x * width;
+    const py = proj.y * height;
+    const angle = Math.atan2(proj.vy, proj.vx);
+
+    ctx.save();
+    ctx.translate(px, py);
+    ctx.rotate(angle);
+
+    if (proj.kind === 'slash') {
+      // Crescent punch / sabetan shockwave arc
+      ctx.beginPath();
+      ctx.arc(-6, 0, 22, -Math.PI * 0.42, Math.PI * 0.42);
+      ctx.strokeStyle = proj.color;
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(-6, 0, 22, -Math.PI * 0.35, Math.PI * 0.35);
+      ctx.strokeStyle = '#FFF9E8';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+    } else {
+      const glowRadius = proj.kind === 'jurus' ? 24 : 16;
+      const glow = ctx.createRadialGradient(0, 0, 2, 0, 0, glowRadius);
+      glow.addColorStop(0, '#FFF8D6');
+      glow.addColorStop(0.5, proj.color);
+      glow.addColorStop(1, 'rgba(212, 168, 67, 0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, 0, glowRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(-20, 0);
+      ctx.lineTo(14, 0);
+      ctx.lineTo(6, -5);
+      ctx.moveTo(14, 0);
+      ctx.lineTo(6, 5);
+      ctx.strokeStyle = '#FFF9E8';
+      ctx.lineWidth = 2.6;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  // Hit sparks & floating damage callouts
+  for (const ef of snap.effects) {
+    const alpha = Math.max(0, ef.lifeSec / ef.maxLifeSec);
+    const ex = ef.x * width;
+    const ey = ef.y * height;
+
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.beginPath();
+    ctx.arc(ex, ey, ef.radius, 0, Math.PI * 2);
+    ctx.strokeStyle = ef.color;
+    ctx.lineWidth = 3.5;
+    ctx.stroke();
+
+    if (ef.label) {
+      ctx.font = 'bold 16px "Fredoka", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#2B211A';
+      ctx.fillText(ef.label, ex + 1, ey - ef.radius * 0.45 + 1);
+      ctx.fillStyle = ef.color;
+      ctx.fillText(ef.label, ex, ey - ef.radius * 0.45);
+    }
+    ctx.restore();
+  }
+
+  ctx.restore();
+}
+
 export function WayangStageCanvas({
   controller,
   secondaryController = null,
@@ -257,6 +494,7 @@ export function WayangStageCanvas({
   holdProgress = 0,
   storyObject = null,
   statusBanner = null,
+  battleSnapshotRef,
 }: WayangStageCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const trackingLoopRef = useRef(isTrackingLoopRunning ?? isTrackingActive);
@@ -292,12 +530,23 @@ export function WayangStageCanvas({
         canvas.height = targetH;
       }
 
+      const snap = battleSnapshotRef?.current ?? null;
+      const shakeX =
+        snap && snap.shakeIntensity > 0.2
+          ? (Math.random() - 0.5) * snap.shakeIntensity
+          : 0;
+      const shakeY =
+        snap && snap.shakeIntensity > 0.2
+          ? (Math.random() - 0.5) * snap.shakeIntensity
+          : 0;
+
       ctx.save();
       ctx.scale(dpr, dpr);
+      ctx.translate(shakeX, shakeY);
       const logicalW = rect.width || 640;
       const logicalH = rect.height || 440;
 
-      ctx.clearRect(0, 0, logicalW, logicalH);
+      ctx.clearRect(-12, -12, logicalW + 24, logicalH + 24);
       drawKelirDecor(ctx, logicalW, logicalH);
 
       const {
@@ -326,6 +575,23 @@ export function WayangStageCanvas({
         secondaryController.render(ctx, logicalW, logicalH);
       }
       controller.render(ctx, logicalW, logicalH);
+
+      if (snap && secondaryController) {
+        const leftPose = secondaryController.getPose();
+        const rightPose = controller.getPose();
+        drawBattleOverlay(
+          ctx,
+          snap,
+          secondaryController.getCharacter().name,
+          controller.getCharacter().name,
+          leftPose.x,
+          leftPose.y,
+          rightPose.x,
+          rightPose.y,
+          logicalW,
+          logicalH
+        );
+      }
       ctx.restore();
 
       rafId = requestAnimationFrame(renderFrame);
@@ -333,7 +599,7 @@ export function WayangStageCanvas({
 
     rafId = requestAnimationFrame(renderFrame);
     return () => cancelAnimationFrame(rafId);
-  }, [controller, secondaryController]);
+  }, [controller, secondaryController, battleSnapshotRef]);
 
   const character = controller.getCharacter();
   const secondaryCharacter = secondaryController?.getCharacter() ?? null;

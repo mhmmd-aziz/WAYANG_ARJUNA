@@ -5,6 +5,7 @@ export type AppPage =
   | 'characters'
   | 'dashboard'
   | 'studio'
+  | 'battle'
   | 'tutorial'
   | 'challenge'
   | 'result';

@@ -3,6 +3,7 @@ import {
   BookOpen,
   Camera,
   Home,
+  Swords,
   Users,
   Volume2,
   VolumeX,
@@ -27,6 +28,7 @@ const NAV_ITEMS: Array<{
   { page: 'dashboard', label: 'Level', icon: Award },
   { page: 'tutorial', label: 'Tutorial', icon: BookOpen },
   { page: 'studio', label: 'Studio', icon: Camera },
+  { page: 'battle', label: 'Pertarungan', icon: Swords },
 ];
 
 export function Navbar({
