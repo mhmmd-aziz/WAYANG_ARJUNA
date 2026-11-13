@@ -5,7 +5,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/((?!assets/|mediapipe/|models/).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
