@@ -12,3 +12,8 @@ dist-ssr/
 .env.local
 .env.*.local
 
+
+# Demo video working files (large, regenerable)
+artifacts/demo/work/
+# Asset kit ZIP duplicates public/assets/arjuna-kit
+artifacts/ARJUNA_Asset_Kit.zip
