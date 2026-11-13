@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Award,
   BookOpen,
@@ -6,22 +5,20 @@ import {
   Building2,
   CheckCircle2,
   Crown,
-  Lock,
-  Play,
   RotateCcw,
-  Star,
 } from 'lucide-react';
 import { getCharacterById } from '../assets/wayangCharacters';
+import { PAGE_BACKDROPS } from '../assets/kitImages';
+import { PageBanner } from '../components/ui/PageBanner';
 import { BadgeCard } from '../components/ui/BadgeCard';
+import { LevelPath } from '../components/game/LevelPath';
 import {
   BADGES,
-  isTierIncludedInPlan,
 } from '../game/achievementManager';
 import { GAME_LEVELS } from '../game/levelManager';
 import type {
   AppPage,
   CommercialPlanId,
-  LevelAccessTier,
   LevelId,
   PlayerProgressState,
 } from '../types';
@@ -84,8 +81,6 @@ const COMMERCIAL_PLANS: Array<{
   },
 ];
 
-type TierFilter = 'all' | LevelAccessTier;
-
 export function LearningDashboardPage({
   progress,
   onStartLevel,
@@ -93,27 +88,21 @@ export function LearningDashboardPage({
   onSelectPlan,
   onResetProgress,
 }: LearningDashboardPageProps) {
-  const [tierFilter, setTierFilter] = useState<TierFilter>('all');
   const activePlan = progress.activePlan ?? 'freemium';
   const completedCount = Object.values(progress.levels).filter(
     (l) => l.completed
   ).length;
   const activeCharacter = getCharacterById(progress.selectedCharacterId);
 
-  const filteredLevels =
-    tierFilter === 'all'
-      ? GAME_LEVELS
-      : GAME_LEVELS.filter((l) => (l.accessTier ?? 'free') === tierFilter);
-
   return (
     <div className="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6">
       {/* Top Progress Summary */}
-      <div className="grid gap-4 md:grid-cols-12">
+<PageBanner image={PAGE_BACKDROPS.levels} imagePosition="center 60%" contentClassName="grid gap-4 md:grid-cols-12">
         <div className="space-y-2 md:col-span-7">
-          <h1 className="font-display text-3xl font-bold text-wayang-brown">
+          <h1 className="font-display text-3xl font-bold text-wayang-cream">
             Latihan Sabetan, Cerita Rakyat & Lencana
           </h1>
-          <p className="text-sm text-wayang-charcoal/80">
+          <p className="text-sm text-wayang-cream/85">
             Tokoh aktif: <strong>{activeCharacter.name}</strong>. Progres tersimpan di
             browser ini. Level 1–5 terbuka gratis; Level 6–10 dapat dicoba lewat
             pratinjau paket di bagian bawah halaman.
@@ -140,7 +129,7 @@ export function LearningDashboardPage({
             <button
               type="button"
               onClick={onResetProgress}
-              className="btn btn-ghost"
+              className="btn btn-on-dark"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Reset Progres
@@ -174,150 +163,24 @@ export function LearningDashboardPage({
             </span>
           </div>
         </div>
-      </div>
+      </PageBanner>
 
-      {/* Progressive Levels Section */}
+      {/* Learning path */}
       <section className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-end justify-between gap-3">
           <h2 className="font-display text-2xl font-bold text-wayang-brown">
-            {GAME_LEVELS.length} Level Tantangan & Cerita Rakyat
+            Jalur Belajar
           </h2>
-
-          <div className="flex flex-wrap gap-2">
-            {[
-              { id: 'all' as const, label: `Semua (${GAME_LEVELS.length})` },
-              { id: 'free' as const, label: 'Gratis (1–5)' },
-              { id: 'episode_pack' as const, label: 'Cerita Rakyat (6–8)' },
-              { id: 'institutional' as const, label: 'Sanggar & Sekolah (9–10)' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setTierFilter(tab.id)}
-                className={`rounded-lg px-3.5 py-1.5 text-sm font-bold transition ${
-                  tierFilter === tab.id
-                    ? 'bg-wayang-brown text-wayang-gold shadow-sm'
-                    : 'border border-wayang-gold/40 bg-white text-wayang-brown hover:bg-wayang-gold-soft/45'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          <p className="text-sm font-semibold text-wayang-brown-light">
+            {completedCount} dari {GAME_LEVELS.length} level selesai
+          </p>
         </div>
-
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {filteredLevels.map((level) => {
-            const lvlState = progress.levels[level.id] ?? {
-              levelId: level.id,
-              unlocked: false,
-              completed: false,
-              bestScore: 0,
-              bestAccuracy: 0,
-              stars: 0,
-              attempts: 0,
-            };
-            const tier = level.accessTier ?? 'free';
-            const planAllows = isTierIncludedInPlan(tier, activePlan);
-            const unlocked = planAllows && lvlState.unlocked;
-
-            return (
-              <div
-                key={level.id}
-                className={`flex flex-col justify-between rounded-xl border p-5 transition ${
-                  unlocked
-                    ? 'border-wayang-gold/45 bg-white'
-                    : 'border-wayang-brown/10 bg-wayang-cream-dark/60 opacity-85'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="rounded-full bg-wayang-gold-soft px-3 py-1 text-xs font-bold text-wayang-brown">
-                      Level {level.id}: {level.subtitle}
-                    </span>
-                    <div className="flex items-center gap-0.5">
-                      {[1, 2, 3].map((s) => (
-                        <Star
-                          key={s}
-                          className={`h-4 w-4 ${
-                            s <= lvlState.stars
-                              ? 'fill-wayang-gold text-wayang-gold'
-                              : 'text-wayang-brown/20'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-2.5 flex flex-wrap gap-1.5">
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
-                        tier === 'free'
-                          ? 'bg-wayang-sage/15 text-wayang-sage'
-                          : tier === 'episode_pack'
-                            ? 'bg-wayang-terracotta/15 text-wayang-terracotta'
-                            : 'bg-wayang-brown text-wayang-gold'
-                      }`}
-                    >
-                      {level.packLabel ?? 'Gratis'}
-                    </span>
-                    {level.culturalRegion && (
-                      <span className="rounded-full bg-wayang-cream px-2.5 py-0.5 text-xs font-semibold text-wayang-brown-light">
-                        {level.culturalRegion}
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="font-display mt-2.5 text-xl font-bold text-wayang-brown">
-                    {level.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-wayang-charcoal/80">
-                    {level.description}
-                  </p>
-
-                  {lvlState.completed && (
-                    <div className="mt-3 flex items-center gap-3 text-xs font-bold text-wayang-sage">
-                      <span>Skor terbaik {lvlState.bestScore}</span>
-                      <span>Akurasi {lvlState.bestAccuracy}%</span>
-                    </div>
-                  )}
-                </div>
-
-                {unlocked ? (
-                  <button
-                    type="button"
-                    onClick={() => onStartLevel(level.id)}
-                    className="btn btn-primary mt-5 w-full"
-                  >
-                    <Play className="h-4 w-4" />
-                    {lvlState.completed ? 'Mainkan Lagi' : 'Mulai Tantangan'}
-                  </button>
-                ) : !planAllows ? (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      onSelectPlan(
-                        tier === 'episode_pack' ? 'lakon_pack' : 'institutional'
-                      )
-                    }
-                    className="btn btn-secondary mt-5 w-full"
-                  >
-                    Buka Pratinjau {level.packLabel}
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    disabled
-                    className="btn mt-5 w-full cursor-not-allowed bg-wayang-brown/10 text-wayang-brown/50"
-                  >
-                    <Lock className="h-4 w-4" />
-                    Selesaikan Level {level.id - 1} Dulu
-                  </button>
-                )}
-              </div>
-            );
-          })}
-        </div>
+        <LevelPath
+          progress={progress}
+          activePlan={activePlan}
+          onStartLevel={onStartLevel}
+          onSelectPlan={onSelectPlan}
+        />
       </section>
 
       {/* Achievement Badges */}

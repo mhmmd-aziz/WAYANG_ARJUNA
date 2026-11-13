@@ -2,6 +2,8 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 import { Eye, EyeOff, Hand, Users } from 'lucide-react';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
 import { CharacterPicker } from '../components/ui/CharacterPicker';
+import { PageBanner } from '../components/ui/PageBanner';
+import { PAGE_BACKDROPS } from '../assets/kitImages';
 import { SegmentedControl } from '../components/ui/SegmentedControl';
 import { GestureStatusPanel } from '../components/hand-tracking/GestureStatusPanel';
 import { WayangStageCanvas } from '../components/puppet/WayangStageCanvas';
@@ -187,9 +189,9 @@ export function HandDetectionStudioPage({
 
   return (
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+<PageBanner image={PAGE_BACKDROPS.stage} imagePosition="center 6%" contentClassName="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-display text-2xl font-bold text-wayang-brown sm:text-3xl">
+          <h1 className="font-display text-2xl font-bold text-wayang-cream sm:text-3xl">
             Panggung Wayang Interaktif
           </h1>
         </div>
@@ -203,7 +205,7 @@ export function HandDetectionStudioPage({
             { value: 'one_puppet', label: '1 Wayang (2 Lengan)', icon: Hand },
           ]}
         />
-      </div>
+      </PageBanner>
 
       <div className="grid gap-3 sm:grid-cols-2">
         {stageMode === 'two_puppets' && (

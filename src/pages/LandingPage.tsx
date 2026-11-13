@@ -11,7 +11,8 @@ import {
   Users,
 } from 'lucide-react';
 import { WAYANG_CHARACTERS } from '../assets/wayangCharacters';
-import { CULTURE_BACKDROP, HERO_ART } from '../assets/kitImages';
+import { CULTURE_BACKDROP, HERO_BACKDROP } from '../assets/kitImages';
+import { PuppetPreviewCanvas } from '../components/puppet/PuppetPreviewCanvas';
 import { CharacterPortrait } from '../components/puppet/CharacterPortrait';
 import type { AppPage, PuppetCharacterId } from '../types';
 
@@ -27,17 +28,30 @@ export function LandingPage({
   onNavigate,
 }: LandingPageProps) {
   return (
-    <div className="mx-auto max-w-7xl space-y-10 px-4 py-8 sm:px-6">
-      {/* Hero Section */}
-      <section className="pt-2 lg:pt-6">
-        <div className="grid items-center gap-8 lg:grid-cols-12">
+    <>
+      {/* Hero: full-screen pendopo stage, navbar floats on top of it */}
+      <section className="relative flex min-h-screen items-center overflow-hidden border-b-2 border-wayang-gold/60 bg-wayang-charcoal">
+        <img
+          src={HERO_BACKDROP}
+          alt=""
+          aria-hidden="true"
+          width={1672}
+          height={941}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-wayang-charcoal/90 via-wayang-charcoal/70 to-wayang-charcoal/35"
+        />
+
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-4 pb-20 pt-28 sm:px-6 lg:grid-cols-12 lg:pt-32">
           <div className="space-y-5 lg:col-span-7">
-            <h1 className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-wayang-brown sm:text-5xl">
-              Platform Belajar <span className="text-wayang-terracotta">Wayang Kulit</span>{' '}
+            <h1 className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-wayang-cream sm:text-5xl">
+              Platform Belajar <span className="text-wayang-gold">Wayang Kulit</span>{' '}
               Berbasis Hand Tracking
             </h1>
 
-            <p className="max-w-2xl text-base leading-relaxed text-wayang-charcoal/85 sm:text-lg">
+            <p className="max-w-2xl text-base leading-relaxed text-wayang-cream/90 sm:text-lg">
               ARJUNA mengajak pelajar, mahasiswa, dan masyarakat umum mengenal tokoh,
               filosofi, serta mempraktikkan gerak dasar pedalangan (<em>sabetan</em>) secara
               interaktif lewat kamera webcam tanpa alat atau penanda tambahan (<em>markerless</em>).
@@ -56,7 +70,7 @@ export function LandingPage({
               <button
                 type="button"
                 onClick={() => onNavigate('studio')}
-                className="btn btn-lg btn-secondary"
+                className="btn btn-lg btn-on-dark bg-wayang-charcoal/30 backdrop-blur-sm"
               >
                 <Camera className="h-5 w-5" />
                 Buka Studio Wayang
@@ -64,36 +78,36 @@ export function LandingPage({
             </div>
 
             <div className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-3">
-              <div className="border-t-2 border-wayang-gold/50 pt-3">
-                <div className="text-wayang-terracotta">
+              <div className="border-t-2 border-wayang-gold/60 pt-3">
+                <div className="text-wayang-gold">
                   <Hand className="h-5 w-5" />
                 </div>
-                <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
+                <p className="font-display mt-2.5 text-sm font-bold text-wayang-cream">
                   Markerless Hand Tracking
                 </p>
-                <p className="mt-0.5 text-sm leading-relaxed text-wayang-charcoal/75">
+                <p className="mt-0.5 text-sm leading-relaxed text-wayang-cream/80">
                   Deteksi 21 titik koordinat per tangan (hingga 2 tangan) langsung di browser.
                 </p>
               </div>
-              <div className="border-t-2 border-wayang-gold/50 pt-3">
-                <div className="text-wayang-brown">
+              <div className="border-t-2 border-wayang-gold/60 pt-3">
+                <div className="text-wayang-gold">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
-                <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
+                <p className="font-display mt-2.5 text-sm font-bold text-wayang-cream">
                   Privasi Terjaga di Browser
                 </p>
-                <p className="mt-0.5 text-sm leading-relaxed text-wayang-charcoal/75">
+                <p className="mt-0.5 text-sm leading-relaxed text-wayang-cream/80">
                   Citra webcam diproses lokal di perangkat; tidak direkam atau dikirim ke server.
                 </p>
               </div>
-              <div className="border-t-2 border-wayang-gold/50 pt-3">
-                <div className="text-wayang-sage">
+              <div className="border-t-2 border-wayang-gold/60 pt-3">
+                <div className="text-wayang-gold">
                   <Award className="h-5 w-5" />
                 </div>
-                <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
+                <p className="font-display mt-2.5 text-sm font-bold text-wayang-cream">
                   5 Level Latihan Dasar
                 </p>
-                <p className="mt-0.5 text-sm leading-relaxed text-wayang-charcoal/75">
+                <p className="mt-0.5 text-sm leading-relaxed text-wayang-cream/80">
                   Kenali tokoh, latih kendali sabetan, dan kumpulkan lencana pembelajaran.
                 </p>
               </div>
@@ -106,21 +120,23 @@ export function LandingPage({
             transition={{ duration: 0.45 }}
             className="lg:col-span-5"
           >
-            <div className="overflow-hidden rounded-xl border border-wayang-gold/50">
-              <img
-                src={HERO_ART}
-                alt="Ilustrasi tangan menggerakkan wayang kulit"
-                width={1004}
-                height={941}
-                className="h-80 w-full object-cover object-center sm:h-96"
+            <div className="rounded-xl border border-wayang-gold/40 bg-wayang-brown p-1 shadow-2xl shadow-black/40">
+              <PuppetPreviewCanvas
+                characterId={selectedCharacterId}
+                partnerCharacterId={
+                  selectedCharacterId === 'gatotkaca' ? 'arjuna' : 'gatotkaca'
+                }
+                heightClass="h-80 sm:h-96"
               />
             </div>
-            <p className="mt-2.5 text-center text-sm text-wayang-brown-light">
+            <p className="mt-2.5 text-center text-sm text-wayang-cream/80">
               Kamera hanya aktif setelah Anda mengizinkannya.
             </p>
           </motion.div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-7xl space-y-10 px-4 pt-10 sm:px-6">
 
       {/* Cultural Introduction */}
       <section className="relative overflow-hidden rounded-xl border border-wayang-gold/40 bg-wayang-brown p-6 text-wayang-cream sm:p-8">
@@ -294,6 +310,7 @@ export function LandingPage({
           })}
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

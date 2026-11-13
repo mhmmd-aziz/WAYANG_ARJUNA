@@ -220,7 +220,7 @@ function drawTargetZone(
     drawStageVectorIcon(ctx, zone.icon, cx, cy - 10, activeColor);
   }
 
-  ctx.font = 'bold 13px "Fredoka", sans-serif';
+  ctx.font = 'bold 13px "Plus Jakarta Sans", sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = '#4A2C1D';
@@ -284,7 +284,7 @@ function drawBattleOverlay(
     const energyRatio = Math.max(0, Math.min(1, energy / 100));
 
     // Name & HP number
-    ctx.font = 'bold 12px "Fredoka", sans-serif';
+    ctx.font = 'bold 12px "Plus Jakarta Sans", sans-serif';
     ctx.fillStyle = '#2B211A';
     ctx.textAlign = alignRight ? 'right' : 'left';
     const labelX = alignRight ? x + barW : x;
@@ -357,7 +357,7 @@ function drawBattleOverlay(
   ctx.strokeStyle = '#D4A843';
   ctx.lineWidth = 1.6;
   ctx.stroke();
-  ctx.font = 'bold 13px "Fredoka", sans-serif';
+  ctx.font = 'bold 13px "Plus Jakarta Sans", sans-serif';
   ctx.textAlign = 'center';
   ctx.fillStyle = '#F7DF8D';
   ctx.fillText(`${snap.remainingSec}s`, width / 2, topY + 25);
@@ -473,7 +473,7 @@ function drawBattleOverlay(
     ctx.stroke();
 
     if (ef.label) {
-      ctx.font = 'bold 16px "Fredoka", sans-serif';
+      ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
       ctx.textAlign = 'center';
       ctx.fillStyle = '#2B211A';
       ctx.fillText(ef.label, ex + 1, ey - ef.radius * 0.45 + 1);

@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, RotateCcw } from 'lucide-react';
 import { getCharacterById } from '../assets/wayangCharacters';
+import { PAGE_BACKDROPS } from '../assets/kitImages';
+import { PageBanner } from '../components/ui/PageBanner';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
 import { GestureInstructorDemo } from '../components/game/GestureInstructorDemo';
 import { GestureStatusPanel } from '../components/hand-tracking/GestureStatusPanel';
@@ -246,12 +248,12 @@ export function TutorialModePage({
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6">
       {/* Header & Step Progress */}
       <div>
-        <div className="flex flex-wrap items-center justify-between gap-4">
+<PageBanner image={PAGE_BACKDROPS.stage} imagePosition="center 6%" contentClassName="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold text-wayang-terracotta">
+            <p className="text-sm font-semibold text-wayang-gold">
               Tutorial gerakan bersama {character.name}
             </p>
-            <h1 className="font-display mt-0.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
+            <h1 className="font-display mt-0.5 text-2xl font-bold text-wayang-cream sm:text-3xl">
               {tutorialDone
                 ? 'Tutorial Selesai'
                 : currentStep.title}
@@ -266,7 +268,7 @@ export function TutorialModePage({
             <RotateCcw className="h-4 w-4" />
             Ulangi Tutorial
           </button>
-        </div>
+        </PageBanner>
 
         {/* Step indicators */}
         <div className="mt-4 grid grid-cols-5 gap-2">

@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { Navbar } from './components/ui/Navbar';
+import { Footer } from './components/ui/Footer';
 import {
   createInitialProgress,
   loadPlayerProgress,
@@ -122,9 +123,10 @@ export function App() {
         onNavigate={handleNavigate}
         muted={muted}
         onToggleMute={handleToggleMute}
+        overlay={currentPage === 'landing'}
       />
 
-      <main className="pb-12">
+      <main>
         {currentPage === 'landing' && (
           <LandingPage
             selectedCharacterId={progress.selectedCharacterId}
@@ -195,12 +197,15 @@ export function App() {
         {currentPage === 'result' && lastResult && (
           <ResultPage
             result={lastResult}
+            characterId={progress.selectedCharacterId}
             onRetry={handleStartLevel}
             onNextLevel={handleStartLevel}
             onBackToDashboard={() => handleNavigate('dashboard')}
           />
         )}
       </main>
+
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }

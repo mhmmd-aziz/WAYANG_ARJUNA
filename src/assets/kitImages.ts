@@ -12,8 +12,9 @@ export const CHARACTER_ART: Record<PuppetCharacterId, string> = {
   semar: '/images/tokoh/semar.webp',
 };
 
-export const HERO_ART = '/images/hero-tangan-wayang.webp';
-export const CULTURE_BACKDROP = '/images/latar/pendopo.webp';
+export const CULTURE_BACKDROP = '/images/latar/kelir.webp';
+/** Full-resolution pendopo for the full-screen landing hero. */
+export const HERO_BACKDROP = '/images/latar/pendopo-hero.webp';
 export const PARCHMENT_BACKDROP = '/images/latar/perkamen.webp';
 
 /** Scene backdrop per story, matched to where the story takes place. */
@@ -23,3 +24,10 @@ export const STORY_BACKDROPS: Record<string, string> = {
   'roro-jonggrang': '/images/latar/pegunungan.webp', // Prambanan, kaki Merapi
   'nasihat-semar': '/images/latar/kelir.webp', // Pitutur di depan kelir
 };
+
+/** Page header backdrops (PageBanner). */
+export const PAGE_BACKDROPS = {
+  characters: '/images/latar/pegunungan.webp',
+  levels: '/images/latar/hutan.webp',
+  stage: '/images/latar/kelir.webp',
+} as const;

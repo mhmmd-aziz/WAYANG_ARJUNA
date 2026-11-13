@@ -18,7 +18,7 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Fredoka"', '"Nunito"', 'system-ui', 'sans-serif'],
+        display: ['"Fraunces"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', '"Nunito"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {

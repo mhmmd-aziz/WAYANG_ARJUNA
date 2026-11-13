@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import { getCharacterById } from '../assets/wayangCharacters';
 import { CharacterPicker } from '../components/ui/CharacterPicker';
+import { PageBanner } from '../components/ui/PageBanner';
+import { PAGE_BACKDROPS } from '../assets/kitImages';
 import { SegmentedControl } from '../components/ui/SegmentedControl';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
 import { WayangStageCanvas } from '../components/puppet/WayangStageCanvas';
@@ -323,9 +325,9 @@ export function WayangBattlePage({
   return (
     <div className="mx-auto max-w-7xl space-y-5 px-4 py-6 sm:px-6">
       {/* Top Title & Mode Switch */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
+<PageBanner image={PAGE_BACKDROPS.stage} imagePosition="center 6%" contentClassName="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-display text-2xl font-bold text-wayang-brown sm:text-3xl">
+          <h1 className="font-display text-2xl font-bold text-wayang-cream sm:text-3xl">
             Tanding Jurus Wayang Kulit
           </h1>
         </div>
@@ -353,7 +355,7 @@ export function WayangBattlePage({
             Tanding Ulang
           </button>
         </div>
-      </div>
+      </PageBanner>
 
       {/* Health & Energy Bars (Darah Wayang Kiri vs Wayang Kanan) */}
       <div className="grid items-center gap-4 rounded-xl border border-wayang-brown/20 bg-white p-4 md:grid-cols-11">

@@ -1,5 +1,7 @@
 import { ArrowRight, Check, CheckCircle2 } from 'lucide-react';
 import { WAYANG_CHARACTERS } from '../assets/wayangCharacters';
+import { PAGE_BACKDROPS } from '../assets/kitImages';
+import { PageBanner } from '../components/ui/PageBanner';
 import { CharacterPortrait } from '../components/puppet/CharacterPortrait';
 import type { AppPage, PuppetCharacterId } from '../types';
 
@@ -16,15 +18,15 @@ export function CharacterSelectionPage({
 }: CharacterSelectionPageProps) {
   return (
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+<PageBanner image={PAGE_BACKDROPS.characters} imagePosition="center 40%" contentClassName="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span className="text-sm font-semibold text-wayang-terracotta">
+          <span className="text-sm font-semibold text-wayang-gold">
             Pilih Tokoh Wayang
           </span>
-          <h1 className="font-display mt-1 text-3xl font-bold text-wayang-brown">
+          <h1 className="font-display mt-1 text-3xl font-bold text-wayang-cream">
             Siapa Wayang yang Ingin Kamu Mainkan?
           </h1>
-          <p className="mt-1 text-sm text-wayang-charcoal/80">
+          <p className="mt-1 text-sm text-wayang-cream/85">
             Setiap tokoh punya kisah budaya Nusantara dan jurus khusus saat kamu
             melakukan gerakan Jepit (Pinch)!
           </p>
@@ -38,7 +40,7 @@ export function CharacterSelectionPage({
           Lanjut ke Latihan Dasar
           <ArrowRight className="h-4 w-4" />
         </button>
-      </div>
+      </PageBanner>
 
       <div className="rounded-lg border border-wayang-gold/40 bg-wayang-gold-soft/35 px-4 py-3 text-sm leading-relaxed text-wayang-brown">
         <strong className="font-bold">Catatan Materi Budaya (Draf Edukasi):</strong>{' '}

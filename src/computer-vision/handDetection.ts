@@ -115,7 +115,7 @@ function drawSingleHand(
 
   if (handLabel && screenPoints[0]) {
     const wristPt = screenPoints[0];
-    ctx.font = 'bold 11px "Fredoka", sans-serif';
+    ctx.font = 'bold 11px "Plus Jakarta Sans", sans-serif';
     ctx.textAlign = 'center';
     const textW = ctx.measureText(handLabel).width + 14;
     const bx = Math.min(Math.max(wristPt.x, textW / 2 + 4), width - textW / 2 - 4);
