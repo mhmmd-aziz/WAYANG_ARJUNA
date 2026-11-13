@@ -108,7 +108,7 @@ export function LearningDashboardPage({
   return (
     <div className="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6">
       {/* Top Progress Summary */}
-      <div className="grid gap-4 rounded-3xl border-2 border-wayang-gold/40 bg-white p-6 shadow-card md:grid-cols-12">
+      <div className="grid gap-4 md:grid-cols-12">
         <div className="space-y-2 md:col-span-7">
           <h1 className="font-display text-3xl font-bold text-wayang-brown">
             Latihan Sabetan, Cerita Rakyat & Lencana
@@ -122,7 +122,7 @@ export function LearningDashboardPage({
             <button
               type="button"
               onClick={() => onNavigate('stories')}
-              className="flex items-center gap-2 rounded-2xl bg-wayang-terracotta px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark"
+              className="flex items-center gap-2 rounded-lg bg-wayang-terracotta px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark"
             >
               <BookOpenText className="h-4 w-4" />
               Buka Menu Cerita Bersuara
@@ -130,7 +130,7 @@ export function LearningDashboardPage({
             <button
               type="button"
               onClick={() => onNavigate('tutorial')}
-              className="flex items-center gap-2 rounded-2xl bg-wayang-cream-dark px-4 py-2.5 text-sm font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+              className="flex items-center gap-2 rounded-lg bg-wayang-cream-dark px-4 py-2.5 text-sm font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
             >
               <BookOpen className="h-4 w-4" />
               {progress.tutorialCompleted
@@ -140,7 +140,7 @@ export function LearningDashboardPage({
             <button
               type="button"
               onClick={onResetProgress}
-              className="flex items-center gap-1.5 rounded-2xl border border-wayang-brown/15 px-3.5 py-2.5 text-xs font-semibold text-wayang-brown/75 transition hover:bg-wayang-cream"
+              className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/15 px-3.5 py-2.5 text-xs font-semibold text-wayang-brown/75 transition hover:bg-wayang-cream"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Reset Progres
@@ -149,7 +149,7 @@ export function LearningDashboardPage({
         </div>
 
         <div className="grid grid-cols-3 gap-3 md:col-span-5">
-          <div className="flex flex-col justify-center rounded-2xl bg-wayang-cream p-4 text-center">
+          <div className="flex flex-col justify-center rounded-lg bg-wayang-cream p-4 text-center">
             <span className="font-display text-2xl font-bold text-wayang-terracotta">
               {completedCount}/{GAME_LEVELS.length}
             </span>
@@ -157,7 +157,7 @@ export function LearningDashboardPage({
               Level Selesai
             </span>
           </div>
-          <div className="flex flex-col justify-center rounded-2xl bg-wayang-cream p-4 text-center">
+          <div className="flex flex-col justify-center rounded-lg bg-wayang-cream p-4 text-center">
             <span className="font-display text-2xl font-bold text-wayang-brown">
               {progress.totalScore}
             </span>
@@ -165,7 +165,7 @@ export function LearningDashboardPage({
               Total Skor
             </span>
           </div>
-          <div className="flex flex-col justify-center rounded-2xl bg-wayang-cream p-4 text-center">
+          <div className="flex flex-col justify-center rounded-lg bg-wayang-cream p-4 text-center">
             <span className="font-display text-2xl font-bold text-wayang-sage">
               {progress.earnedBadgeIds.length}/{BADGES.length}
             </span>
@@ -177,7 +177,7 @@ export function LearningDashboardPage({
       </div>
 
       {/* Commercialization Simulator (Frontend B2C / B2B Preview) */}
-      <section className="rounded-[2rem] border-2 border-wayang-gold/45 bg-white p-6 shadow-card">
+      <section className="border-t border-wayang-gold/40 pt-8">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-wayang-terracotta">
@@ -212,7 +212,7 @@ export function LearningDashboardPage({
             return (
               <div
                 key={plan.id}
-                className={`flex flex-col justify-between rounded-3xl border-2 p-5 transition ${
+                className={`flex flex-col justify-between rounded-xl border p-5 transition ${
                   isActive
                     ? 'border-wayang-terracotta bg-wayang-cream/65 shadow-sm'
                     : 'border-wayang-gold/30 bg-white'
@@ -238,7 +238,7 @@ export function LearningDashboardPage({
                   <p className="text-xs font-semibold text-wayang-terracotta">
                     {plan.target}
                   </p>
-                  <p className="mt-1 rounded-xl bg-wayang-cream-dark/60 px-2.5 py-1 text-[11px] font-semibold text-wayang-brown">
+                  <p className="mt-1 rounded-lg bg-wayang-cream-dark/60 px-2.5 py-1 text-[11px] font-semibold text-wayang-brown">
                     {plan.pricingNote}
                   </p>
 
@@ -252,7 +252,7 @@ export function LearningDashboardPage({
                 <button
                   type="button"
                   onClick={() => onSelectPlan(plan.id)}
-                  className={`mt-4 w-full rounded-2xl py-2.5 text-xs font-bold transition sm:text-sm ${
+                  className={`mt-4 w-full rounded-lg py-2.5 text-xs font-bold transition sm:text-sm ${
                     isActive
                       ? 'bg-wayang-sage text-white'
                       : 'bg-wayang-brown text-wayang-cream hover:bg-wayang-brown-light'
@@ -286,7 +286,7 @@ export function LearningDashboardPage({
                 key={tab.id}
                 type="button"
                 onClick={() => setTierFilter(tab.id)}
-                className={`rounded-2xl px-3.5 py-1.5 text-xs font-bold transition ${
+                className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition ${
                   tierFilter === tab.id
                     ? 'bg-wayang-brown text-wayang-gold shadow-sm'
                     : 'border border-wayang-gold/40 bg-white text-wayang-brown hover:bg-wayang-gold-soft/45'
@@ -316,9 +316,9 @@ export function LearningDashboardPage({
             return (
               <div
                 key={level.id}
-                className={`flex flex-col justify-between rounded-3xl border-2 p-5 transition ${
+                className={`flex flex-col justify-between rounded-xl border p-5 transition ${
                   unlocked
-                    ? 'border-wayang-gold/45 bg-white shadow-card'
+                    ? 'border-wayang-gold/45 bg-white'
                     : 'border-wayang-brown/10 bg-wayang-cream-dark/60 opacity-85'
                 }`}
               >
@@ -380,7 +380,7 @@ export function LearningDashboardPage({
                   <button
                     type="button"
                     onClick={() => onStartLevel(level.id)}
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-wayang-terracotta py-3 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark active:scale-95"
+                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-wayang-terracotta py-3 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark active:scale-95"
                   >
                     <Play className="h-4 w-4" />
                     {lvlState.completed ? 'Mainkan Lagi' : 'Mulai Tantangan'}
@@ -393,7 +393,7 @@ export function LearningDashboardPage({
                         tier === 'episode_pack' ? 'lakon_pack' : 'institutional'
                       )
                     }
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl border border-wayang-gold bg-white py-3 text-xs font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg border border-wayang-gold bg-white py-3 text-xs font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
                   >
                     Buka Pratinjau {level.packLabel}
                   </button>
@@ -401,7 +401,7 @@ export function LearningDashboardPage({
                   <button
                     type="button"
                     disabled
-                    className="mt-5 flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-2xl bg-wayang-brown/15 py-3 text-sm font-bold text-wayang-brown/50"
+                    className="mt-5 flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-wayang-brown/15 py-3 text-sm font-bold text-wayang-brown/50"
                   >
                     <Lock className="h-4 w-4" />
                     Selesaikan Level {level.id - 1} Dulu

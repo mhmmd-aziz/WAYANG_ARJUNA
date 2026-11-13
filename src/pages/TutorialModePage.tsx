@@ -245,7 +245,7 @@ export function TutorialModePage({
   return (
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6">
       {/* Header & Step Progress */}
-      <div className="rounded-3xl border-2 border-wayang-gold/40 bg-white p-5 shadow-card">
+      <div>
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-wayang-terracotta">
@@ -261,7 +261,7 @@ export function TutorialModePage({
           <button
             type="button"
             onClick={handleRestartTutorial}
-            className="flex items-center gap-1.5 rounded-2xl border border-wayang-brown/20 px-4 py-2 text-xs font-bold text-wayang-brown transition hover:bg-wayang-cream"
+            className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/20 px-4 py-2 text-xs font-bold text-wayang-brown transition hover:bg-wayang-cream"
           >
             <RotateCcw className="h-4 w-4" />
             Ulangi Tutorial
@@ -290,8 +290,8 @@ export function TutorialModePage({
       </div>
 
       {tutorialDone ? (
-        <div className="rounded-[2rem] border-2 border-wayang-sage bg-white p-8 text-center shadow-card">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-wayang-sage/15 text-wayang-sage">
+        <div className="rounded-xl border border-wayang-sage bg-white p-8 text-center">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-xl bg-wayang-sage/15 text-wayang-sage">
             <CheckCircle2 className="h-10 w-10" />
           </div>
           <h2 className="font-display mt-4 text-3xl font-bold text-wayang-brown">
@@ -306,7 +306,7 @@ export function TutorialModePage({
             <button
               type="button"
               onClick={() => onStartLevel(1)}
-              className="flex items-center gap-2 rounded-2xl bg-wayang-terracotta px-7 py-3.5 text-base font-bold text-white shadow-md transition hover:bg-wayang-terracotta-dark"
+              className="flex items-center gap-2 rounded-lg bg-wayang-terracotta px-7 py-3.5 text-base font-bold text-white transition hover:bg-wayang-terracotta-dark"
             >
               Mulai Level 1: Kenalan dengan Wayang
               <ArrowRight className="h-5 w-5" />
@@ -314,7 +314,7 @@ export function TutorialModePage({
             <button
               type="button"
               onClick={() => onNavigate('dashboard')}
-              className="rounded-2xl border-2 border-wayang-gold bg-wayang-cream px-6 py-3.5 text-base font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+              className="rounded-lg border border-wayang-gold bg-wayang-cream px-6 py-3.5 text-base font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
             >
               Ke Dasbor Level
             </button>
@@ -331,7 +331,7 @@ export function TutorialModePage({
             />
 
             {/* Instruction & Hold Progress Bar */}
-            <div className="rounded-3xl border-2 border-wayang-terracotta/35 bg-white p-4 shadow-card">
+            <div className="rounded-xl border border-wayang-terracotta/35 bg-white p-4">
               <div className="flex items-center justify-between gap-2">
                 <p className="text-base font-bold text-wayang-brown">
                   {currentStep.instruction}

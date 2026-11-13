@@ -11,14 +11,14 @@ export function BadgeCard({ badge, earned }: BadgeCardProps) {
 
   return (
     <div
-      className={`flex items-start gap-3.5 rounded-3xl border-2 p-4 transition ${
+      className={`flex items-start gap-3.5 rounded-xl border p-4 transition ${
         earned
-          ? 'border-wayang-gold bg-white shadow-card'
+          ? 'border-wayang-gold bg-white'
           : 'border-wayang-brown/10 bg-wayang-cream-dark/50 opacity-75'
       }`}
     >
       <div
-        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${
+        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${
           earned
             ? 'bg-wayang-gold-soft text-wayang-brown'
             : 'bg-wayang-brown/10 text-wayang-brown/40'

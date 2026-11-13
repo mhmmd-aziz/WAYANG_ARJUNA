@@ -19,11 +19,11 @@ export function GestureStatusPanel({
   ];
 
   return (
-    <div className="rounded-3xl border-2 border-wayang-gold/35 bg-white p-4 shadow-card">
+    <div className="rounded-xl border border-wayang-gold/35 bg-white p-4">
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2.5">
           <div
-            className={`flex h-10 w-10 items-center justify-center rounded-2xl ${
+            className={`flex h-10 w-10 items-center justify-center rounded-lg ${
               handDetected
                 ? 'bg-wayang-sage/15 text-wayang-sage'
                 : 'bg-wayang-cream-dark text-wayang-brown/60'
@@ -48,7 +48,7 @@ export function GestureStatusPanel({
         )}
       </div>
 
-      <p className="mt-2 rounded-2xl bg-wayang-cream px-3 py-2 text-xs font-medium text-wayang-charcoal/85">
+      <p className="mt-2 rounded-lg bg-wayang-cream px-3 py-2 text-xs font-medium text-wayang-charcoal/85">
         {handDetected
           ? gesture.description
           : 'Posisikan 1 atau 2 tangan di depan kamera dengan jarak sekitar 40-60 cm dan cahaya cukup.'}
@@ -56,7 +56,7 @@ export function GestureStatusPanel({
 
       {handDetected && gesture.handCount >= 2 && gesture.leftHand && gesture.rightHand && (
         <div className="mt-2.5 grid grid-cols-2 gap-2 text-xs">
-          <div className="rounded-2xl bg-wayang-sage/10 px-3 py-2">
+          <div className="rounded-lg bg-wayang-sage/10 px-3 py-2">
             <span className="block text-[10px] font-bold uppercase text-wayang-sage">
               Tangan Kiri Wayang
             </span>
@@ -64,7 +64,7 @@ export function GestureStatusPanel({
               {gesture.leftHand.label}
             </span>
           </div>
-          <div className="rounded-2xl bg-wayang-terracotta/10 px-3 py-2">
+          <div className="rounded-lg bg-wayang-terracotta/10 px-3 py-2">
             <span className="block text-[10px] font-bold uppercase text-wayang-terracotta">
               Tangan Kanan Wayang
             </span>

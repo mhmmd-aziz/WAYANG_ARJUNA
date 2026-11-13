@@ -620,7 +620,7 @@ export function WayangStageCanvas({
   const secondaryCharacter = secondaryController?.getCharacter() ?? null;
 
   return (
-    <div className="overflow-hidden rounded-3xl border-[3px] border-wayang-brown bg-wayang-cream shadow-card">
+    <div className="overflow-hidden rounded-xl border-[3px] border-wayang-brown bg-wayang-cream">
       <div className="flex items-center justify-between border-b border-wayang-gold/30 bg-wayang-brown px-4 py-2.5 text-wayang-cream">
         <span className="font-display text-sm font-bold text-wayang-gold sm:text-base">
           {secondaryCharacter
@@ -637,7 +637,7 @@ export function WayangStageCanvas({
 
         {statusBanner && (
           <div className="pointer-events-none absolute inset-x-4 top-4 flex justify-center">
-            <div className="rounded-2xl border border-wayang-gold bg-white/95 px-4 py-2 text-center text-sm font-bold text-wayang-sage shadow-md">
+            <div className="rounded-lg border border-wayang-gold bg-white/95 px-4 py-2 text-center text-sm font-bold text-wayang-sage shadow-md">
               {statusBanner}
             </div>
           </div>

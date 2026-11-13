@@ -186,7 +186,7 @@ export function HandDetectionStudioPage({
 
   return (
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6">
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-wayang-gold/40 bg-white p-5 shadow-card">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="font-display text-2xl font-bold text-wayang-brown sm:text-3xl">
             Panggung Wayang Interaktif
@@ -194,11 +194,11 @@ export function HandDetectionStudioPage({
         </div>
 
         {/* Mode toggle: 2 Wayang vs 1 Wayang */}
-        <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-wayang-cream p-1.5">
+        <div className="flex flex-wrap items-center gap-2 rounded-lg bg-wayang-cream p-1.5">
           <button
             type="button"
             onClick={() => setStageMode('two_puppets')}
-            className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold transition sm:text-sm ${
+            className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition sm:text-sm ${
               stageMode === 'two_puppets'
                 ? 'bg-wayang-terracotta text-white shadow-sm'
                 : 'text-wayang-brown hover:bg-wayang-gold-soft/60'
@@ -210,7 +210,7 @@ export function HandDetectionStudioPage({
           <button
             type="button"
             onClick={() => setStageMode('one_puppet')}
-            className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold transition sm:text-sm ${
+            className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition sm:text-sm ${
               stageMode === 'one_puppet'
                 ? 'bg-wayang-terracotta text-white shadow-sm'
                 : 'text-wayang-brown hover:bg-wayang-gold-soft/60'
@@ -225,7 +225,7 @@ export function HandDetectionStudioPage({
       {/* Character Selectors */}
       <div className="grid gap-3 sm:grid-cols-2">
         {stageMode === 'two_puppets' && (
-          <div className="rounded-3xl border border-wayang-sage/35 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-wayang-sage/35 bg-white p-4 shadow-sm">
             <span className="mb-2.5 block text-xs font-bold uppercase tracking-wide text-wayang-sage">
               Wayang Kiri (Dikendalikan Tangan Kiri)
             </span>
@@ -235,7 +235,7 @@ export function HandDetectionStudioPage({
                   key={`left-${char.id}`}
                   type="button"
                   onClick={() => setLeftCharacterId(char.id)}
-                  className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
+                  className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition ${
                     char.id === leftCharacterId
                       ? 'bg-wayang-sage text-white shadow-sm'
                       : 'bg-wayang-cream text-wayang-brown hover:bg-wayang-gold-soft'
@@ -252,7 +252,7 @@ export function HandDetectionStudioPage({
         )}
 
         <div
-          className={`rounded-3xl border border-wayang-terracotta/35 bg-white p-4 shadow-sm ${
+          className={`rounded-xl border border-wayang-terracotta/35 bg-white p-4 shadow-sm ${
             stageMode === 'one_puppet' ? 'sm:col-span-2' : ''
           }`}
         >
@@ -267,7 +267,7 @@ export function HandDetectionStudioPage({
                 key={`right-${char.id}`}
                 type="button"
                 onClick={() => onSelectCharacter(char.id)}
-                className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
+                className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition ${
                   char.id === selectedCharacterId
                     ? 'bg-wayang-brown text-wayang-gold shadow-sm'
                     : 'bg-wayang-cream text-wayang-brown hover:bg-wayang-gold-soft'
@@ -306,7 +306,7 @@ export function HandDetectionStudioPage({
             }
           />
 
-          <div className="rounded-3xl border border-wayang-gold/35 bg-white p-5 shadow-card">
+          <div className="rounded-xl border border-wayang-gold/35 bg-white p-5">
             <h3 className="font-display text-base font-bold text-wayang-brown">
               Panduan Cepat Gestur Dalang
             </h3>
@@ -314,9 +314,9 @@ export function HandDetectionStudioPage({
               {GESTURE_GUIDE.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-start gap-3 rounded-2xl bg-wayang-cream/85 p-3 text-xs"
+                  className="flex items-start gap-3 rounded-lg bg-wayang-cream/85 p-3 text-xs"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-wayang-brown shadow-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-wayang-brown shadow-sm">
                     {item.gestureIcon ? (
                       <GestureVectorIcon
                         gesture={item.gestureIcon}
@@ -363,7 +363,7 @@ export function HandDetectionStudioPage({
             <button
               type="button"
               onClick={() => setShowIndices((prev) => !prev)}
-              className="flex items-center gap-2 rounded-2xl border border-wayang-gold/50 bg-white px-4 py-2 text-xs font-bold text-wayang-brown shadow-sm transition hover:bg-wayang-gold-soft"
+              className="flex items-center gap-2 rounded-lg border border-wayang-gold/50 bg-white px-4 py-2 text-xs font-bold text-wayang-brown shadow-sm transition hover:bg-wayang-gold-soft"
             >
               {showIndices ? (
                 <EyeOff className="h-4 w-4" />

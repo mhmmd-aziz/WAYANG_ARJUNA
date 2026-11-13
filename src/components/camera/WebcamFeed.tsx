@@ -41,7 +41,7 @@ export function WebcamFeed({
     modelStatus === 'error';
 
   return (
-    <div className="overflow-hidden rounded-3xl border-2 border-wayang-gold/40 bg-wayang-charcoal shadow-card">
+    <div className="overflow-hidden rounded-xl border border-wayang-gold/40 bg-wayang-charcoal">
       <div
         className={`relative w-full overflow-hidden bg-wayang-charcoal ${
           compact ? 'aspect-[4/3]' : 'aspect-[4/3]'
@@ -113,7 +113,7 @@ export function WebcamFeed({
               </>
             ) : (
               <>
-                <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-wayang-gold/20 text-wayang-gold">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-wayang-gold/20 text-wayang-gold">
                   <Camera className="h-8 w-8" />
                 </div>
                 <h3 className="font-display text-xl font-bold">
@@ -123,14 +123,14 @@ export function WebcamFeed({
                   Posisikan 1 atau 2 telapak tangan berjarak 40–60 cm di depan webcam
                   dengan pencahayaan cukup dan latar belakang rapi agar seluruh jari terlihat.
                 </p>
-                <p className="max-w-xs rounded-xl bg-black/25 px-3 py-1.5 text-[11px] text-wayang-gold-soft">
+                <p className="max-w-xs rounded-lg bg-black/25 px-3 py-1.5 text-[11px] text-wayang-gold-soft">
                   Privasi terjaga: pemrosesan dilakukan lokal di browser Anda, tanpa
                   merekam atau mengunggah video ke server.
                 </p>
                 <button
                   type="button"
                   onClick={onStartCamera}
-                  className="mt-1 flex items-center gap-2 rounded-2xl bg-wayang-gold px-6 py-3 text-base font-bold text-wayang-charcoal shadow-md transition hover:bg-wayang-gold-soft active:scale-95"
+                  className="mt-1 flex items-center gap-2 rounded-lg bg-wayang-gold px-6 py-3 text-base font-bold text-wayang-charcoal transition hover:bg-wayang-gold-soft active:scale-95"
                 >
                   <Camera className="h-5 w-5" />
                   Izinkan & Aktifkan Kamera
@@ -141,14 +141,14 @@ export function WebcamFeed({
         )}
 
         {isActive && modelStatus === 'ready' && !handDetected && (
-          <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-2xl bg-black/70 px-3 py-2 text-center text-[11px] font-medium text-wayang-cream backdrop-blur-sm">
+          <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-lg bg-black/70 px-3 py-2 text-center text-[11px] font-medium text-wayang-cream backdrop-blur-sm">
             Tangan belum terlihat — pastikan ruangan cukup terang, jarak 40–60 cm,
             dan seluruh telapak tidak terpotong tepi kamera.
           </div>
         )}
 
         {isActive && modelStatus === 'loading' && (
-          <div className="absolute inset-x-3 bottom-3 flex items-center justify-center gap-2 rounded-2xl bg-wayang-brown/90 px-3 py-2 text-xs font-semibold text-wayang-gold-soft">
+          <div className="absolute inset-x-3 bottom-3 flex items-center justify-center gap-2 rounded-lg bg-wayang-brown/90 px-3 py-2 text-xs font-semibold text-wayang-gold-soft">
             <Loader2 className="h-4 w-4 animate-spin" />
             Memuat model MediaPipe Hand Landmarker...
           </div>
@@ -166,7 +166,7 @@ export function WebcamFeed({
             <button
               type="button"
               onClick={onStartCamera}
-              className="mt-1 flex items-center gap-2 rounded-2xl bg-wayang-terracotta px-5 py-2.5 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark"
+              className="mt-1 flex items-center gap-2 rounded-lg bg-wayang-terracotta px-5 py-2.5 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark"
             >
               <RefreshCw className="h-4 w-4" />
               Coba Lagi
@@ -184,7 +184,7 @@ export function WebcamFeed({
           <button
             type="button"
             onClick={onStopCamera}
-            className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3 py-1.5 font-semibold text-wayang-cream transition hover:bg-white/20"
+            className="flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 font-semibold text-wayang-cream transition hover:bg-white/20"
           >
             <CameraOff className="h-3.5 w-3.5" />
             Matikan Kamera
@@ -193,7 +193,7 @@ export function WebcamFeed({
           <button
             type="button"
             onClick={onStartCamera}
-            className="flex items-center gap-1.5 rounded-xl bg-wayang-gold px-3 py-1.5 font-bold text-wayang-charcoal transition hover:bg-wayang-gold-soft"
+            className="flex items-center gap-1.5 rounded-lg bg-wayang-gold px-3 py-1.5 font-bold text-wayang-charcoal transition hover:bg-wayang-gold-soft"
           >
             <Camera className="h-3.5 w-3.5" />
             Nyalakan

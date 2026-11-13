@@ -321,7 +321,7 @@ export function WayangBattlePage({
   return (
     <div className="mx-auto max-w-7xl space-y-5 px-4 py-6 sm:px-6">
       {/* Top Title & Mode Switch */}
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-wayang-gold/40 bg-white p-5 shadow-card">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="font-display text-2xl font-bold text-wayang-brown sm:text-3xl">
             Tanding Jurus Wayang Kulit
@@ -329,14 +329,14 @@ export function WayangBattlePage({
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <div className="flex rounded-2xl bg-wayang-cream p-1">
+          <div className="flex rounded-lg bg-wayang-cream p-1">
             <button
               type="button"
               onClick={() => {
                 setControlMode('two_hands');
                 handleRestartBattle();
               }}
-              className={`flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-bold transition sm:text-sm ${
+              className={`flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-bold transition sm:text-sm ${
                 controlMode === 'two_hands'
                   ? 'bg-wayang-brown text-wayang-gold shadow-sm'
                   : 'text-wayang-brown hover:bg-wayang-gold-soft/60'
@@ -351,7 +351,7 @@ export function WayangBattlePage({
                 setControlMode('vs_ai');
                 handleRestartBattle();
               }}
-              className={`flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-bold transition sm:text-sm ${
+              className={`flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-bold transition sm:text-sm ${
                 controlMode === 'vs_ai'
                   ? 'bg-wayang-brown text-wayang-gold shadow-sm'
                   : 'text-wayang-brown hover:bg-wayang-gold-soft/60'
@@ -365,7 +365,7 @@ export function WayangBattlePage({
           <button
             type="button"
             onClick={handleRestartBattle}
-            className="flex items-center gap-1.5 rounded-2xl bg-wayang-terracotta px-4 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark sm:text-sm"
+            className="flex items-center gap-1.5 rounded-lg bg-wayang-terracotta px-4 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark sm:text-sm"
           >
             <RotateCcw className="h-4 w-4" />
             Tanding Ulang
@@ -374,10 +374,10 @@ export function WayangBattlePage({
       </div>
 
       {/* Health & Energy Bars (Darah Wayang Kiri vs Wayang Kanan) */}
-      <div className="grid items-center gap-4 rounded-3xl border-2 border-wayang-brown/20 bg-white p-4 shadow-card md:grid-cols-11">
+      <div className="grid items-center gap-4 rounded-xl border border-wayang-brown/20 bg-white p-4 md:grid-cols-11">
         {/* Left Fighter HP */}
         <div
-          className={`space-y-2 rounded-2xl p-3 transition md:col-span-5 ${
+          className={`space-y-2 rounded-lg p-3 transition md:col-span-5 ${
             hud.left.hitFlashSec > 0 ? 'bg-red-50' : 'bg-wayang-cream/60'
           }`}
         >
@@ -404,7 +404,7 @@ export function WayangBattlePage({
               <span>DARAH</span>
               <span>{Math.round((hud.left.hp / hud.left.maxHp) * 100)}%</span>
             </div>
-            <div className="h-5 w-full overflow-hidden rounded-full border-2 border-wayang-brown/25 bg-neutral-200">
+            <div className="h-5 w-full overflow-hidden rounded-full border border-wayang-brown/25 bg-neutral-200">
               <div
                 className="h-full rounded-full bg-emerald-600 transition-all duration-150"
                 style={{ width: `${(hud.left.hp / hud.left.maxHp) * 100}%` }}
@@ -431,7 +431,7 @@ export function WayangBattlePage({
 
         {/* Center Timer */}
         <div className="flex flex-col items-center justify-center gap-1 text-center md:col-span-1">
-          <div className="flex h-14 w-14 flex-col items-center justify-center rounded-2xl bg-wayang-brown text-wayang-gold shadow-sm">
+          <div className="flex h-14 w-14 flex-col items-center justify-center rounded-lg bg-wayang-brown text-wayang-gold shadow-sm">
             <Clock className="h-3.5 w-3.5" />
             <span className="font-display text-lg font-bold leading-none">
               {hud.remainingSec}
@@ -444,7 +444,7 @@ export function WayangBattlePage({
 
         {/* Right Fighter HP */}
         <div
-          className={`space-y-2 rounded-2xl p-3 transition md:col-span-5 ${
+          className={`space-y-2 rounded-lg p-3 transition md:col-span-5 ${
             hud.right.hitFlashSec > 0 ? 'bg-red-50' : 'bg-wayang-cream/60'
           }`}
         >
@@ -471,7 +471,7 @@ export function WayangBattlePage({
               <span>{Math.round((hud.right.hp / hud.right.maxHp) * 100)}%</span>
               <span>DARAH</span>
             </div>
-            <div className="h-5 w-full overflow-hidden rounded-full border-2 border-wayang-brown/25 bg-neutral-200">
+            <div className="h-5 w-full overflow-hidden rounded-full border border-wayang-brown/25 bg-neutral-200">
               <div
                 className="ml-auto h-full rounded-full bg-red-600 transition-all duration-150"
                 style={{ width: `${(hud.right.hp / hud.right.maxHp) * 100}%` }}
@@ -499,7 +499,7 @@ export function WayangBattlePage({
 
       {/* Character Quick Switchers */}
       <div className="grid gap-3 sm:grid-cols-2">
-        <div className="rounded-2xl border border-wayang-sage/30 bg-white px-4 py-3 shadow-sm">
+        <div className="rounded-lg border border-wayang-sage/30 bg-white px-4 py-3 shadow-sm">
           <span className="mb-2 block text-[11px] font-bold uppercase tracking-wide text-wayang-sage">
             Pilih Wayang Kiri
           </span>
@@ -509,7 +509,7 @@ export function WayangBattlePage({
                 key={`battle-left-${char.id}`}
                 type="button"
                 onClick={() => setLeftCharacterId(char.id)}
-                className={`rounded-xl px-3 py-1.5 text-xs font-bold transition ${
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                   char.id === leftCharacterId
                     ? 'bg-wayang-sage text-white'
                     : 'bg-wayang-cream text-wayang-brown hover:bg-wayang-gold-soft'
@@ -524,7 +524,7 @@ export function WayangBattlePage({
           </div>
         </div>
 
-        <div className="rounded-2xl border border-wayang-terracotta/30 bg-white px-4 py-3 shadow-sm">
+        <div className="rounded-lg border border-wayang-terracotta/30 bg-white px-4 py-3 shadow-sm">
           <span className="mb-2 block text-[11px] font-bold uppercase tracking-wide text-wayang-terracotta">
             Pilih Wayang Kanan
           </span>
@@ -534,7 +534,7 @@ export function WayangBattlePage({
                 key={`battle-right-${char.id}`}
                 type="button"
                 onClick={() => onSelectCharacter(char.id)}
-                className={`rounded-xl px-3 py-1.5 text-xs font-bold transition ${
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                   char.id === selectedCharacterId
                     ? 'bg-wayang-brown text-wayang-gold'
                     : 'bg-wayang-cream text-wayang-brown hover:bg-wayang-gold-soft'
@@ -573,9 +573,9 @@ export function WayangBattlePage({
 
             {/* Victory Overlay */}
             {hud.finished && (
-              <div className="absolute inset-0 flex items-center justify-center rounded-3xl bg-wayang-charcoal/70 p-6 backdrop-blur-sm">
-                <div className="w-full max-w-sm rounded-3xl border-2 border-wayang-gold bg-white p-6 text-center shadow-xl">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-wayang-gold-soft text-wayang-brown">
+              <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-wayang-charcoal/70 p-6 backdrop-blur-sm">
+                <div className="w-full max-w-sm rounded-xl border border-wayang-gold bg-white p-6 text-center shadow-xl">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-lg bg-wayang-gold-soft text-wayang-brown">
                     <Trophy className="h-8 w-8 text-wayang-terracotta" />
                   </div>
                   <span className="mt-3 inline-block rounded-full bg-wayang-cream px-3 py-1 text-xs font-bold text-wayang-brown">
@@ -593,7 +593,7 @@ export function WayangBattlePage({
                   <button
                     type="button"
                     onClick={handleRestartBattle}
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-wayang-terracotta py-3 text-sm font-bold text-white shadow-md transition hover:bg-wayang-terracotta-dark"
+                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-wayang-terracotta py-3 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark"
                   >
                     <RotateCcw className="h-4 w-4" />
                     Tanding Ulang Sekarang
@@ -604,13 +604,13 @@ export function WayangBattlePage({
           </div>
 
           {/* Battle Controls Guide - Crystal Clear 4 Actions */}
-          <div className="rounded-3xl border border-wayang-gold/35 bg-white p-4 shadow-card">
+          <div className="rounded-xl border border-wayang-gold/35 bg-white p-4">
             <h3 className="font-display text-sm font-bold uppercase tracking-wide text-wayang-brown">
               Cara Memukul & Bertarung
             </h3>
             <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
-              <div className="flex items-start gap-3 rounded-2xl bg-wayang-cream p-3 text-xs">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-wayang-terracotta shadow-sm">
+              <div className="flex items-start gap-3 rounded-lg bg-wayang-cream p-3 text-xs">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-wayang-terracotta shadow-sm">
                   <Swords className="h-4 w-4" />
                 </div>
                 <div>
@@ -624,8 +624,8 @@ export function WayangBattlePage({
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 rounded-2xl bg-wayang-cream p-3 text-xs">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-wayang-brown shadow-sm">
+              <div className="flex items-start gap-3 rounded-lg bg-wayang-cream p-3 text-xs">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-wayang-brown shadow-sm">
                   <GestureVectorIcon gesture="index_up" className="h-6 w-6" />
                 </div>
                 <div>
@@ -639,8 +639,8 @@ export function WayangBattlePage({
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 rounded-2xl bg-wayang-cream p-3 text-xs">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-wayang-brown shadow-sm">
+              <div className="flex items-start gap-3 rounded-lg bg-wayang-cream p-3 text-xs">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-wayang-brown shadow-sm">
                   <GestureVectorIcon gesture="pinch" className="h-6 w-6" />
                 </div>
                 <div>
@@ -654,8 +654,8 @@ export function WayangBattlePage({
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 rounded-2xl bg-wayang-cream p-3 text-xs">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-wayang-sage shadow-sm">
+              <div className="flex items-start gap-3 rounded-lg bg-wayang-cream p-3 text-xs">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-wayang-sage shadow-sm">
                   <Shield className="h-4 w-4" />
                 </div>
                 <div>
@@ -689,7 +689,7 @@ export function WayangBattlePage({
             onStopCamera={stopCamera}
           />
 
-          <div className="rounded-3xl border border-wayang-gold/35 bg-white p-4 shadow-card">
+          <div className="rounded-xl border border-wayang-gold/35 bg-white p-4">
             <h3 className="text-sm font-bold text-wayang-brown">
               Tips Pertarungan 2 Tangan
             </h3>

@@ -29,7 +29,7 @@ export function LandingPage({
   return (
     <div className="mx-auto max-w-7xl space-y-10 px-4 py-8 sm:px-6">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-[2rem] border border-wayang-gold/50 bg-white p-6 shadow-card lg:p-10">
+      <section className="pt-2 lg:pt-6">
         <div className="grid items-center gap-8 lg:grid-cols-12">
           <div className="space-y-5 lg:col-span-7">
             <h1 className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-wayang-brown sm:text-5xl">
@@ -47,7 +47,7 @@ export function LandingPage({
               <button
                 type="button"
                 onClick={() => onNavigate('tutorial')}
-                className="flex items-center gap-2.5 rounded-2xl bg-wayang-terracotta px-7 py-4 text-base font-bold text-white shadow-md transition hover:bg-wayang-terracotta-dark active:scale-95"
+                className="flex items-center gap-2.5 rounded-lg bg-wayang-terracotta px-7 py-4 text-base font-bold text-white transition hover:bg-wayang-terracotta-dark active:scale-95"
               >
                 <BookOpen className="h-5 w-5" />
                 Mulai Latihan Dasar
@@ -57,7 +57,7 @@ export function LandingPage({
               <button
                 type="button"
                 onClick={() => onNavigate('studio')}
-                className="flex items-center gap-2 rounded-2xl border-2 border-wayang-brown/20 bg-wayang-cream px-6 py-4 text-base font-bold text-wayang-brown transition hover:border-wayang-gold hover:bg-wayang-gold-soft/50"
+                className="flex items-center gap-2 rounded-lg border border-wayang-brown/20 bg-wayang-cream px-6 py-4 text-base font-bold text-wayang-brown transition hover:border-wayang-gold hover:bg-wayang-gold-soft/50"
               >
                 <Camera className="h-5 w-5 text-wayang-terracotta" />
                 Buka Studio Wayang
@@ -65,8 +65,8 @@ export function LandingPage({
             </div>
 
             <div className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-3">
-              <div className="rounded-2xl border border-wayang-gold/25 bg-wayang-cream/70 p-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-wayang-terracotta shadow-sm">
+              <div className="border-t-2 border-wayang-gold/50 pt-3">
+                <div className="text-wayang-terracotta">
                   <Hand className="h-5 w-5" />
                 </div>
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
@@ -76,8 +76,8 @@ export function LandingPage({
                   Deteksi 21 titik koordinat per tangan (hingga 2 tangan) langsung di browser.
                 </p>
               </div>
-              <div className="rounded-2xl border border-wayang-gold/25 bg-wayang-cream/70 p-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-wayang-brown shadow-sm">
+              <div className="border-t-2 border-wayang-gold/50 pt-3">
+                <div className="text-wayang-brown">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
@@ -87,8 +87,8 @@ export function LandingPage({
                   Citra webcam diproses lokal di perangkat; tidak direkam atau dikirim ke server.
                 </p>
               </div>
-              <div className="rounded-2xl border border-wayang-gold/25 bg-wayang-cream/70 p-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-wayang-sage shadow-sm">
+              <div className="border-t-2 border-wayang-gold/50 pt-3">
+                <div className="text-wayang-sage">
                   <Award className="h-5 w-5" />
                 </div>
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
@@ -107,7 +107,7 @@ export function LandingPage({
             transition={{ duration: 0.45 }}
             className="lg:col-span-5"
           >
-            <div className="rounded-3xl border-[3px] border-wayang-brown bg-wayang-brown p-2 shadow-card">
+            <div className="rounded-xl border-[3px] border-wayang-brown bg-wayang-brown p-2">
               <PuppetPreviewCanvas
                 characterId={selectedCharacterId}
                 partnerCharacterId={
@@ -124,7 +124,7 @@ export function LandingPage({
       </section>
 
       {/* Cultural Introduction */}
-      <section className="rounded-[2rem] border border-wayang-gold/40 bg-wayang-brown p-6 text-wayang-cream shadow-card sm:p-8">
+      <section className="rounded-xl border border-wayang-gold/40 bg-wayang-brown p-6 text-wayang-cream sm:p-8">
         <div className="grid items-center gap-6 md:grid-cols-12">
           <div className="md:col-span-7">
             <h2 className="font-display text-2xl font-bold sm:text-3xl">
@@ -142,7 +142,7 @@ export function LandingPage({
             </p>
           </div>
 
-          <div className="space-y-3 rounded-3xl border border-wayang-gold/25 bg-white/10 p-5 md:col-span-5">
+          <div className="space-y-3 rounded-xl border border-wayang-gold/25 bg-white/10 p-5 md:col-span-5">
             <h3 className="font-display text-lg font-bold text-wayang-gold">
               Alur Penggunaan ARJUNA
             </h3>
@@ -165,7 +165,7 @@ export function LandingPage({
       </section>
 
       {/* Honest Product Status & Roadmap */}
-      <section className="rounded-[2rem] border-2 border-wayang-gold/35 bg-white p-6 shadow-card sm:p-8">
+      <section className="border-t border-wayang-gold/40 pt-8">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-wayang-terracotta">
@@ -181,7 +181,7 @@ export function LandingPage({
         </div>
 
         <div className="mt-5 grid gap-4 md:grid-cols-3">
-          <div className="rounded-3xl border border-wayang-sage/35 bg-wayang-sage/5 p-5">
+          <div className="rounded-xl border border-wayang-sage/35 bg-wayang-sage/5 p-5">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-sage">
               <CheckCircle2 className="h-4 w-4" />
               Berjalan Saat Ini
@@ -194,7 +194,7 @@ export function LandingPage({
             </ul>
           </div>
 
-          <div className="rounded-3xl border border-wayang-gold/45 bg-wayang-gold-soft/35 p-5">
+          <div className="rounded-xl border border-wayang-gold/45 bg-wayang-gold-soft/35 p-5">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-brown">
               <Clock className="h-4 w-4 text-wayang-terracotta" />
               Rencana Tahap Menengah
@@ -206,7 +206,7 @@ export function LandingPage({
             </ul>
           </div>
 
-          <div className="rounded-3xl border border-wayang-brown/20 bg-wayang-cream p-5">
+          <div className="rounded-xl border border-wayang-brown/20 bg-wayang-cream p-5">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-brown-light">
               <Users className="h-4 w-4 text-wayang-brown" />
               Visi Jangka Panjang
@@ -234,7 +234,7 @@ export function LandingPage({
           <button
             type="button"
             onClick={() => onNavigate('characters')}
-            className="flex items-center gap-1.5 rounded-2xl border border-wayang-gold/60 bg-white px-4 py-2.5 text-sm font-bold text-wayang-brown shadow-sm transition hover:bg-wayang-gold-soft"
+            className="flex items-center gap-1.5 rounded-lg border border-wayang-gold/60 bg-white px-4 py-2.5 text-sm font-bold text-wayang-brown shadow-sm transition hover:bg-wayang-gold-soft"
           >
             Lihat Semua Tokoh
             <ChevronRight className="h-4 w-4" />
@@ -247,9 +247,9 @@ export function LandingPage({
             return (
               <div
                 key={char.id}
-                className={`flex flex-col justify-between rounded-3xl border-2 bg-white p-4 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover ${
+                className={`flex flex-col justify-between rounded-xl border bg-white p-4 transition ${
                   isSelected
-                    ? 'border-wayang-terracotta ring-4 ring-wayang-terracotta/15'
+                    ? 'border-wayang-terracotta'
                     : 'border-wayang-gold/30'
                 }`}
               >
@@ -275,7 +275,7 @@ export function LandingPage({
                     onSelectCharacter(char.id);
                     onNavigate('tutorial');
                   }}
-                  className={`mt-4 flex w-full items-center justify-center gap-1.5 rounded-2xl py-2.5 text-sm font-bold transition ${
+                  className={`mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg py-2.5 text-sm font-bold transition ${
                     isSelected
                       ? 'bg-wayang-terracotta text-white'
                       : 'bg-wayang-cream-dark text-wayang-brown hover:bg-wayang-gold-soft'

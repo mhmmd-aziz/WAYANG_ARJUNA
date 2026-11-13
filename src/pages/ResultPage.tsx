@@ -31,7 +31,7 @@ export function ResultPage({
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.35 }}
-        className="rounded-[2rem] border-2 border-wayang-gold bg-white p-6 text-center shadow-card sm:p-10"
+        className="rounded-xl border border-wayang-gold bg-white p-6 text-center sm:p-10"
       >
         {/* Star Rating */}
         <div className="flex justify-center gap-3">
@@ -61,7 +61,7 @@ export function ResultPage({
 
         {/* Stats Grid */}
         <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-2xl bg-wayang-cream p-4">
+          <div className="rounded-lg bg-wayang-cream p-4">
             <span className="font-display block text-2xl font-bold text-wayang-terracotta">
               {result.score}
             </span>
@@ -69,7 +69,7 @@ export function ResultPage({
               Skor Akhir
             </span>
           </div>
-          <div className="rounded-2xl bg-wayang-cream p-4">
+          <div className="rounded-lg bg-wayang-cream p-4">
             <span className="font-display block text-2xl font-bold text-wayang-sage">
               {result.accuracy}%
             </span>
@@ -77,7 +77,7 @@ export function ResultPage({
               Akurasi
             </span>
           </div>
-          <div className="rounded-2xl bg-wayang-cream p-4">
+          <div className="rounded-lg bg-wayang-cream p-4">
             <span className="font-display block text-2xl font-bold text-wayang-brown">
               {result.completedSteps}/{result.totalSteps}
             </span>
@@ -85,7 +85,7 @@ export function ResultPage({
               Tantangan Selesai
             </span>
           </div>
-          <div className="rounded-2xl bg-wayang-cream p-4">
+          <div className="rounded-lg bg-wayang-cream p-4">
             <span className="font-display block text-2xl font-bold text-wayang-brown">
               {result.durationSec} dtk
             </span>
@@ -97,8 +97,8 @@ export function ResultPage({
 
         {/* Earned Badge Showcase */}
         {result.earnedBadge && (
-          <div className="mt-6 flex items-center justify-center gap-4 rounded-3xl border-2 border-wayang-gold bg-wayang-gold-soft/50 p-5 text-left">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-wayang-brown text-wayang-gold">
+          <div className="mt-6 flex items-center justify-center gap-4 rounded-xl border border-wayang-gold bg-wayang-gold-soft/50 p-5 text-left">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-wayang-brown text-wayang-gold">
               {result.earnedBadge.isTrophy ? (
                 <Trophy className="h-8 w-8" />
               ) : (
@@ -127,7 +127,7 @@ export function ResultPage({
             <button
               type="button"
               onClick={() => onNextLevel(nextLevelId)}
-              className="flex items-center gap-2 rounded-2xl bg-wayang-terracotta px-7 py-3.5 text-base font-bold text-white shadow-md transition hover:bg-wayang-terracotta-dark"
+              className="flex items-center gap-2 rounded-lg bg-wayang-terracotta px-7 py-3.5 text-base font-bold text-white transition hover:bg-wayang-terracotta-dark"
             >
               Lanjut ke Level {nextLevelId}
               <ArrowRight className="h-5 w-5" />
@@ -137,7 +137,7 @@ export function ResultPage({
           <button
             type="button"
             onClick={() => onRetry(result.levelId)}
-            className="flex items-center gap-2 rounded-2xl border-2 border-wayang-brown/20 bg-wayang-cream px-6 py-3.5 text-base font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+            className="flex items-center gap-2 rounded-lg border border-wayang-brown/20 bg-wayang-cream px-6 py-3.5 text-base font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
           >
             <RotateCcw className="h-4 w-4" />
             Main Lagi
@@ -146,7 +146,7 @@ export function ResultPage({
           <button
             type="button"
             onClick={onBackToDashboard}
-            className="flex items-center gap-2 rounded-2xl bg-wayang-brown px-6 py-3.5 text-base font-bold text-wayang-cream transition hover:bg-wayang-brown-light"
+            className="flex items-center gap-2 rounded-lg bg-wayang-brown px-6 py-3.5 text-base font-bold text-wayang-cream transition hover:bg-wayang-brown-light"
           >
             <Home className="h-4 w-4" />
             Dasbor Level

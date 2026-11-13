@@ -85,7 +85,7 @@ export function PuppetPreviewCanvas({
 
   return (
     <div
-      className={`wayang-kelir-bg relative w-full overflow-hidden rounded-2xl border border-wayang-gold/40 ${heightClass}`}
+      className={`wayang-kelir-bg relative w-full overflow-hidden rounded-lg border border-wayang-gold/40 ${heightClass}`}
     >
       <canvas ref={canvasRef} className="h-full w-full" />
     </div>

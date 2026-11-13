@@ -188,12 +188,12 @@ export function GamificationChallengePage({
   return (
     <div className="mx-auto max-w-7xl space-y-5 px-4 py-6 sm:px-6">
       {/* Top Challenge Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border-2 border-wayang-gold/40 bg-white p-5 shadow-card">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={onExitToDashboard}
-            className="flex h-10 w-10 items-center justify-center rounded-2xl bg-wayang-cream-dark text-wayang-brown transition hover:bg-wayang-gold-soft"
+            className="flex h-10 w-10 items-center justify-center rounded-lg bg-wayang-cream-dark text-wayang-brown transition hover:bg-wayang-gold-soft"
             title="Kembali ke Dasbor"
           >
             <ArrowLeft className="h-5 w-5" />
@@ -210,7 +210,7 @@ export function GamificationChallengePage({
 
         <div className="flex items-center gap-3">
           <div
-            className={`flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-bold ${
+            className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold ${
               remainingSec <= 15
                 ? 'bg-wayang-terracotta text-white'
                 : 'bg-wayang-cream text-wayang-brown'
@@ -220,7 +220,7 @@ export function GamificationChallengePage({
             <span>{remainingSec} dtk</span>
           </div>
 
-          <div className="rounded-2xl bg-wayang-gold-soft px-4 py-2 text-sm font-bold text-wayang-brown">
+          <div className="rounded-lg bg-wayang-gold-soft px-4 py-2 text-sm font-bold text-wayang-brown">
             Langkah {Math.min(stepIdx + 1, level.steps.length)} /{' '}
             {level.steps.length}
           </div>
@@ -228,7 +228,7 @@ export function GamificationChallengePage({
           <button
             type="button"
             onClick={handleRestart}
-            className="flex items-center gap-1.5 rounded-2xl border border-wayang-brown/20 px-3.5 py-2 text-xs font-bold text-wayang-brown transition hover:bg-wayang-cream"
+            className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/20 px-3.5 py-2 text-xs font-bold text-wayang-brown transition hover:bg-wayang-cream"
           >
             <RotateCcw className="h-4 w-4" />
             Ulang
@@ -256,7 +256,7 @@ export function GamificationChallengePage({
         {/* Left: Story/Instruction & Puppet Stage */}
         <div className="space-y-4 lg:col-span-7">
           {currentStep.storyNarration && (
-            <div className="rounded-3xl border-2 border-wayang-brown/20 bg-wayang-brown p-4 text-wayang-cream shadow-card">
+            <div className="rounded-xl border border-wayang-brown/20 bg-wayang-brown p-4 text-wayang-cream">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2 text-xs font-bold text-wayang-gold">
                   <BookOpenText className="h-4 w-4" />
@@ -271,7 +271,7 @@ export function GamificationChallengePage({
                       playSceneCue: true,
                     })
                   }
-                  className="flex items-center gap-1 rounded-xl bg-white/10 px-2.5 py-1 text-[11px] font-bold text-wayang-gold-soft transition hover:bg-white/20"
+                  className="flex items-center gap-1 rounded-lg bg-white/10 px-2.5 py-1 text-[11px] font-bold text-wayang-gold-soft transition hover:bg-white/20"
                 >
                   <Volume2 className="h-3.5 w-3.5" />
                   Dengarkan Suara
@@ -283,7 +283,7 @@ export function GamificationChallengePage({
             </div>
           )}
 
-          <div className="rounded-3xl border-2 border-wayang-terracotta/40 bg-white p-4 shadow-card">
+          <div className="rounded-xl border border-wayang-terracotta/40 bg-white p-4">
             <div className="flex items-center justify-between gap-2">
               <div>
                 <p className="text-xs font-bold uppercase tracking-wide text-wayang-terracotta">

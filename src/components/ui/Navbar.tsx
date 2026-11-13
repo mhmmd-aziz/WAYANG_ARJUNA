@@ -45,9 +45,9 @@ export function Navbar({
         <button
           type="button"
           onClick={() => onNavigate('landing')}
-          className="group flex items-center gap-3 rounded-2xl px-2 py-1 text-left transition hover:bg-wayang-gold-soft/45"
+          className="group flex items-center gap-3 rounded-lg px-2 py-1 text-left transition hover:bg-wayang-gold-soft/45"
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-wayang-gold/40 bg-wayang-brown text-wayang-gold shadow-sm transition group-hover:scale-105">
+          <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-wayang-gold/40 bg-wayang-brown text-wayang-gold shadow-sm transition group-hover:scale-105">
             <GununganIcon className="h-7 w-7" />
           </div>
           <div>
@@ -71,7 +71,7 @@ export function Navbar({
                 key={page}
                 type="button"
                 onClick={() => onNavigate('landing' === page ? 'landing' : page)}
-                className={`flex items-center gap-2 rounded-2xl px-3.5 py-2 text-sm font-semibold transition sm:px-4 ${
+                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition sm:px-4 ${
                   active
                     ? 'bg-wayang-brown text-wayang-gold shadow-sm ring-1 ring-wayang-gold/40'
                     : 'bg-white/80 text-wayang-brown hover:bg-wayang-gold-soft/70'
@@ -88,7 +88,7 @@ export function Navbar({
             onClick={onToggleMute}
             aria-label={muted ? 'Nyalakan suara' : 'Matikan suara'}
             title={muted ? 'Nyalakan suara' : 'Matikan suara'}
-            className="ml-1 flex h-10 w-10 items-center justify-center rounded-2xl border border-wayang-gold/40 bg-white text-wayang-brown shadow-sm transition hover:bg-wayang-gold-soft/60"
+            className="ml-1 flex h-10 w-10 items-center justify-center rounded-lg border border-wayang-gold/40 bg-white text-wayang-brown shadow-sm transition hover:bg-wayang-gold-soft/60"
           >
             {muted ? (
               <VolumeX className="h-4 w-4 text-wayang-terracotta" />

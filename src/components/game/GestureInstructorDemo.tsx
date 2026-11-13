@@ -40,8 +40,8 @@ export function GestureInstructorDemo({
           : { scale: [1, 1.08, 1] };
 
   return (
-    <div className="flex items-center gap-4 rounded-3xl border border-wayang-gold/50 bg-gradient-to-br from-wayang-gold-soft/60 to-white p-4 shadow-sm">
-      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-wayang-gold/40 bg-white text-wayang-brown shadow-sm">
+    <div className="flex items-center gap-4 rounded-xl border border-wayang-gold/50 bg-gradient-to-br from-wayang-gold-soft/60 to-white p-4 shadow-sm">
+      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border border-wayang-gold/40 bg-white text-wayang-brown shadow-sm">
         <motion.div
           animate={animateProps}
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
