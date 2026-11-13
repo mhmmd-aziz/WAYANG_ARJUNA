@@ -10,6 +10,7 @@ import {
   Volume2,
   VolumeX,
 } from 'lucide-react';
+import { STORY_BACKDROPS } from '../assets/kitImages';
 import { GestureInstructorDemo } from '../components/game/GestureInstructorDemo';
 import { GestureStatusPanel } from '../components/hand-tracking/GestureStatusPanel';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
@@ -212,27 +213,36 @@ export function StoryTheatrePage({
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6">
       {/* Header & Story Selector */}
       <div>
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p className="text-sm font-semibold text-wayang-terracotta">
+        <div className="relative flex min-h-44 flex-wrap items-end justify-between gap-4 overflow-hidden rounded-xl bg-wayang-brown p-5 sm:p-6">
+          <img
+            key={selectedStory.id}
+            src={STORY_BACKDROPS[selectedStory.id] ?? STORY_BACKDROPS['nasihat-semar']}
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-wayang-charcoal/90 via-wayang-charcoal/65 to-wayang-charcoal/10" />
+          <div className="relative max-w-2xl">
+            <p className="text-sm font-semibold text-wayang-gold">
               Panggung Cerita
             </p>
-            <h1 className="font-display mt-0.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
+            <h1 className="font-display mt-0.5 text-2xl font-bold text-wayang-cream sm:text-3xl">
               {selectedStory.title}
             </h1>
-            <p className="mt-0.5 text-sm text-wayang-charcoal/80 sm:text-sm">
-              <span className="font-semibold text-wayang-brown">{selectedStory.region}.</span>{' '}
+            <p className="mt-1 text-sm leading-relaxed text-wayang-cream/90">
+              <span className="font-semibold text-wayang-gold-soft">{selectedStory.region}.</span>{' '}
               {selectedStory.summary}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="relative flex flex-wrap items-center gap-2">
             <button
               type="button"
               onClick={() => setAutoSpeak((v) => !v)}
               className={`btn border ${
                 autoSpeak
-                  ? 'border-wayang-sage bg-wayang-sage/10 text-wayang-sage'
+                  ? 'border-wayang-sage bg-wayang-sage text-white'
                   : 'border-wayang-brown/20 bg-white text-wayang-brown hover:bg-wayang-gold-soft/50'
               }`}
             >

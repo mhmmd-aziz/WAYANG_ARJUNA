@@ -1,6 +1,6 @@
 import { ArrowRight, Check, CheckCircle2 } from 'lucide-react';
 import { WAYANG_CHARACTERS } from '../assets/wayangCharacters';
-import { PuppetPreviewCanvas } from '../components/puppet/PuppetPreviewCanvas';
+import { CharacterPortrait } from '../components/puppet/CharacterPortrait';
 import type { AppPage, PuppetCharacterId } from '../types';
 
 interface CharacterSelectionPageProps {
@@ -60,10 +60,7 @@ export function CharacterSelectionPage({
               }`}
             >
               <div className="sm:col-span-5">
-                <PuppetPreviewCanvas
-                  characterId={char.id}
-                  heightClass="h-56 sm:h-full"
-                />
+                <CharacterPortrait characterId={char.id} heightClass="h-72 sm:h-full sm:min-h-72" />
               </div>
 
               <div className="flex flex-col justify-between sm:col-span-7">

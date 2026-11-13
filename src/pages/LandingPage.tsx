@@ -11,7 +11,8 @@ import {
   Users,
 } from 'lucide-react';
 import { WAYANG_CHARACTERS } from '../assets/wayangCharacters';
-import { PuppetPreviewCanvas } from '../components/puppet/PuppetPreviewCanvas';
+import { CULTURE_BACKDROP, HERO_ART } from '../assets/kitImages';
+import { CharacterPortrait } from '../components/puppet/CharacterPortrait';
 import type { AppPage, PuppetCharacterId } from '../types';
 
 interface LandingPageProps {
@@ -105,25 +106,34 @@ export function LandingPage({
             transition={{ duration: 0.45 }}
             className="lg:col-span-5"
           >
-            <div className="rounded-xl border-[3px] border-wayang-brown bg-wayang-brown p-2">
-              <PuppetPreviewCanvas
-                characterId={selectedCharacterId}
-                partnerCharacterId={
-                  selectedCharacterId === 'gatotkaca' ? 'arjuna' : 'gatotkaca'
-                }
-                heightClass="h-80 sm:h-96"
+            <div className="overflow-hidden rounded-xl border border-wayang-gold/50">
+              <img
+                src={HERO_ART}
+                alt="Ilustrasi tangan menggerakkan wayang kulit"
+                width={1004}
+                height={941}
+                className="h-80 w-full object-cover object-center sm:h-96"
               />
             </div>
-            <p className="mt-2.5 text-center text-sm font-semibold text-wayang-brown-light">
-              Pratinjau dua tokoh wayang di kelir. Kamera hanya aktif setelah Anda mengizinkannya.
+            <p className="mt-2.5 text-center text-sm text-wayang-brown-light">
+              Kamera hanya aktif setelah Anda mengizinkannya.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Cultural Introduction */}
-      <section className="rounded-xl border border-wayang-gold/40 bg-wayang-brown p-6 text-wayang-cream sm:p-8">
-        <div className="grid items-center gap-6 md:grid-cols-12">
+      <section className="relative overflow-hidden rounded-xl border border-wayang-gold/40 bg-wayang-brown p-6 text-wayang-cream sm:p-8">
+        <img
+          src={CULTURE_BACKDROP}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-wayang-brown via-wayang-brown/90 to-wayang-brown/70" />
+        <div className="relative grid items-center gap-6 md:grid-cols-12">
           <div className="md:col-span-7">
             <h2 className="font-display text-2xl font-bold sm:text-3xl">
               Wayang Kulit, Dalang, dan Kaidah Sabetan
@@ -140,7 +150,7 @@ export function LandingPage({
             </p>
           </div>
 
-          <div className="space-y-3 rounded-xl border border-wayang-gold/25 bg-white/10 p-5 md:col-span-5">
+          <div className="space-y-3 rounded-xl border border-wayang-gold/25 bg-wayang-brown/70 p-5 backdrop-blur-sm md:col-span-5">
             <h3 className="font-display text-lg font-bold text-wayang-gold">
               Alur Penggunaan ARJUNA
             </h3>
@@ -252,10 +262,7 @@ export function LandingPage({
                 }`}
               >
                 <div>
-                  <PuppetPreviewCanvas
-                    characterId={char.id}
-                    heightClass="h-48"
-                  />
+                  <CharacterPortrait characterId={char.id} heightClass="h-56" />
                   <h3 className="font-display mt-3 text-lg font-bold text-wayang-brown">
                     {char.name}
                   </h3>

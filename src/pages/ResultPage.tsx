@@ -7,6 +7,7 @@ import {
   Star,
   Trophy,
 } from 'lucide-react';
+import { PARCHMENT_BACKDROP } from '../assets/kitImages';
 import type { ChallengeResult, LevelId } from '../types';
 
 interface ResultPageProps {
@@ -31,7 +32,8 @@ export function ResultPage({
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.35 }}
-        className="rounded-xl border border-wayang-gold bg-white p-6 text-center sm:p-10"
+        className="rounded-xl border border-wayang-gold bg-white bg-cover bg-center p-6 text-center sm:p-12"
+        style={{ backgroundImage: `url(${PARCHMENT_BACKDROP})` }}
       >
         {/* Star Rating */}
         <div className="flex justify-center gap-3">
