@@ -200,7 +200,7 @@ export function GamificationChallengePage({
           </button>
           <div>
             <span className="text-sm font-semibold text-wayang-terracotta">
-              {level.subtitle}
+              Level {level.id}: {level.subtitle}
             </span>
             <h1 className="font-display text-xl font-bold text-wayang-brown sm:text-2xl">
               {level.title}

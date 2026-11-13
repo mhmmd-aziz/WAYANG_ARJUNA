@@ -287,7 +287,7 @@ function drawBattleOverlay(
     ctx.fillStyle = '#2B211A';
     ctx.textAlign = alignRight ? 'right' : 'left';
     const labelX = alignRight ? x + barW : x;
-    ctx.fillText(`${name} • ${hp} HP`, labelX, topY + 10);
+    ctx.fillText(`${name}: ${hp} HP`, labelX, topY + 10);
 
     // HP Bar track
     const barY = topY + 15;
@@ -624,8 +624,8 @@ export function WayangStageCanvas({
       <div className="flex items-center justify-between border-b border-wayang-gold/30 bg-wayang-brown px-4 py-2.5 text-wayang-cream">
         <span className="font-display text-sm font-bold text-wayang-gold sm:text-base">
           {secondaryCharacter
-            ? `Kelir Wayang • ${secondaryCharacter.name} & ${character.name}`
-            : `Kelir Wayang • ${character.name}`}
+            ? `Kelir: ${secondaryCharacter.name} & ${character.name}`
+            : `Kelir: ${character.name}`}
         </span>
         <span className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-semibold text-wayang-gold-soft">
           {isTrackingActive ? 'Kendali Tangan Aktif' : 'Mode Pratinjau'}

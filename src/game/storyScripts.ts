@@ -30,7 +30,7 @@ export const FOLKLORE_STORIES: FolkloreStoryDefinition[] = [
   {
     id: 'pusaka-amarta',
     title: 'Misi Pusaka Kerajaan Amarta',
-    region: 'Pewayangan Pandawa • Jawa',
+    region: 'Pewayangan Pandawa, Jawa',
     tier: 'free',
     tierLabel: 'Gratis (Freemium)',
     leadCharacterId: 'arjuna',

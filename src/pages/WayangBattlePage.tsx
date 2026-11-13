@@ -693,17 +693,17 @@ export function WayangBattlePage({
             <h3 className="text-sm font-bold text-wayang-brown">
               Tips Pertarungan 2 Tangan
             </h3>
-            <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-wayang-charcoal/85">
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 marker:text-wayang-gold text-sm leading-relaxed text-wayang-charcoal/85">
               <li>
-                • <strong>Tangan Kiri</strong> di depan kamera mengendalikan{' '}
+                <strong>Tangan Kiri</strong> di depan kamera mengendalikan{' '}
                 <strong>{leftChar.name}</strong> di sisi kiri kelir.
               </li>
               <li>
-                • <strong>Tangan Kanan</strong> mengendalikan{' '}
+                <strong>Tangan Kanan</strong> mengendalikan{' '}
                 <strong>{rightChar.name}</strong> di sisi kanan kelir.
               </li>
               <li>
-                • Pastikan speaker menyala untuk mendengar efek suara{' '}
+                Pastikan speaker menyala untuk mendengar efek suara{' '}
                 <em>whoosh</em>, benturan perisai, pukulan <em>kendang</em>, dan
                 gong kemenangan!
               </li>

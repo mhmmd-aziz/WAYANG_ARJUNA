@@ -4,7 +4,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 1,
     title: 'Kenalan dengan Wayang',
-    subtitle: 'Level 1 • Pemula',
+    subtitle: 'Pemula',
     difficulty: 'Pemula',
     description:
       'Pelajari bagaimana kamera mengenali tanganmu, lalu gerakkan wayang ke kiri, kanan, atas, dan bawah.',
@@ -70,7 +70,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 2,
     title: 'Gerakan Tangan',
-    subtitle: 'Level 2 • Mudah',
+    subtitle: 'Mudah',
     difficulty: 'Mudah',
     description:
       'Latih empat gestur utama seorang dalang: Telapak Terbuka, Kepalan Tangan, Telunjuk Atas, dan Gerakan Jepit.',
@@ -119,7 +119,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 3,
     title: 'Kendalikan Wayang',
-    subtitle: 'Level 3 • Sedang',
+    subtitle: 'Sedang',
     difficulty: 'Sedang',
     description:
       'Arahkan wayang melewati titik-titik cahaya di seluruh panggung dengan tepat dan stabil.',
@@ -191,7 +191,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 4,
     title: 'Ikuti Cerita',
-    subtitle: 'Level 4 • Lanjutan',
+    subtitle: 'Lanjutan',
     difficulty: 'Lanjutan',
     description:
       'Ikuti kisah singkat "Misi Pusaka Amarta" dan gerakkan wayang sesuai alur cerita!',
@@ -280,7 +280,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 5,
     title: 'Dalang Cilik',
-    subtitle: 'Level 5 • Tantangan Akhir',
+    subtitle: 'Tantangan Akhir',
     difficulty: 'Tantangan',
     description:
       'Pimpin pertunjukan wayangmu sendiri! Gabungkan gestur tangan dan kendali posisi menjadi satu pementasan utuh.',
@@ -358,7 +358,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 6,
     title: 'Timun Mas & Raksasa',
-    subtitle: 'Level 6 • Paket Cerita Rakyat',
+    subtitle: 'Paket Cerita Rakyat',
     difficulty: 'Sedang',
     accessTier: 'episode_pack',
     packLabel: 'Paket Lakon Nusantara',
@@ -428,7 +428,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 7,
     title: 'Malin Kundang di Pelabuhan',
-    subtitle: 'Level 7 • Paket Cerita Rakyat',
+    subtitle: 'Paket Cerita Rakyat',
     difficulty: 'Lanjutan',
     accessTier: 'episode_pack',
     packLabel: 'Paket Lakon Nusantara',
@@ -494,7 +494,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 8,
     title: 'Candi Seribu Roro Jonggrang',
-    subtitle: 'Level 8 • Paket Cerita Rakyat',
+    subtitle: 'Paket Cerita Rakyat',
     difficulty: 'Lanjutan',
     accessTier: 'episode_pack',
     packLabel: 'Paket Lakon Nusantara',
@@ -566,7 +566,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 9,
     title: 'Arjuna & Busur Pasopati',
-    subtitle: 'Level 9 • Lisensi Sanggar & Sekolah',
+    subtitle: 'Lisensi Sanggar & Sekolah',
     difficulty: 'Tantangan',
     accessTier: 'institutional',
     packLabel: 'Lisensi Sanggar & Sekolah (B2B)',
@@ -626,7 +626,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
   {
     id: 10,
     title: 'Gelar Agung Dalang Nusantara',
-    subtitle: 'Level 10 • Puncak Sanggar & Sekolah',
+    subtitle: 'Puncak Sanggar & Sekolah',
     difficulty: 'Tantangan',
     accessTier: 'institutional',
     packLabel: 'Lisensi Sanggar & Sekolah (B2B)',

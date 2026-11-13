@@ -221,7 +221,8 @@ export function StoryTheatrePage({
               {selectedStory.title}
             </h1>
             <p className="mt-0.5 text-sm text-wayang-charcoal/80 sm:text-sm">
-              {selectedStory.region} • {selectedStory.summary}
+              <span className="font-semibold text-wayang-brown">{selectedStory.region}.</span>{' '}
+              {selectedStory.summary}
             </p>
           </div>
 
@@ -287,9 +288,8 @@ export function StoryTheatrePage({
                 <p className="font-display mt-2 text-sm font-bold text-wayang-brown">
                   {story.title}
                 </p>
-                <p className="mt-0.5 text-sm text-wayang-brown-light">
-                  {story.region} • {story.durationLabel}
-                </p>
+                <p className="mt-0.5 text-sm text-wayang-brown-light">{story.region}</p>
+                <p className="text-sm text-wayang-brown-light">{story.durationLabel}</p>
               </button>
             );
           })}
@@ -300,7 +300,7 @@ export function StoryTheatrePage({
         <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-wayang-gold bg-wayang-gold-soft/45 p-5">
           <div>
             <span className="text-sm font-semibold text-wayang-terracotta">
-              Pratinjau Komersialisasi • Paket Lakon Nusantara
+              Pratinjau Paket Lakon Nusantara
             </span>
             <h2 className="font-display text-lg font-bold text-wayang-brown">
               Cerita Rakyat "{selectedStory.title}" Termasuk Paket Lakon Berbayar
@@ -332,7 +332,7 @@ export function StoryTheatrePage({
             targetZone={currentScene.targetZone ?? null}
             holdProgress={cueProgress}
             statusBanner={
-              sceneCompleted ? 'Gerakan adegan sesuai • Luar biasa!' : null
+              sceneCompleted ? 'Gerakan sesuai adegan.' : null
             }
           />
 
@@ -395,7 +395,7 @@ export function StoryTheatrePage({
               </div>
               <div className="border-t border-white/10 pt-2.5">
                 <span className="text-xs font-semibold text-emerald-300">
-                  Antawacana • {currentScene.speaker}
+                  Antawacana {currentScene.speaker}
                 </span>
                 <p className="mt-0.5 font-display text-base italic text-wayang-gold-soft">
                   "{currentScene.dialogue}"

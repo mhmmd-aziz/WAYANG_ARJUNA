@@ -242,9 +242,9 @@ export function LearningDashboardPage({
                     {plan.pricingNote}
                   </p>
 
-                  <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-wayang-charcoal/85">
+                  <ul className="mt-3 list-disc space-y-1.5 pl-5 marker:text-wayang-gold text-sm leading-relaxed text-wayang-charcoal/85">
                     {plan.highlights.map((item) => (
-                      <li key={item}>• {item}</li>
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </div>
@@ -325,7 +325,7 @@ export function LearningDashboardPage({
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="rounded-full bg-wayang-gold-soft px-3 py-1 text-xs font-bold text-wayang-brown">
-                      {level.subtitle}
+                      Level {level.id}: {level.subtitle}
                     </span>
                     <div className="flex items-center gap-0.5">
                       {[1, 2, 3].map((s) => (
@@ -369,9 +369,8 @@ export function LearningDashboardPage({
 
                   {lvlState.completed && (
                     <div className="mt-3 flex items-center gap-3 text-xs font-bold text-wayang-sage">
-                      <span>Skor Terbaik: {lvlState.bestScore}</span>
-                      <span>•</span>
-                      <span>Akurasi: {lvlState.bestAccuracy}%</span>
+                      <span>Skor terbaik {lvlState.bestScore}</span>
+                      <span>Akurasi {lvlState.bestAccuracy}%</span>
                     </div>
                   )}
                 </div>

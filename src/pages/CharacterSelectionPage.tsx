@@ -73,9 +73,10 @@ export function CharacterSelectionPage({
                       <h2 className="font-display text-2xl font-bold text-wayang-brown">
                         {char.name}
                       </h2>
-                      <p className="text-sm font-bold text-wayang-terracotta">
-                        {char.title} • {char.origin}
+                      <p className="text-sm font-semibold text-wayang-terracotta">
+                        {char.title}
                       </p>
+                      <p className="text-sm text-wayang-brown-light">{char.origin}</p>
                     </div>
                     {isSelected && (
                       <CheckCircle2 className="h-6 w-6 shrink-0 text-wayang-sage" />

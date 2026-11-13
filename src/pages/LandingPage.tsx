@@ -115,7 +115,7 @@ export function LandingPage({
               />
             </div>
             <p className="mt-2.5 text-center text-sm font-semibold text-wayang-brown-light">
-              Pratinjau 2 Tokoh Wayang di Kelir • Kamera hanya aktif setelah Anda mengizinkannya
+              Pratinjau dua tokoh wayang di kelir. Kamera hanya aktif setelah Anda mengizinkannya.
             </p>
           </motion.div>
         </div>
@@ -184,11 +184,11 @@ export function LandingPage({
               <CheckCircle2 className="h-4 w-4" />
               Berjalan Saat Ini
             </div>
-            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-wayang-charcoal/85 sm:text-sm">
-              <li>• Web interaktif berbasis browser & webcam desktop</li>
-              <li>• Pelacakan 21 titik tangan markerless via MediaPipe</li>
-              <li>• Pengenalan tokoh, Studio, Latihan Dasar, & 5 Level pemula</li>
-              <li>• Pemrosesan lokal di browser tanpa backend</li>
+            <ul className="mt-3 list-disc space-y-1.5 pl-5 marker:text-wayang-gold text-sm leading-relaxed text-wayang-charcoal/85">
+              <li>Web interaktif berbasis browser & webcam desktop</li>
+              <li>Pelacakan 21 titik tangan markerless via MediaPipe</li>
+              <li>Pengenalan tokoh, Studio, Latihan Dasar, & 5 Level pemula</li>
+              <li>Pemrosesan lokal di browser tanpa backend</li>
             </ul>
           </div>
 
@@ -197,10 +197,10 @@ export function LandingPage({
               <Clock className="h-4 w-4 text-wayang-terracotta" />
               Rencana Tahap Menengah
             </div>
-            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-wayang-charcoal/85 sm:text-sm">
-              <li>• Modul rangkaian scene cerita pewayangan utuh</li>
-              <li>• Narasi & audio dialog karakter (antawacana) saat wayang digerakkan</li>
-              <li>• Penyempurnaan gerak sabetan & validasi bersama dalang/sanggar</li>
+            <ul className="mt-3 list-disc space-y-1.5 pl-5 marker:text-wayang-gold text-sm leading-relaxed text-wayang-charcoal/85">
+              <li>Modul rangkaian scene cerita pewayangan utuh</li>
+              <li>Narasi & audio dialog karakter (antawacana) saat wayang digerakkan</li>
+              <li>Penyempurnaan gerak sabetan & validasi bersama dalang/sanggar</li>
             </ul>
           </div>
 
@@ -209,10 +209,10 @@ export function LandingPage({
               <Users className="h-4 w-4 text-wayang-brown" />
               Visi Jangka Panjang
             </div>
-            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-wayang-charcoal/85 sm:text-sm">
-              <li>• ARJUNA VR Experience & panggung pertunjukan virtual</li>
-              <li>• Ekspansi ke beragam tradisi wayang Nusantara</li>
-              <li>• Dukungan antarmuka dwibahasa Indonesia–Inggris</li>
+            <ul className="mt-3 list-disc space-y-1.5 pl-5 marker:text-wayang-gold text-sm leading-relaxed text-wayang-charcoal/85">
+              <li>ARJUNA VR Experience & panggung pertunjukan virtual</li>
+              <li>Ekspansi ke beragam tradisi wayang Nusantara</li>
+              <li>Dukungan antarmuka dwibahasa Indonesia–Inggris</li>
             </ul>
           </div>
         </div>
@@ -279,7 +279,7 @@ export function LandingPage({
                       : 'btn-secondary'
                   }`}
                 >
-                  {isSelected ? 'Sedang Dipilih • Mulai' : 'Pilih Tokoh Ini'}
+                  {isSelected ? 'Mulai dengan Tokoh Ini' : 'Pilih Tokoh Ini'}
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>

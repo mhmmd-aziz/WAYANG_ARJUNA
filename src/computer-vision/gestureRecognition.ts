@@ -389,7 +389,7 @@ export class GestureRecognizer {
 
     const label =
       motionGesture !== 'none' && staticGesture === 'open_palm'
-        ? `${GESTURE_LABELS.open_palm} • ${GESTURE_LABELS[motionGesture]}`
+        ? `${GESTURE_LABELS[motionGesture]} (${GESTURE_LABELS.open_palm})`
         : GESTURE_LABELS[primary];
 
     const description =
@@ -514,7 +514,7 @@ export class GestureRecognizer {
       isOpenPalm: anyOpen,
       isIndexUp: anyIndexUp,
       confidence: Math.max(leftGesture.confidence, rightGesture.confidence),
-      label: `2 Tangan • ${GESTURE_LABELS[primary]}`,
+      label: `2 Tangan: ${GESTURE_LABELS[primary]}`,
       description:
         'Mode Dalang 2 Tangan: Tangan kiri & kanan menggerakkan kedua lengan wayang!',
       handCount: 2,

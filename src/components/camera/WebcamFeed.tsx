@@ -84,7 +84,7 @@ export function WebcamFeed({
               }`}
             />
             {handDetected
-              ? `${handCount >= 2 ? '2 Tangan (Mode Dalang)' : '1 Tangan Terdeteksi'} • ${landmarkCount} Titik`
+              ? `${handCount >= 2 ? '2 Tangan' : '1 Tangan'} Terdeteksi (${landmarkCount} titik)`
               : isActive
                 ? 'Tunjukkan 1 atau 2 Tangan ke Kamera'
                 : 'Kamera Belum Aktif'}
