@@ -52,7 +52,7 @@ export function GestureInstructorDemo({
       <div>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-brown px-2.5 py-0.5 text-xs font-bold text-wayang-gold">
           <GraduationCap className="h-3.5 w-3.5" />
-          Contoh Guru Dalang
+          Contoh Gerakan
         </span>
         <h4 className="font-display mt-1 text-base font-bold text-wayang-brown">
           {title}

@@ -16,16 +16,16 @@ export const GAME_LEVELS: LevelDefinition[] = [
         type: 'detect_hand',
         title: 'Deteksi Tangan Pertama',
         instruction:
-          'Arahkan telapak tanganmu ke depan kamera sampai 21 titik tangan muncul!',
-        encouragement: 'Hebat! Tangan kamu berhasil terdeteksi!',
+          'Arahkan telapak tanganmu ke depan kamera sampai 21 titik tangan muncul.',
+        encouragement: 'Hebat! Tangan kamu berhasil terdeteksi.',
         holdDurationMs: 1100,
       },
       {
         id: 'l1-left',
         type: 'move_zone',
         title: 'Gerak ke Kiri Panggung',
-        instruction: 'Ayo geser tanganmu ke kiri untuk membawa wayang ke sisi kiri!',
-        encouragement: 'Bagus! Wayang berhasil bergerak ke kiri!',
+        instruction: 'Ayo geser tanganmu ke kiri untuk membawa wayang ke sisi kiri.',
+        encouragement: 'Bagus! Wayang berhasil bergerak ke kiri.',
         targetZone: {
           x: 0.24,
           y: 0.55,
@@ -39,8 +39,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l1-right',
         type: 'move_zone',
         title: 'Gerak ke Kanan Panggung',
-        instruction: 'Sekarang ayo gerakkan tangan ke kanan menuju titik emas!',
-        encouragement: 'Keren! Wayang meluncur mulus ke kanan!',
+        instruction: 'Sekarang ayo gerakkan tangan ke kanan menuju titik emas.',
+        encouragement: 'Keren! Wayang meluncur mulus ke kanan.',
         targetZone: {
           x: 0.76,
           y: 0.55,
@@ -54,8 +54,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l1-up',
         type: 'move_zone',
         title: 'Naik ke Atas',
-        instruction: 'Angkat tanganmu lebih tinggi untuk menerbangkan wayang ke atas!',
-        encouragement: 'Luar biasa! Kamu sudah akrab dengan wayangmu!',
+        instruction: 'Angkat tanganmu lebih tinggi untuk menerbangkan wayang ke atas.',
+        encouragement: 'Luar biasa! Kamu sudah akrab dengan wayangmu.',
         targetZone: {
           x: 0.5,
           y: 0.28,
@@ -81,8 +81,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l2-palm',
         type: 'perform_gesture',
         title: 'Telapak Tangan Terbuka',
-        instruction: 'Buka kelima jarimu lebar-lebar menghadap kamera!',
-        encouragement: 'Bagus! Wayang aktif dan siap menari!',
+        instruction: 'Buka kelima jarimu lebar-lebar menghadap kamera.',
+        encouragement: 'Bagus! Wayang aktif dan siap menari.',
         requiredGesture: 'open_palm',
         holdDurationMs: 1000,
       },
@@ -90,7 +90,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l2-fist',
         type: 'perform_gesture',
         title: 'Kepalan Tangan (Istirahat)',
-        instruction: 'Kepalkan seluruh jarimu untuk mengistirahatkan wayang!',
+        instruction: 'Kepalkan seluruh jarimu untuk mengistirahatkan wayang.',
         encouragement: 'Mantap! Wayang berhenti dengan tenang.',
         requiredGesture: 'closed_fist',
         holdDurationMs: 1000,
@@ -99,8 +99,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l2-index',
         type: 'perform_gesture',
         title: 'Angkat Jari Telunjuk',
-        instruction: 'Coba angkat hanya jari telunjukmu ke atas!',
-        encouragement: 'Hebat! Gerakan telunjukmu sangat jelas!',
+        instruction: 'Coba angkat hanya jari telunjukmu ke atas.',
+        encouragement: 'Hebat! Gerakan telunjukmu sangat jelas.',
         requiredGesture: 'index_up',
         holdDurationMs: 1000,
       },
@@ -109,8 +109,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         type: 'perform_gesture',
         title: 'Gerakan Jepit (Pinch)',
         instruction:
-          'Temukan ujung ibu jari dan jari telunjukmu seperti menjepit!',
-        encouragement: 'Sempurna! Jurus pusaka wayang menyala!',
+          'Temukan ujung ibu jari dan jari telunjukmu seperti menjepit.',
+        encouragement: 'Sempurna! Jurus pusaka wayang menyala.',
         requiredGesture: 'pinch',
         holdDurationMs: 900,
       },
@@ -130,8 +130,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l3-top-left',
         type: 'move_zone',
         title: 'Lentera Kiri Atas',
-        instruction: 'Arahkan wayang ke Lentera Kiri Atas dan tahan sebentar!',
-        encouragement: 'Tepat sasaran! Lentera pertama menyala!',
+        instruction: 'Arahkan wayang ke Lentera Kiri Atas dan tahan sebentar.',
+        encouragement: 'Tepat sasaran! Lentera pertama menyala.',
         targetZone: {
           x: 0.25,
           y: 0.3,
@@ -145,7 +145,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l3-bottom-mid',
         type: 'move_zone',
         title: 'Turun ke Dasar Panggung',
-        instruction: 'Turunkan tanganmu perlahan menuju titik di bawah tengah!',
+        instruction: 'Turunkan tanganmu perlahan menuju titik di bawah tengah.',
         encouragement: 'Kendali yang sangat halus!',
         targetZone: {
           x: 0.5,
@@ -160,8 +160,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l3-top-right',
         type: 'move_zone',
         title: 'Menara Kanan Atas',
-        instruction: 'Bawa wayang menuju Menara Kanan Atas!',
-        encouragement: 'Keren sekali! Menara kanan bersinar!',
+        instruction: 'Bawa wayang menuju Menara Kanan Atas.',
+        encouragement: 'Keren sekali! Menara kanan bersinar.',
         targetZone: {
           x: 0.75,
           y: 0.3,
@@ -175,8 +175,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l3-center',
         type: 'move_zone',
         title: 'Kembali ke Pusat Kelir',
-        instruction: 'Tutup perjalanan dengan membawa wayang tepat ke tengah panggung!',
-        encouragement: 'Luar biasa! Kamu benar-benar lincah mengendalikan wayang!',
+        instruction: 'Tutup perjalanan dengan membawa wayang tepat ke tengah panggung.',
+        encouragement: 'Luar biasa! Kamu benar-benar lincah mengendalikan wayang.',
         targetZone: {
           x: 0.5,
           y: 0.52,
@@ -206,8 +206,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storyNarration:
           'Matahari terbit di Kerajaan Amarta. Sang ksatria membuka tangan memberi salam damai.',
         instruction:
-          'Buka telapak tanganmu (Telapak Terbuka) untuk menyapa rakyat Amarta!',
-        encouragement: 'Salam diterima! Rakyat Amarta bersorak gembira!',
+          'Buka telapak tanganmu (Telapak Terbuka) untuk menyapa rakyat Amarta.',
+        encouragement: 'Salam diterima! Rakyat Amarta bersorak gembira.',
         requiredGesture: 'open_palm',
         holdDurationMs: 950,
       },
@@ -219,7 +219,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storyNarration:
           'Di sebelah kiri panggung, berkilau Pusaka Cahaya yang harus dijaga bersama.',
         instruction:
-          'Gerakkan wayang ke Pusaka di kiri, lalu lakukan gerakan Jepit (Pinch)!',
+          'Gerakkan wayang ke Pusaka di kiri, lalu lakukan gerakan Jepit (Pinch).',
         encouragement: 'Pusaka berhasil digenggam dengan penuh kehormatan!',
         requiredGesture: 'pinch',
         targetZone: {
@@ -245,7 +245,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Ki Dalang',
         storyNarration:
           'Kini sang ksatria bergegas menuju Gerbang Timur untuk menjaga ketenteraman negeri.',
-        instruction: 'Arahkan wayang menuju Gerbang Timur di sisi kanan!',
+        instruction: 'Arahkan wayang menuju Gerbang Timur di sisi kanan.',
         encouragement: 'Gerbang Timur telah aman terjaga!',
         targetZone: {
           x: 0.75,
@@ -270,7 +270,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Ki Dalang',
         storyNarration:
           'Negeri kembali damai! Saatnya memberi tanda kemenangan ke langit.',
-        instruction: 'Angkat jari telunjukmu ke atas sebagai tanda kemenangan!',
+        instruction: 'Angkat jari telunjukmu ke atas sebagai tanda kemenangan.',
         encouragement: 'Kisah selesai dengan gemilang, Juru Cerita hebat!',
         requiredGesture: 'index_up',
         holdDurationMs: 950,
@@ -291,8 +291,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l5-open',
         type: 'combo_sequence',
         title: 'Babak 1: Pembukaan Kelir',
-        instruction: 'Buka telapak tanganmu untuk membuka pementasan wayang!',
-        encouragement: 'Kelir terbuka! Gamelan mulai berbunyi!',
+        instruction: 'Buka telapak tanganmu untuk membuka pementasan wayang.',
+        encouragement: 'Kelir terbuka! Gamelan mulai berbunyi.',
         requiredGesture: 'open_palm',
         holdDurationMs: 900,
       },
@@ -300,7 +300,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l5-left',
         type: 'move_zone',
         title: 'Babak 2: Tari Pembuka di Kiri',
-        instruction: 'Bawa wayang menari ke sisi kiri panggung!',
+        instruction: 'Bawa wayang menari ke sisi kiri panggung.',
         encouragement: 'Gerakan tari yang sangat luwes!',
         targetZone: {
           x: 0.25,
@@ -316,7 +316,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         type: 'story_beat',
         title: 'Babak 3: Jurus Utama di Tengah',
         instruction:
-          'Kembali ke tengah kelir dan aktifkan jurus dengan gerakan Jepit (Pinch)!',
+          'Kembali ke tengah kelir dan aktifkan jurus dengan gerakan Jepit (Pinch).',
         encouragement: 'Jurus utama berhasil memukau seluruh penonton!',
         requiredGesture: 'pinch',
         targetZone: {
@@ -332,7 +332,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l5-right-top',
         type: 'move_zone',
         title: 'Babak 4: Lompatan Ksatria',
-        instruction: 'Arahkan wayang melompat tinggi ke kanan atas!',
+        instruction: 'Arahkan wayang melompat tinggi ke kanan atas.',
         encouragement: 'Lompatan sempurna di puncak kelir!',
         targetZone: {
           x: 0.75,
@@ -348,8 +348,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         type: 'perform_gesture',
         title: 'Babak 5: Salam Penutup Dalang',
         instruction:
-          'Kepalkan tanganmu dengan tenang untuk menutup pertunjukan!',
-        encouragement: 'Luar biasa! Kamu resmi menjadi Dalang Cilik!',
+          'Kepalkan tanganmu dengan tenang untuk menutup pertunjukan.',
+        encouragement: 'Luar biasa! Kamu resmi menjadi Dalang Cilik.',
         requiredGesture: 'closed_fist',
         holdDurationMs: 1000,
       },
@@ -375,7 +375,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Ki Dalang',
         storyNarration:
           'Mbok Srini menyerahkan bungkusan sakti kepada Timun Mas agar berani menghadapi raksasa serakah.',
-        instruction: 'Buka telapak tanganmu untuk menerima bekal sakti!',
+        instruction: 'Buka telapak tanganmu untuk menerima bekal sakti.',
         encouragement: 'Bekal telah diterima dengan penuh keberanian!',
         requiredGesture: 'open_palm',
         holdDurationMs: 850,
@@ -387,8 +387,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Buto Ijo',
         storyNarration:
           'Langkah raksasa mengguncang tanah! Arahkan wayang menuju Hutan Bambu di sisi kiri kelir.',
-        instruction: 'Geser wayang menuju Hutan Bambu di kiri!',
-        encouragement: 'Lincah sekali! Langkahmu menghindari kejaran!',
+        instruction: 'Geser wayang menuju Hutan Bambu di kiri.',
+        encouragement: 'Lincah sekali! Langkahmu menghindari kejaran.',
         targetZone: {
           x: 0.24,
           y: 0.54,
@@ -406,8 +406,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storyNarration:
           'Saatnya menebar bungkusan garam agar terhampar lautan penghalang.',
         instruction:
-          'Lakukan gerakan Jepit (Pinch) untuk melepaskan pusaka garam!',
-        encouragement: 'Berhasil! Lautan menghentikan kejaran Buto Ijo!',
+          'Lakukan gerakan Jepit (Pinch) untuk melepaskan pusaka garam.',
+        encouragement: 'Berhasil! Lautan menghentikan kejaran Buto Ijo.',
         requiredGesture: 'pinch',
         holdDurationMs: 850,
       },
@@ -418,7 +418,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Ki Dalang',
         storyNarration:
           'Timun Mas pulang dengan selamat. Angkat telunjuk ke langit sebagai tanda syukur!',
-        instruction: 'Angkat jari telunjukmu ke atas!',
+        instruction: 'Angkat jari telunjukmu ke atas.',
         encouragement: 'Kisah Timun Mas selesai dengan gemilang!',
         requiredGesture: 'index_up',
         holdDurationMs: 850,
@@ -445,7 +445,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Ki Dalang',
         storyNarration:
           'Kapal megah berlabuh di Pantai Air Manis. Arahkan tokoh ke Dermaga Kanan untuk menyapa warga kampung.',
-        instruction: 'Gerakkan wayang menuju Dermaga Kanan!',
+        instruction: 'Gerakkan wayang menuju Dermaga Kanan.',
         encouragement: 'Kapal bersandar dengan mulus di pelabuhan!',
         targetZone: {
           x: 0.75,
@@ -464,7 +464,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storyNarration:
           'Seorang ibu berdiri di tepi pantai menunggu anaknya dengan doa tulus.',
         instruction:
-          'Dekati sisi kiri pantai dan buka telapak tanganmu untuk memberi hormat!',
+          'Dekati sisi kiri pantai dan buka telapak tanganmu untuk memberi hormat.',
         encouragement: 'Penghormatan yang tulus kepada orang tua!',
         requiredGesture: 'open_palm',
         targetZone: {
@@ -484,7 +484,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storyNarration:
           'Kisah Sumatra Barat mengajarkan bahwa harta dan pangkat tak pernah menggantikan bakti kepada ibu.',
         instruction:
-          'Kepalkan tangan dengan tenang untuk merenungkan amanat cerita!',
+          'Kepalkan tangan dengan tenang untuk merenungkan amanat cerita.',
         encouragement: 'Pelajaran berharga dari pesisir Minangkabau!',
         requiredGesture: 'closed_fist',
         holdDurationMs: 900,
@@ -511,7 +511,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Ki Dalang',
         storyNarration:
           'Di bawah sinar rembulan Prambanan, susun pilar pertama di sisi kiri!',
-        instruction: 'Arahkan wayang ke Pilar Barat di kiri atas!',
+        instruction: 'Arahkan wayang ke Pilar Barat di kiri atas.',
         encouragement: 'Pilar barat berdiri kokoh!',
         targetZone: {
           x: 0.25,
@@ -530,7 +530,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storyNarration:
           'Bawa batu utama ke tengah kelir dan kunci dengan gerakan jepit!',
         instruction:
-          'Arahkan ke Tengah Kelir lalu lakukan gerakan Jepit (Pinch)!',
+          'Arahkan ke Tengah Kelir lalu lakukan gerakan Jepit (Pinch).',
         encouragement: 'Puncak candi utama terpasang megah!',
         requiredGesture: 'pinch',
         targetZone: {
@@ -549,7 +549,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Roro Jonggrang',
         storyNarration:
           'Fajar tiba membawa pelajaran tentang pentingnya ketulusan janji.',
-        instruction: 'Angkat telunjuk ke atas di Pelataran Timur!',
+        instruction: 'Angkat telunjuk ke atas di Pelataran Timur.',
         encouragement: 'Kisah Prambanan berhasil engkau pentaskan!',
         requiredGesture: 'index_up',
         targetZone: {
@@ -569,7 +569,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
     subtitle: 'Lisensi Sanggar & Sekolah',
     difficulty: 'Tantangan',
     accessTier: 'institutional',
-    packLabel: 'Lisensi Sanggar & Sekolah (B2B)',
+    packLabel: 'Lisensi Sanggar & Sekolah',
     culturalRegion: 'Epos Mahabharata Nusantara',
     description:
       'Latihan fokus tingkat lanjut: kendalikan kuda-kuda tenang, sabetan kanan atas, dan bidikan jepit Pasopati.',
@@ -583,7 +583,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Raden Arjuna',
         storyNarration:
           'Sebelum melepas panah Pasopati, seorang ksatria melatih ketenangan napas dan tangan.',
-        instruction: 'Kepalkan tanganmu dengan tenang untuk memusatkan pikiran!',
+        instruction: 'Kepalkan tanganmu dengan tenang untuk memusatkan pikiran.',
         encouragement: 'Fokus dan ketenangan ksatria sudah tercapai!',
         requiredGesture: 'closed_fist',
         holdDurationMs: 900,
@@ -592,7 +592,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l9-s2',
         type: 'combo_sequence',
         title: 'Babak 2: Sabetan Panah Kanan Atas',
-        instruction: 'Bawa wayang ke sudut kanan atas sambil mengangkat telunjuk!',
+        instruction: 'Bawa wayang ke sudut kanan atas sambil mengangkat telunjuk.',
         encouragement: 'Arah sabetan tinggi sangat mantap!',
         requiredGesture: 'index_up',
         targetZone: {
@@ -609,7 +609,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         type: 'combo_sequence',
         title: 'Babak 3: Bidikan Pusaka Kiri',
         instruction:
-          'Pindahkan wayang ke sasaran kiri dan lakukan gerakan Jepit (Pinch)!',
+          'Pindahkan wayang ke sasaran kiri dan lakukan gerakan Jepit (Pinch).',
         encouragement: 'Pasopati meluncur tepat sasaran!',
         requiredGesture: 'pinch',
         targetZone: {
@@ -629,7 +629,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
     subtitle: 'Puncak Sanggar & Sekolah',
     difficulty: 'Tantangan',
     accessTier: 'institutional',
-    packLabel: 'Lisensi Sanggar & Sekolah (B2B)',
+    packLabel: 'Lisensi Sanggar & Sekolah',
     culturalRegion: 'Gelar Pewayangan Nusantara',
     description:
       'Ujian puncak pementasan 4 babak menguji salam kelir, jangkahan kiri-kanan, jurus pusaka, dan tancep kayon.',
@@ -643,7 +643,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Ki Dalang',
         storyNarration:
           'Gamelan agung bertalu. Para penonton pelajar dan sanggar menanti pembukaanmu.',
-        instruction: 'Buka telapak tangan lebar-lebar di tengah panggung!',
+        instruction: 'Buka telapak tangan lebar-lebar di tengah panggung.',
         encouragement: 'Kelir terbuka dengan megah!',
         requiredGesture: 'open_palm',
         targetZone: {
@@ -659,7 +659,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         id: 'l10-s2',
         type: 'move_zone',
         title: 'Babak 2: Jangkahan Sabetan Kiri',
-        instruction: 'Luncurkan wayang menuju Lentera Kiri Atas!',
+        instruction: 'Luncurkan wayang menuju Lentera Kiri Atas.',
         encouragement: 'Alur gerak kiri sangat teratur!',
         targetZone: {
           x: 0.24,
@@ -675,7 +675,7 @@ export const GAME_LEVELS: LevelDefinition[] = [
         type: 'combo_sequence',
         title: 'Babak 3: Jurus Ksatria Kanan',
         instruction:
-          'Lintasi kelir ke sisi kanan lalu aktifkan jurus Jepit (Pinch)!',
+          'Lintasi kelir ke sisi kanan lalu aktifkan jurus Jepit (Pinch).',
         encouragement: 'Sabetan lintas panggung yang luar biasa!',
         requiredGesture: 'pinch',
         targetZone: {
@@ -694,8 +694,8 @@ export const GAME_LEVELS: LevelDefinition[] = [
         storySpeaker: 'Ki Lurah Semar',
         storyNarration:
           'Tutup pementasan agung Nusantara dengan hormat kepada tradisi dan para dalang.',
-        instruction: 'Kepalkan tanganmu dengan tenang untuk tancep kayon!',
-        encouragement: 'Selamat! Kamu menamatkan seluruh 10 Level ARJUNA!',
+        instruction: 'Kepalkan tanganmu dengan tenang untuk tancep kayon.',
+        encouragement: 'Selamat! Kamu menamatkan seluruh 10 Level ARJUNA.',
         requiredGesture: 'closed_fist',
         holdDurationMs: 950,
       },

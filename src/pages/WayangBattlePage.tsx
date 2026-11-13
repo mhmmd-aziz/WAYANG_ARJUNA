@@ -566,7 +566,7 @@ export function WayangBattlePage({
                 cameraStatus === 'active' &&
                 controlMode === 'two_hands' &&
                 handCount === 1
-                  ? '1 tangan terdeteksi — angkat tangan satunya agar kedua wayang bertarung!'
+                  ? '1 tangan terdeteksi. Angkat tangan satunya agar kedua wayang bertarung.'
                   : null
               }
             />
@@ -583,7 +583,7 @@ export function WayangBattlePage({
                   </span>
                   <h3 className="font-display mt-2 text-2xl font-bold text-wayang-brown">
                     {hud.winner === 'draw'
-                      ? 'Pertandingan Seri!'
+                      ? 'Pertandingan Seri'
                       : `Pemenang: ${winnerName}`}
                   </h3>
                   <p className="mt-1 text-sm text-wayang-charcoal/80">
@@ -705,7 +705,7 @@ export function WayangBattlePage({
               <li>
                 Pastikan speaker menyala untuk mendengar efek suara{' '}
                 <em>whoosh</em>, benturan perisai, pukulan <em>kendang</em>, dan
-                gong kemenangan!
+                gong kemenangan.
               </li>
             </ul>
           </div>

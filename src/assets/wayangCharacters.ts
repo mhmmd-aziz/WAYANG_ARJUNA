@@ -11,7 +11,7 @@ export const WAYANG_CHARACTERS: PuppetCharacter[] = [
     culturalBackground:
       'Arjuna adalah putra ketiga Pandawa yang terkenal berwajah rupawan, halus budi pekertinya, dan sangat fokus saat berlatih memanah. Dalam tradisi wayang kulit, gerakan Arjuna terlihat anggun dan seimbang.',
     funFact:
-      'Senjata andalan Arjuna adalah Panah Pasopati yang diberikan oleh Batara Guru!',
+      'Senjata andalan Arjuna adalah Panah Pasopati yang diberikan oleh Batara Guru.',
     specialMoveName: 'Tari Panah Pasopati',
     signatureItem: 'Busur & Panah Emas',
     palette: {
@@ -59,7 +59,7 @@ export const WAYANG_CHARACTERS: PuppetCharacter[] = [
     culturalBackground:
       'Dewi Srikandi adalah simbol keberanian dan ketangkasan. Ia belajar memanah langsung dari Arjuna dan berani maju di medan pertempuran demi membela kebenaran bersama Pandawa.',
     funFact:
-      'Di Indonesia, nama "Srikandi" sering digunakan untuk menyebut perempuan hebat dan pemberani!',
+      'Di Indonesia, nama "Srikandi" sering digunakan untuk menyebut perempuan hebat dan pemberani.',
     specialMoveName: 'Kibasan Selendang Sakti',
     signatureItem: 'Selendang & Panah Pusaka',
     palette: {
@@ -83,7 +83,7 @@ export const WAYANG_CHARACTERS: PuppetCharacter[] = [
     culturalBackground:
       'Semar adalah pemimpin kelompok Punakawan (Semar, Gareng, Petruk, Bagong). Walau penampilannya sederhana dan lucu, Semar sebenarnya tokoh sakti yang selalu menjaga kedamaian serta keadilan.',
     funFact:
-      'Punakawan adalah tokoh asli ciptaan budaya Indonesia yang tidak ada di kisah India!',
+      'Punakawan adalah tokoh asli ciptaan budaya Indonesia yang tidak ada di kisah India.',
     specialMoveName: 'Tawa Bijaksana Punakawan',
     signatureItem: 'Kuncung Putih & Selendang',
     palette: {

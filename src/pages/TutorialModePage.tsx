@@ -41,8 +41,8 @@ const TUTORIAL_LEVEL: LevelDefinition = {
       type: 'detect_hand',
       title: 'Langkah 1: Sapa Kamera',
       instruction:
-        'Angkat tanganmu ke depan kamera sampai 21 titik tangan terlihat!',
-      encouragement: 'Hebat! Tangan kamu berhasil terdeteksi!',
+        'Angkat tanganmu ke depan kamera sampai 21 titik tangan terlihat.',
+      encouragement: 'Hebat! Tangan kamu berhasil terdeteksi.',
       holdDurationMs: 1000,
     },
     {
@@ -50,8 +50,8 @@ const TUTORIAL_LEVEL: LevelDefinition = {
       type: 'perform_gesture',
       title: 'Langkah 2: Telapak Tangan Terbuka',
       instruction:
-        'Buka kelima jarimu lebar-lebar untuk mengaktifkan tokoh wayang!',
-      encouragement: 'Bagus! Wayang aktif dan siap mengikuti tanganmu!',
+        'Buka kelima jarimu lebar-lebar untuk mengaktifkan tokoh wayang.',
+      encouragement: 'Bagus! Wayang aktif dan siap mengikuti tanganmu.',
       requiredGesture: 'open_palm',
       holdDurationMs: 1000,
     },
@@ -60,8 +60,8 @@ const TUTORIAL_LEVEL: LevelDefinition = {
       type: 'move_zone',
       title: 'Langkah 3: Gerakkan ke Kanan',
       instruction:
-        'Geser tanganmu ke sebelah kanan untuk mengarahkan wayang ke bintang emas!',
-      encouragement: 'Bagus! Wayang berhasil bergerak ke kanan!',
+        'Geser tanganmu ke sebelah kanan untuk mengarahkan wayang ke bintang emas.',
+      encouragement: 'Bagus! Wayang berhasil bergerak ke kanan.',
       targetZone: {
         x: 0.74,
         y: 0.54,
@@ -76,8 +76,8 @@ const TUTORIAL_LEVEL: LevelDefinition = {
       type: 'perform_gesture',
       title: 'Langkah 4: Angkat Jari Telunjuk',
       instruction:
-        'Coba angkat hanya jari telunjukmu ke atas sambil menekuk jari lain!',
-      encouragement: 'Keren! Telunjukmu mengarahkan lengan wayang ke atas!',
+        'Coba angkat hanya jari telunjukmu ke atas sambil menekuk jari lain.',
+      encouragement: 'Keren! Telunjukmu mengarahkan lengan wayang ke atas.',
       requiredGesture: 'index_up',
       holdDurationMs: 950,
     },
@@ -86,8 +86,8 @@ const TUTORIAL_LEVEL: LevelDefinition = {
       type: 'perform_gesture',
       title: 'Langkah 5: Kepalan Tangan (Istirahat)',
       instruction:
-        'Kepalkan jarimu agar wayang berhenti dengan tenang di panggung!',
-      encouragement: 'Luar biasa! Kamu sudah siap bermain Level Tantangan!',
+        'Kepalkan jarimu agar wayang berhenti dengan tenang di panggung.',
+      encouragement: 'Luar biasa! Kamu sudah siap bermain Level Tantangan.',
       requiredGesture: 'closed_fist',
       holdDurationMs: 950,
     },
@@ -253,7 +253,7 @@ export function TutorialModePage({
             </p>
             <h1 className="font-display mt-0.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
               {tutorialDone
-                ? 'Selamat! Tutorial Selesai!'
+                ? 'Tutorial Selesai'
                 : currentStep.title}
             </h1>
           </div>
@@ -295,12 +295,12 @@ export function TutorialModePage({
             <CheckCircle2 className="h-10 w-10" />
           </div>
           <h2 className="font-display mt-4 text-3xl font-bold text-wayang-brown">
-            Luar Biasa! Kamu Siap Jadi Dalang Cilik!
+            Kamu Siap Memulai Level Tantangan
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-base text-wayang-charcoal/80">
             Kamu sudah menguasai deteksi tangan, telapak terbuka, gerak kanan,
-            telunjuk atas, dan kepalan istirahat. Sekarang saatnya menaklukkan
-            5 Level Tantangan!
+            telunjuk atas, dan kepalan istirahat. Lanjutkan ke Level 1 untuk
+            melatihnya dalam tantangan.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <button

@@ -297,11 +297,11 @@ export function HandDetectionStudioPage({
             }
             statusBanner={
               cameraStatus === 'active' && !handDetected
-                ? 'Arahkan 1 atau 2 tanganmu ke kamera untuk memainkan wayang!'
+                ? 'Arahkan 1 atau 2 tanganmu ke kamera untuk memainkan wayang.'
                 : cameraStatus === 'active' &&
                     stageMode === 'two_puppets' &&
                     handCount === 1
-                  ? '1 tangan terdeteksi! Angkat kedua tanganmu untuk menggerakkan kedua wayang!'
+                  ? '1 tangan terdeteksi. Angkat kedua tanganmu untuk menggerakkan kedua wayang.'
                   : null
             }
           />

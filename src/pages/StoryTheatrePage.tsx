@@ -303,11 +303,11 @@ export function StoryTheatrePage({
               Pratinjau Paket Lakon Nusantara
             </span>
             <h2 className="font-display text-lg font-bold text-wayang-brown">
-              Cerita Rakyat "{selectedStory.title}" Termasuk Paket Lakon Berbayar
+              "{selectedStory.title}" termasuk Paket Lakon Nusantara
             </h2>
             <p className="mt-0.5 text-sm text-wayang-charcoal/85 sm:text-sm">
-              Pada simulasi model bisnis ARJUNA, paket lakon cerita rakyat bersuara dapat dibuka
-              untuk pengguna paket episode B2C atau lisensi sanggar/sekolah B2B.
+              Cerita ini direncanakan untuk paket lakon atau lisensi sekolah/sanggar. Di versi
+              ini Anda dapat membukanya lewat pratinjau tanpa pembayaran.
             </p>
           </div>
           <button
@@ -315,7 +315,7 @@ export function StoryTheatrePage({
             onClick={() => onSelectPlan('lakon_pack')}
             className="btn btn-primary"
           >
-            Aktifkan Pratinjau Paket Lakon (Demo)
+            Coba Pratinjau Paket Lakon
           </button>
         </div>
       )}

@@ -52,7 +52,7 @@ export function ResultPage({
         </p>
 
         <h1 className="font-display mt-2 text-3xl font-bold text-wayang-brown sm:text-4xl">
-          {result.passed ? 'Hebat! Tantangan Berhasil!' : 'Waktu Habis, Coba Lagi Yuk!'}
+          {result.passed ? 'Tantangan Berhasil!' : 'Waktu Habis, Coba Lagi'}
         </h1>
 
         <p className="mx-auto mt-2 max-w-lg text-sm leading-relaxed text-wayang-charcoal/85 sm:text-base">
@@ -108,8 +108,8 @@ export function ResultPage({
             <div>
               <span className="text-sm font-semibold text-wayang-terracotta">
                 {result.newlyEarned
-                  ? 'Penghargaan Baru Terbuka!'
-                  : 'Penghargaan Dimiliki'}
+                  ? 'Lencana baru diraih'
+                  : 'Lencana sudah dimiliki'}
               </span>
               <h2 className="font-display text-xl font-bold text-wayang-brown">
                 {result.earnedBadge.name}

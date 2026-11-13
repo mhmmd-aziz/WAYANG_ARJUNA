@@ -14,7 +14,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'first_wayang',
     name: 'Lencana Wayang Pertama',
     description:
-      'Berhasil mengenalkan tangan ke kamera dan menggerakkan wayang pertamamu!',
+      'Berhasil mengenalkan tangan ke kamera dan menggerakkan wayang pertamamu.',
     levelId: 1,
     color: '#D4A843',
   },
@@ -22,7 +22,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'gesture_master',
     name: 'Lencana Ahli Gerak Tangan',
     description:
-      'Menguasai telapak terbuka, kepalan tangan, telunjuk atas, dan gerakan jepit!',
+      'Menguasai telapak terbuka, kepalan tangan, telunjuk atas, dan gerakan jepit.',
     levelId: 2,
     color: '#C65D3B',
   },
@@ -30,7 +30,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'puppet_controller',
     name: 'Lencana Pengendali Wayang',
     description:
-      'Mampu mengarahkan wayang ke berbagai titik panggung dengan akurat!',
+      'Mampu mengarahkan wayang ke berbagai titik panggung dengan akurat.',
     levelId: 3,
     color: '#3D7A5A',
   },
@@ -38,7 +38,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'storyteller',
     name: 'Lencana Juru Cerita',
     description:
-      'Berhasil memainkan adegan cerita rakyat Nusantara bersama wayang!',
+      'Berhasil memainkan adegan cerita rakyat Nusantara bersama wayang.',
     levelId: 4,
     color: '#6B422B',
   },
@@ -46,7 +46,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'dalang_cilik',
     name: 'Lencana Dalang Pemula',
     description:
-      'Menuntaskan 5 level dasar ARJUNA dengan keterampilan sabetan awal!',
+      'Menuntaskan 5 level dasar ARJUNA dengan keterampilan sabetan awal.',
     levelId: 5,
     color: '#D4A843',
   },
@@ -54,7 +54,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'timun_mas_hero',
     name: 'Lencana Keberanian Timun Mas',
     description:
-      'Menaklukkan lakon cerita rakyat Timun Mas & Raksasa dari Jawa Tengah!',
+      'Menaklukkan lakon cerita rakyat Timun Mas & Raksasa dari Jawa Tengah.',
     levelId: 6,
     color: '#3D7A5A',
   },
@@ -62,7 +62,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'minang_navigator',
     name: 'Lencana Bakti Nusantara',
     description:
-      'Menyelesaikan lakon Malin Kundang & memahami nilai bakti kepada orang tua!',
+      'Menyelesaikan lakon Malin Kundang & memahami nilai bakti kepada orang tua.',
     levelId: 7,
     color: '#C65D3B',
   },
@@ -70,7 +70,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'prambanan_builder',
     name: 'Lencana Candi Prambanan',
     description:
-      'Menyusun candi seribu dengan ketepatan sabetan kiri, tengah, dan timur!',
+      'Menyusun candi seribu dengan ketepatan sabetan kiri, tengah, dan timur.',
     levelId: 8,
     color: '#8B5A2B',
   },
@@ -78,7 +78,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'pasopati_master',
     name: 'Lencana Pemanah Pasopati',
     description:
-      'Menguasai latihan fokus tingkat lanjut bersama Raden Arjuna!',
+      'Menguasai latihan fokus tingkat lanjut bersama Raden Arjuna.',
     levelId: 9,
     color: '#9E3124',
   },
@@ -86,7 +86,7 @@ export const BADGES: BadgeDefinition[] = [
     id: 'mahaguru_dalang',
     name: 'Piala Agung Dalang Nusantara',
     description:
-      'Penghargaan tertinggi ARJUNA! Menuntaskan seluruh 10 level pembelajaran wayang & cerita rakyat!',
+      'Penghargaan tertinggi ARJUNA! Menuntaskan seluruh 10 level pembelajaran wayang & cerita rakyat.',
     levelId: 10,
     color: '#D4A843',
     isTrophy: true,

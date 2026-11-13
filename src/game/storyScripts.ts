@@ -32,7 +32,7 @@ export const FOLKLORE_STORIES: FolkloreStoryDefinition[] = [
     title: 'Misi Pusaka Kerajaan Amarta',
     region: 'Pewayangan Pandawa, Jawa',
     tier: 'free',
-    tierLabel: 'Gratis (Freemium)',
+    tierLabel: 'Gratis',
     leadCharacterId: 'arjuna',
     durationLabel: '4 Adegan Bersuara',
     summary:
@@ -154,7 +154,7 @@ export const FOLKLORE_STORIES: FolkloreStoryDefinition[] = [
           label: 'Hutan Bambu',
           icon: 'left',
         },
-        gestureCueLabel: 'Geser cepat ke Hutan Bambu di sisi kiri untuk menghindar!',
+        gestureCueLabel: 'Geser cepat ke Hutan Bambu di sisi kiri untuk menghindar.',
       },
       {
         id: 'timun-3',
@@ -168,7 +168,7 @@ export const FOLKLORE_STORIES: FolkloreStoryDefinition[] = [
         culturalNote:
           'Gerakan jari telunjuk dan jepit melambangkan aksi tegas tokoh dalam adegan klimaks.',
         recommendedGesture: 'pinch',
-        gestureCueLabel: 'Lakukan gerakan Jepit (Pinch) untuk melempar bungkusan garam sakti!',
+        gestureCueLabel: 'Lakukan gerakan Jepit (Pinch) untuk melempar bungkusan garam sakti.',
       },
       {
         id: 'timun-4',
@@ -237,7 +237,7 @@ export const FOLKLORE_STORIES: FolkloreStoryDefinition[] = [
           label: 'Pelataran Candi',
           icon: 'gate',
         },
-        gestureCueLabel: 'Pindahkan wayang menuju Pelataran Candi di sisi kanan!',
+        gestureCueLabel: 'Pindahkan wayang menuju Pelataran Candi di sisi kanan.',
       },
       {
         id: 'candi-3',
@@ -260,7 +260,7 @@ export const FOLKLORE_STORIES: FolkloreStoryDefinition[] = [
     title: 'Pitutur Bijak Ki Lurah Semar',
     region: 'Punakawan Asli Nusantara',
     tier: 'free',
-    tierLabel: 'Gratis (Freemium)',
+    tierLabel: 'Gratis',
     leadCharacterId: 'semar',
     durationLabel: '3 Adegan Bersuara',
     summary:
@@ -300,7 +300,7 @@ export const FOLKLORE_STORIES: FolkloreStoryDefinition[] = [
           label: 'Cahaya Kelir',
           icon: 'lantern',
         },
-        gestureCueLabel: 'Posisikan wayang di tengah kelir sambil mengangkat jari telunjuk!',
+        gestureCueLabel: 'Posisikan wayang di tengah kelir sambil mengangkat jari telunjuk.',
       },
       {
         id: 'semar-3',

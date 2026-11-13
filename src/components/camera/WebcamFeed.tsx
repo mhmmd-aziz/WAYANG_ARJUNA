@@ -158,7 +158,7 @@ export function WebcamFeed({
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-wayang-brown/95 p-6 text-center text-wayang-cream">
             <AlertTriangle className="h-10 w-10 text-wayang-gold" />
             <p className="font-display text-lg font-bold">
-              Ups, Kamera Perlu Bantuan
+              Kamera Belum Bisa Dipakai
             </p>
             <p className="max-w-sm text-sm text-wayang-cream/90">
               {cameraError ?? modelError}

@@ -516,7 +516,7 @@ export class GestureRecognizer {
       confidence: Math.max(leftGesture.confidence, rightGesture.confidence),
       label: `2 Tangan: ${GESTURE_LABELS[primary]}`,
       description:
-        'Mode Dalang 2 Tangan: Tangan kiri & kanan menggerakkan kedua lengan wayang!',
+        'Tangan kiri dan kanan menggerakkan kedua lengan wayang.',
       handCount: 2,
       leftHand: leftGesture,
       rightHand: rightGesture,

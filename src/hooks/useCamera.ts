@@ -28,14 +28,14 @@ function mapCameraError(err: unknown): {
       return {
         status: 'denied',
         message:
-          'Izin kamera belum diberikan. Yuk klik "Izinkan Kamera" di browser kamu agar wayang bisa melihat tanganmu!',
+          'Izin kamera belum diberikan. Yuk klik "Izinkan Kamera" di browser kamu agar wayang bisa melihat tanganmu.',
       };
     }
     if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
       return {
         status: 'unavailable',
         message:
-          'Kamera tidak ditemukan. Pastikan webcam terpasang dengan baik ya!',
+          'Kamera tidak ditemukan. Pastikan webcam terpasang dengan baik.',
       };
     }
     if (err.name === 'NotReadableError' || err.name === 'TrackStartError') {
@@ -75,7 +75,7 @@ export function useCamera(autoStart = false): UseCameraResult {
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       setStatus('unavailable');
       setErrorMessage(
-        'Browser ini belum mendukung akses kamera. Gunakan Google Chrome atau Edge versi terbaru ya!'
+        'Browser ini belum mendukung akses kamera. Gunakan Google Chrome atau Edge versi terbaru.'
       );
       return false;
     }

@@ -42,7 +42,7 @@ export function BadgeCard({ badge, earned }: BadgeCardProps) {
               : 'bg-wayang-brown/10 text-wayang-brown/60'
           }`}
         >
-          {earned ? 'Sudah Diraih!' : `Selesaikan Level ${badge.levelId}`}
+          {earned ? 'Sudah diraih' : `Selesaikan Level ${badge.levelId}`}
         </span>
       </div>
     </div>
