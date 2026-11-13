@@ -4,6 +4,7 @@ import { createDefaultPose } from '../../puppet-engine/PuppetSkeleton';
 import {
   createInitialProgress,
   recordLevelCompletion,
+  switchCommercialPlan,
 } from '../achievementManager';
 import { WayangBattleEngine } from '../battleEngine';
 import { ChallengeEvaluator } from '../challengeManager';
@@ -11,10 +12,10 @@ import { GAME_LEVELS, getLevelById } from '../levelManager';
 import { buildChallengeResult } from '../scoreManager';
 
 describe('Gamification Engine', () => {
-  it('defines 5 progressive levels with unique badges', () => {
-    expect(GAME_LEVELS).toHaveLength(5);
+  it('defines 10 progressive levels with unique badges', () => {
+    expect(GAME_LEVELS).toHaveLength(10);
     const badgeIds = new Set(GAME_LEVELS.map((l) => l.badgeId));
-    expect(badgeIds.size).toBe(5);
+    expect(badgeIds.size).toBe(10);
   });
 
   it('advances steps and passes Level 1 when objectives are held', () => {
@@ -79,6 +80,22 @@ describe('Gamification Engine', () => {
     expect(nextState.levels[1].completed).toBe(true);
     expect(nextState.levels[2].unlocked).toBe(true);
     expect(nextState.earnedBadgeIds).toContain('first_wayang');
+  });
+
+  it('unlocks commercial pack levels via switchCommercialPlan frontend simulator', () => {
+    const base = createInitialProgress();
+    expect(base.levels[6].unlocked).toBe(false);
+    expect(base.levels[9].unlocked).toBe(false);
+
+    const withLakon = switchCommercialPlan(base, 'lakon_pack');
+    expect(withLakon.activePlan).toBe('lakon_pack');
+    expect(withLakon.levels[6].unlocked).toBe(true);
+    expect(withLakon.levels[8].unlocked).toBe(true);
+    expect(withLakon.levels[9].unlocked).toBe(false);
+
+    const withSchool = switchCommercialPlan(withLakon, 'institutional');
+    expect(withSchool.levels[9].unlocked).toBe(true);
+    expect(withSchool.levels[10].unlocked).toBe(true);
   });
 
   it('handles battle strikes, defense blocking, and jurus projectiles', () => {

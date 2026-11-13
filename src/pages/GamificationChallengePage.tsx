@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, BookOpenText, Clock, RotateCcw } from 'lucide-react';
+import { ArrowLeft, BookOpenText, Clock, RotateCcw, Volume2 } from 'lucide-react';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
 import { GestureInstructorDemo } from '../components/game/GestureInstructorDemo';
 import { GestureStatusPanel } from '../components/hand-tracking/GestureStatusPanel';
@@ -18,6 +18,7 @@ import type {
   PuppetCharacterId,
 } from '../types';
 import { soundEffects } from '../utils/sound';
+import { storyAudio } from '../utils/storyAudio';
 
 interface GamificationChallengePageProps {
   levelId: LevelId;
@@ -72,8 +73,24 @@ export function GamificationChallengePage({
   useEffect(() => {
     return () => {
       if (bannerTimerRef.current) window.clearTimeout(bannerTimerRef.current);
+      storyAudio.stop();
     };
   }, []);
+
+  const currentStep =
+    level.steps[Math.min(stepIdx, level.steps.length - 1)] ?? level.steps[0];
+
+  useEffect(() => {
+    if (currentStep?.storyNarration) {
+      storyAudio.speakScene({
+        narration: currentStep.storyNarration,
+        speaker: currentStep.storySpeaker ?? 'Ki Dalang',
+        playSceneCue: true,
+      });
+    } else {
+      storyAudio.stop();
+    }
+  }, [currentStep]);
 
   const showBanner = useCallback((msg: string) => {
     setBanner(msg);
@@ -168,9 +185,6 @@ export function GamificationChallengePage({
     setLiveHint(null);
   };
 
-  const currentStep =
-    level.steps[stepIdx] ?? level.steps[level.steps.length - 1];
-
   return (
     <div className="mx-auto max-w-7xl space-y-5 px-4 py-6 sm:px-6">
       {/* Top Challenge Header */}
@@ -243,11 +257,27 @@ export function GamificationChallengePage({
         <div className="space-y-4 lg:col-span-7">
           {currentStep.storyNarration && (
             <div className="rounded-3xl border-2 border-wayang-brown/20 bg-wayang-brown p-4 text-wayang-cream shadow-card">
-              <div className="flex items-center gap-2 text-xs font-bold text-wayang-gold">
-                <BookOpenText className="h-4 w-4" />
-                {currentStep.storySpeaker ?? 'Narasi Cerita'}
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-wayang-gold">
+                  <BookOpenText className="h-4 w-4" />
+                  {currentStep.storySpeaker ?? 'Narasi Cerita'}
+                </div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    storyAudio.speakScene({
+                      narration: currentStep.storyNarration ?? '',
+                      speaker: currentStep.storySpeaker ?? 'Ki Dalang',
+                      playSceneCue: true,
+                    })
+                  }
+                  className="flex items-center gap-1 rounded-xl bg-white/10 px-2.5 py-1 text-[11px] font-bold text-wayang-gold-soft transition hover:bg-white/20"
+                >
+                  <Volume2 className="h-3.5 w-3.5" />
+                  Dengarkan Suara
+                </button>
               </div>
-              <p className="mt-1 text-sm leading-relaxed">
+              <p className="mt-1.5 text-sm leading-relaxed">
                 "{currentStep.storyNarration}"
               </p>
             </div>

@@ -203,6 +203,25 @@ class SoundEffects {
       this.playTone(freq, 0.45, 0.12 + idx * 0.11, 0.11, 'triangle');
     });
   }
+
+  /** Traditional Keprak / Cempala wooden box knock to open a story scene */
+  playKeprakSceneCue(): void {
+    // Crisp twin wooden keprak taps + soft Slendro saron resonance
+    this.playTone(310, 0.06, 0, 0.14, 'triangle', 140);
+    this.playTone(280, 0.065, 0.09, 0.16, 'triangle', 130);
+    this.playTone(392.0, 0.42, 0.18, 0.07, 'sine');
+    this.playTone(523.25, 0.5, 0.3, 0.06, 'triangle');
+    this.playTone(116.54, 1.0, 0.22, 0.09, 'sine', 108); // Subtle gong ageng
+  }
+
+  /** Soft Javanese Slendro pentatonic accompaniment motif during storytelling */
+  playGamelanPhrase(): void {
+    // Slendro-inspired frequencies: Ji (293.7), Ro (329.6), Lu (392.0), Ma (440.0), Nem (523.3)
+    const notes = [392.0, 440.0, 523.25, 440.0, 329.63, 293.66];
+    notes.forEach((freq, idx) => {
+      this.playTone(freq, 0.38, idx * 0.18, 0.055, 'triangle');
+    });
+  }
 }
 
 export const soundEffects = new SoundEffects();

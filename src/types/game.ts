@@ -6,11 +6,12 @@ export type AppPage =
   | 'dashboard'
   | 'studio'
   | 'battle'
+  | 'stories'
   | 'tutorial'
   | 'challenge'
   | 'result';
 
-export type LevelId = 1 | 2 | 3 | 4 | 5;
+export type LevelId = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 export type LevelDifficulty =
   | 'Pemula'
@@ -18,6 +19,10 @@ export type LevelDifficulty =
   | 'Sedang'
   | 'Lanjutan'
   | 'Tantangan';
+
+export type LevelAccessTier = 'free' | 'episode_pack' | 'institutional';
+
+export type CommercialPlanId = 'freemium' | 'lakon_pack' | 'institutional';
 
 export type StageIconType =
   | 'left'
@@ -79,6 +84,9 @@ export interface LevelDefinition {
   description: string;
   badgeId: string;
   timeLimitSec: number;
+  accessTier?: LevelAccessTier;
+  packLabel?: string;
+  culturalRegion?: string;
   steps: ChallengeStep[];
 }
 
@@ -123,5 +131,6 @@ export interface PlayerProgressState {
   tutorialCompleted: boolean;
   selectedCharacterId: 'arjuna' | 'gatotkaca' | 'srikandi' | 'semar';
   totalScore: number;
+  activePlan?: CommercialPlanId;
 }
 

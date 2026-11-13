@@ -5,6 +5,7 @@ import {
   loadPlayerProgress,
   recordLevelCompletion,
   savePlayerProgress,
+  switchCommercialPlan,
 } from './game/achievementManager';
 import { CharacterSelectionPage } from './pages/CharacterSelectionPage';
 import { GamificationChallengePage } from './pages/GamificationChallengePage';
@@ -12,16 +13,19 @@ import { HandDetectionStudioPage } from './pages/HandDetectionStudioPage';
 import { LandingPage } from './pages/LandingPage';
 import { LearningDashboardPage } from './pages/LearningDashboardPage';
 import { ResultPage } from './pages/ResultPage';
+import { StoryTheatrePage } from './pages/StoryTheatrePage';
 import { TutorialModePage } from './pages/TutorialModePage';
 import { WayangBattlePage } from './pages/WayangBattlePage';
 import type {
   AppPage,
   ChallengeResult,
+  CommercialPlanId,
   LevelId,
   PlayerProgressState,
   PuppetCharacterId,
 } from './types';
 import { soundEffects } from './utils/sound';
+import { storyAudio } from './utils/storyAudio';
 
 export function App() {
   const [currentPage, setCurrentPage] = useState<AppPage>('landing');
@@ -95,10 +99,18 @@ export function App() {
     setProgress(fresh);
   }, []);
 
+  const handleSelectPlan = useCallback((planId: CommercialPlanId) => {
+    soundEffects.playSelect();
+    setProgress((prev) => switchCommercialPlan(prev, planId));
+  }, []);
+
   const handleToggleMute = useCallback(() => {
     setMuted((prev) => {
       const next = !prev;
       soundEffects.setMuted(next);
+      if (next) {
+        storyAudio.stop();
+      }
       return next;
     });
   }, []);
@@ -134,7 +146,17 @@ export function App() {
             progress={progress}
             onStartLevel={handleStartLevel}
             onNavigate={handleNavigate}
+            onSelectPlan={handleSelectPlan}
             onResetProgress={handleResetProgress}
+          />
+        )}
+
+        {currentPage === 'stories' && (
+          <StoryTheatrePage
+            selectedCharacterId={progress.selectedCharacterId}
+            activePlan={progress.activePlan ?? 'freemium'}
+            onSelectPlan={handleSelectPlan}
+            onSelectCharacter={handleSelectCharacter}
           />
         )}
 

@@ -22,7 +22,7 @@ export function ResultPage({
   onNextLevel,
   onBackToDashboard,
 }: ResultPageProps) {
-  const hasNextLevel = result.passed && result.levelId < 5;
+  const hasNextLevel = result.passed && result.levelId < 10;
   const nextLevelId = (result.levelId + 1) as LevelId;
 
   return (

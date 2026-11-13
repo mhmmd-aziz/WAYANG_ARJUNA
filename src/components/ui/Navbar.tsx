@@ -1,6 +1,7 @@
 import {
   Award,
   BookOpen,
+  BookOpenText,
   Camera,
   Home,
   Swords,
@@ -25,6 +26,7 @@ const NAV_ITEMS: Array<{
 }> = [
   { page: 'landing', label: 'Beranda', icon: Home },
   { page: 'characters', label: 'Tokoh', icon: Users },
+  { page: 'stories', label: 'Cerita', icon: BookOpenText },
   { page: 'dashboard', label: 'Level', icon: Award },
   { page: 'tutorial', label: 'Latihan', icon: BookOpen },
   { page: 'studio', label: 'Studio', icon: Camera },

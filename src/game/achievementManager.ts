@@ -1,4 +1,11 @@
-import type { BadgeDefinition, LevelId, PlayerProgressState } from '../types';
+import type {
+  BadgeDefinition,
+  CommercialPlanId,
+  LevelAccessTier,
+  LevelId,
+  LevelProgress,
+  PlayerProgressState,
+} from '../types';
 
 const STORAGE_KEY = 'dalang_cilik_progress_v1';
 
@@ -6,36 +13,81 @@ export const BADGES: BadgeDefinition[] = [
   {
     id: 'first_wayang',
     name: 'Lencana Wayang Pertama',
-    description: 'Berhasil mengenalkan tangan ke kamera dan menggerakkan wayang pertamamu!',
+    description:
+      'Berhasil mengenalkan tangan ke kamera dan menggerakkan wayang pertamamu!',
     levelId: 1,
     color: '#D4A843',
   },
   {
     id: 'gesture_master',
     name: 'Lencana Ahli Gerak Tangan',
-    description: 'Menguasai telapak terbuka, kepalan tangan, telunjuk atas, dan gerakan jepit!',
+    description:
+      'Menguasai telapak terbuka, kepalan tangan, telunjuk atas, dan gerakan jepit!',
     levelId: 2,
     color: '#C65D3B',
   },
   {
     id: 'puppet_controller',
     name: 'Lencana Pengendali Wayang',
-    description: 'Mampu mengarahkan wayang ke berbagai titik panggung dengan akurat!',
+    description:
+      'Mampu mengarahkan wayang ke berbagai titik panggung dengan akurat!',
     levelId: 3,
     color: '#3D7A5A',
   },
   {
     id: 'storyteller',
     name: 'Lencana Juru Cerita',
-    description: 'Berhasil memainkan adegan cerita rakyat Nusantara bersama wayang!',
+    description:
+      'Berhasil memainkan adegan cerita rakyat Nusantara bersama wayang!',
     levelId: 4,
     color: '#6B422B',
   },
   {
     id: 'dalang_cilik',
-    name: 'Piala Dalang Cilik',
-    description: 'Penghargaan tertinggi! Kamu telah menjadi Dalang Cilik sejati!',
+    name: 'Lencana Dalang Pemula',
+    description:
+      'Menuntaskan 5 level dasar ARJUNA dengan keterampilan sabetan awal!',
     levelId: 5,
+    color: '#D4A843',
+  },
+  {
+    id: 'timun_mas_hero',
+    name: 'Lencana Keberanian Timun Mas',
+    description:
+      'Menaklukkan lakon cerita rakyat Timun Mas & Raksasa dari Jawa Tengah!',
+    levelId: 6,
+    color: '#3D7A5A',
+  },
+  {
+    id: 'minang_navigator',
+    name: 'Lencana Bakti Nusantara',
+    description:
+      'Menyelesaikan lakon Malin Kundang & memahami nilai bakti kepada orang tua!',
+    levelId: 7,
+    color: '#C65D3B',
+  },
+  {
+    id: 'prambanan_builder',
+    name: 'Lencana Candi Prambanan',
+    description:
+      'Menyusun candi seribu dengan ketepatan sabetan kiri, tengah, dan timur!',
+    levelId: 8,
+    color: '#8B5A2B',
+  },
+  {
+    id: 'pasopati_master',
+    name: 'Lencana Pemanah Pasopati',
+    description:
+      'Menguasai latihan fokus tingkat lanjut bersama Raden Arjuna!',
+    levelId: 9,
+    color: '#9E3124',
+  },
+  {
+    id: 'mahaguru_dalang',
+    name: 'Piala Agung Dalang Nusantara',
+    description:
+      'Penghargaan tertinggi ARJUNA! Menuntaskan seluruh 10 level pembelajaran wayang & cerita rakyat!',
+    levelId: 10,
     color: '#D4A843',
     isTrophy: true,
   },
@@ -45,59 +97,48 @@ export function getBadgeById(badgeId: string): BadgeDefinition | null {
   return BADGES.find((b) => b.id === badgeId) ?? null;
 }
 
+export function isTierIncludedInPlan(
+  tier: LevelAccessTier,
+  plan: CommercialPlanId = 'freemium'
+): boolean {
+  if (tier === 'free') return true;
+  if (tier === 'episode_pack') {
+    return plan === 'lakon_pack' || plan === 'institutional';
+  }
+  return plan === 'institutional';
+}
+
+function makeEmptyLevel(levelId: LevelId, unlocked: boolean): LevelProgress {
+  return {
+    levelId,
+    unlocked,
+    completed: false,
+    bestScore: 0,
+    bestAccuracy: 0,
+    stars: 0,
+    attempts: 0,
+  };
+}
+
 export function createInitialProgress(): PlayerProgressState {
   return {
     levels: {
-      1: {
-        levelId: 1,
-        unlocked: true,
-        completed: false,
-        bestScore: 0,
-        bestAccuracy: 0,
-        stars: 0,
-        attempts: 0,
-      },
-      2: {
-        levelId: 2,
-        unlocked: false,
-        completed: false,
-        bestScore: 0,
-        bestAccuracy: 0,
-        stars: 0,
-        attempts: 0,
-      },
-      3: {
-        levelId: 3,
-        unlocked: false,
-        completed: false,
-        bestScore: 0,
-        bestAccuracy: 0,
-        stars: 0,
-        attempts: 0,
-      },
-      4: {
-        levelId: 4,
-        unlocked: false,
-        completed: false,
-        bestScore: 0,
-        bestAccuracy: 0,
-        stars: 0,
-        attempts: 0,
-      },
-      5: {
-        levelId: 5,
-        unlocked: false,
-        completed: false,
-        bestScore: 0,
-        bestAccuracy: 0,
-        stars: 0,
-        attempts: 0,
-      },
+      1: makeEmptyLevel(1, true),
+      2: makeEmptyLevel(2, false),
+      3: makeEmptyLevel(3, false),
+      4: makeEmptyLevel(4, false),
+      5: makeEmptyLevel(5, false),
+      6: makeEmptyLevel(6, false),
+      7: makeEmptyLevel(7, false),
+      8: makeEmptyLevel(8, false),
+      9: makeEmptyLevel(9, false),
+      10: makeEmptyLevel(10, false),
     },
     earnedBadgeIds: [],
     tutorialCompleted: false,
     selectedCharacterId: 'arjuna',
     totalScore: 0,
+    activePlan: 'freemium',
   };
 }
 
@@ -111,6 +152,7 @@ export function loadPlayerProgress(): PlayerProgressState {
     return {
       ...base,
       ...parsed,
+      activePlan: parsed.activePlan ?? 'freemium',
       levels: {
         ...base.levels,
         ...(parsed.levels ?? {}),
@@ -132,6 +174,32 @@ export function savePlayerProgress(state: PlayerProgressState): void {
   }
 }
 
+export function switchCommercialPlan(
+  current: PlayerProgressState,
+  planId: CommercialPlanId
+): PlayerProgressState {
+  const nextLevels = { ...current.levels };
+  // Unlock preview access for the selected commercial package in frontend simulation
+  if (planId === 'lakon_pack' || planId === 'institutional') {
+    ([6, 7, 8] as LevelId[]).forEach((id) => {
+      nextLevels[id] = { ...nextLevels[id], unlocked: true };
+    });
+  }
+  if (planId === 'institutional') {
+    ([9, 10] as LevelId[]).forEach((id) => {
+      nextLevels[id] = { ...nextLevels[id], unlocked: true };
+    });
+  }
+
+  const nextState: PlayerProgressState = {
+    ...current,
+    activePlan: planId,
+    levels: nextLevels,
+  };
+  savePlayerProgress(nextState);
+  return nextState;
+}
+
 export function recordLevelCompletion(
   current: PlayerProgressState,
   levelId: LevelId,
@@ -141,7 +209,7 @@ export function recordLevelCompletion(
   passed: boolean,
   badgeId: string | null
 ): { nextState: PlayerProgressState; newlyEarnedBadge: boolean } {
-  const prevLevel = current.levels[levelId];
+  const prevLevel = current.levels[levelId] ?? makeEmptyLevel(levelId, true);
   const updatedLevel = {
     ...prevLevel,
     completed: prevLevel.completed || passed,
@@ -156,7 +224,7 @@ export function recordLevelCompletion(
     [levelId]: updatedLevel,
   };
 
-  if (passed && levelId < 5) {
+  if (passed && levelId < 10) {
     const nextId = (levelId + 1) as LevelId;
     nextLevels[nextId] = {
       ...nextLevels[nextId],
