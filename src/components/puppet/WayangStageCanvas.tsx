@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { shortCharacterName } from '../../assets/wayangCharacters';
 import type { BattleSnapshot } from '../../game/battleEngine';
 import type { PuppetController } from '../../puppet-engine/PuppetController';
 import type {
@@ -331,7 +332,7 @@ function drawBattleOverlay(
 
   drawTopBar(
     padX,
-    leftName.replace('Raden ', '').replace('Dewi ', '').replace('Ki Lurah ', ''),
+    shortCharacterName(leftName),
     snap.left.hp,
     snap.left.maxHp,
     snap.left.energy,
@@ -340,7 +341,7 @@ function drawBattleOverlay(
   );
   drawTopBar(
     width - padX - barW,
-    rightName.replace('Raden ', '').replace('Dewi ', '').replace('Ki Lurah ', ''),
+    shortCharacterName(rightName),
     snap.right.hp,
     snap.right.maxHp,
     snap.right.energy,

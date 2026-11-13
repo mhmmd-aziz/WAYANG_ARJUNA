@@ -1,7 +1,8 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { Eye, EyeOff, Hand, Users } from 'lucide-react';
-import { WAYANG_CHARACTERS } from '../assets/wayangCharacters';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
+import { CharacterPicker } from '../components/ui/CharacterPicker';
+import { SegmentedControl } from '../components/ui/SegmentedControl';
 import { GestureStatusPanel } from '../components/hand-tracking/GestureStatusPanel';
 import { WayangStageCanvas } from '../components/puppet/WayangStageCanvas';
 import { GestureVectorIcon } from '../components/ui/WayangIcons';
@@ -193,94 +194,33 @@ export function HandDetectionStudioPage({
           </h1>
         </div>
 
-        {/* Mode toggle: 2 Wayang vs 1 Wayang */}
-        <div className="flex flex-wrap items-center gap-2 rounded-lg bg-wayang-cream p-1.5">
-          <button
-            type="button"
-            onClick={() => setStageMode('two_puppets')}
-            className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-bold transition ${
-              stageMode === 'two_puppets'
-                ? 'bg-wayang-terracotta text-white shadow-sm'
-                : 'text-wayang-brown hover:bg-wayang-gold-soft/60'
-            }`}
-          >
-            <Users className="h-4 w-4" />
-            2 Wayang (Kiri & Kanan)
-          </button>
-          <button
-            type="button"
-            onClick={() => setStageMode('one_puppet')}
-            className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-bold transition ${
-              stageMode === 'one_puppet'
-                ? 'bg-wayang-terracotta text-white shadow-sm'
-                : 'text-wayang-brown hover:bg-wayang-gold-soft/60'
-            }`}
-          >
-            <Hand className="h-4 w-4" />
-            1 Wayang (2 Lengan)
-          </button>
-        </div>
+        <SegmentedControl
+          ariaLabel="Mode panggung"
+          value={stageMode}
+          onChange={setStageMode}
+          options={[
+            { value: 'two_puppets', label: '2 Wayang (Kiri & Kanan)', icon: Users },
+            { value: 'one_puppet', label: '1 Wayang (2 Lengan)', icon: Hand },
+          ]}
+        />
       </div>
 
-      {/* Character Selectors */}
       <div className="grid gap-3 sm:grid-cols-2">
         {stageMode === 'two_puppets' && (
-          <div className="rounded-xl border border-wayang-sage/35 bg-white p-4 shadow-sm">
-            <span className="mb-2.5 block text-sm font-semibold text-wayang-sage">
-              Wayang Kiri (Dikendalikan Tangan Kiri)
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {WAYANG_CHARACTERS.map((char) => (
-                <button
-                  key={`left-${char.id}`}
-                  type="button"
-                  onClick={() => setLeftCharacterId(char.id)}
-                  className={`rounded-lg px-3.5 py-1.5 text-sm font-bold transition ${
-                    char.id === leftCharacterId
-                      ? 'bg-wayang-sage text-white shadow-sm'
-                      : 'bg-wayang-cream text-wayang-brown hover:bg-wayang-gold-soft'
-                  }`}
-                >
-                  {char.name
-                    .replace('Raden ', '')
-                    .replace('Dewi ', '')
-                    .replace('Ki Lurah ', '')}
-                </button>
-              ))}
-            </div>
-          </div>
+          <CharacterPicker
+            label="Wayang kiri (tangan kiri)"
+            tone="sage"
+            value={leftCharacterId}
+            onChange={setLeftCharacterId}
+          />
         )}
-
-        <div
-          className={`rounded-xl border border-wayang-terracotta/35 bg-white p-4 shadow-sm ${
-            stageMode === 'one_puppet' ? 'sm:col-span-2' : ''
-          }`}
-        >
-          <span className="mb-2.5 block text-sm font-semibold text-wayang-terracotta">
-            {stageMode === 'two_puppets'
-              ? 'Wayang Kanan (Dikendalikan Tangan Kanan)'
-              : 'Tokoh Wayang Aktif'}
-          </span>
-          <div className="flex flex-wrap gap-2">
-            {WAYANG_CHARACTERS.map((char) => (
-              <button
-                key={`right-${char.id}`}
-                type="button"
-                onClick={() => onSelectCharacter(char.id)}
-                className={`rounded-lg px-3.5 py-1.5 text-sm font-bold transition ${
-                  char.id === selectedCharacterId
-                    ? 'bg-wayang-brown text-wayang-gold shadow-sm'
-                    : 'bg-wayang-cream text-wayang-brown hover:bg-wayang-gold-soft'
-                }`}
-              >
-                {char.name
-                  .replace('Raden ', '')
-                  .replace('Dewi ', '')
-                  .replace('Ki Lurah ', '')}
-              </button>
-            ))}
-          </div>
-        </div>
+        <CharacterPicker
+          label={stageMode === 'two_puppets' ? 'Wayang kanan (tangan kanan)' : 'Tokoh wayang aktif'}
+          tone="terracotta"
+          value={selectedCharacterId}
+          onChange={onSelectCharacter}
+          className={stageMode === 'one_puppet' ? 'sm:col-span-2' : ''}
+        />
       </div>
 
       <div className="grid gap-6 lg:grid-cols-12">

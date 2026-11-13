@@ -10,7 +10,9 @@ import {
   Users,
   Zap,
 } from 'lucide-react';
-import { getCharacterById, WAYANG_CHARACTERS } from '../assets/wayangCharacters';
+import { getCharacterById } from '../assets/wayangCharacters';
+import { CharacterPicker } from '../components/ui/CharacterPicker';
+import { SegmentedControl } from '../components/ui/SegmentedControl';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
 import { WayangStageCanvas } from '../components/puppet/WayangStageCanvas';
 import { GestureVectorIcon } from '../components/ui/WayangIcons';
@@ -329,38 +331,18 @@ export function WayangBattlePage({
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <div className="flex rounded-lg bg-wayang-cream p-1">
-            <button
-              type="button"
-              onClick={() => {
-                setControlMode('two_hands');
-                handleRestartBattle();
-              }}
-              className={`flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-bold transition ${
-                controlMode === 'two_hands'
-                  ? 'bg-wayang-brown text-wayang-gold shadow-sm'
-                  : 'text-wayang-brown hover:bg-wayang-gold-soft/60'
-              }`}
-            >
-              <Users className="h-4 w-4" />
-              2 Tangan (Kiri vs Kanan)
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setControlMode('vs_ai');
-                handleRestartBattle();
-              }}
-              className={`flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-bold transition ${
-                controlMode === 'vs_ai'
-                  ? 'bg-wayang-brown text-wayang-gold shadow-sm'
-                  : 'text-wayang-brown hover:bg-wayang-gold-soft/60'
-              }`}
-            >
-              <Bot className="h-4 w-4" />
-              1 Tangan vs AI
-            </button>
-          </div>
+          <SegmentedControl
+            ariaLabel="Mode kendali"
+            value={controlMode}
+            onChange={(mode) => {
+              setControlMode(mode);
+              handleRestartBattle();
+            }}
+            options={[
+              { value: 'two_hands', label: '2 Tangan (Kiri vs Kanan)', icon: Users },
+              { value: 'vs_ai', label: '1 Tangan vs AI', icon: Bot },
+            ]}
+          />
 
           <button
             type="button"
@@ -497,57 +479,19 @@ export function WayangBattlePage({
         </div>
       </div>
 
-      {/* Character Quick Switchers */}
       <div className="grid gap-3 sm:grid-cols-2">
-        <div className="rounded-lg border border-wayang-sage/30 bg-white px-4 py-3 shadow-sm">
-          <span className="mb-2 block text-xs font-semibold text-wayang-sage">
-            Pilih Wayang Kiri
-          </span>
-          <div className="flex flex-wrap gap-1.5">
-            {WAYANG_CHARACTERS.map((char) => (
-              <button
-                key={`battle-left-${char.id}`}
-                type="button"
-                onClick={() => setLeftCharacterId(char.id)}
-                className={`rounded-lg px-3 py-1.5 text-sm font-bold transition ${
-                  char.id === leftCharacterId
-                    ? 'bg-wayang-sage text-white'
-                    : 'bg-wayang-cream text-wayang-brown hover:bg-wayang-gold-soft'
-                }`}
-              >
-                {char.name
-                  .replace('Raden ', '')
-                  .replace('Dewi ', '')
-                  .replace('Ki Lurah ', '')}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-lg border border-wayang-terracotta/30 bg-white px-4 py-3 shadow-sm">
-          <span className="mb-2 block text-xs font-semibold text-wayang-terracotta">
-            Pilih Wayang Kanan
-          </span>
-          <div className="flex flex-wrap gap-1.5">
-            {WAYANG_CHARACTERS.map((char) => (
-              <button
-                key={`battle-right-${char.id}`}
-                type="button"
-                onClick={() => onSelectCharacter(char.id)}
-                className={`rounded-lg px-3 py-1.5 text-sm font-bold transition ${
-                  char.id === selectedCharacterId
-                    ? 'bg-wayang-brown text-wayang-gold'
-                    : 'bg-wayang-cream text-wayang-brown hover:bg-wayang-gold-soft'
-                }`}
-              >
-                {char.name
-                  .replace('Raden ', '')
-                  .replace('Dewi ', '')
-                  .replace('Ki Lurah ', '')}
-              </button>
-            ))}
-          </div>
-        </div>
+        <CharacterPicker
+          label="Wayang kiri"
+          tone="sage"
+          value={leftCharacterId}
+          onChange={setLeftCharacterId}
+        />
+        <CharacterPicker
+          label="Wayang kanan"
+          tone="terracotta"
+          value={selectedCharacterId}
+          onChange={onSelectCharacter}
+        />
       </div>
 
       {/* Stage & Webcam Grid */}

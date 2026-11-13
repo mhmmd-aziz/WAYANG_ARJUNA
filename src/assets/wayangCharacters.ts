@@ -105,3 +105,8 @@ export function getCharacterById(id: PuppetCharacterId): PuppetCharacter {
   );
 }
 
+
+/** "Raden Arjuna" -> "Arjuna", "Ki Lurah Semar" -> "Semar" for compact labels. */
+export function shortCharacterName(name: string): string {
+  return name.replace(/^(Raden|Dewi|Ki Lurah)\s+/, '');
+}
