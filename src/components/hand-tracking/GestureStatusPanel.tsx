@@ -1,4 +1,4 @@
-import { Hand, Sparkles } from 'lucide-react';
+import { Hand } from 'lucide-react';
 import type { GestureState } from '../../types';
 
 interface GestureStatusPanelProps {
@@ -42,9 +42,8 @@ export function GestureStatusPanel({
         </div>
 
         {handDetected && (
-          <span className="flex items-center gap-1 rounded-full bg-wayang-gold-soft px-3 py-1 text-xs font-bold text-wayang-brown">
-            <Sparkles className="h-3.5 w-3.5 text-wayang-terracotta" />
-            {Math.round(gesture.confidence * 100)}%
+          <span className="text-sm font-semibold text-wayang-brown-light">
+            Keyakinan {Math.round(gesture.confidence * 100)}%
           </span>
         )}
       </div>

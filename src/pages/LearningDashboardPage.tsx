@@ -9,7 +9,6 @@ import {
   Lock,
   Play,
   RotateCcw,
-  Sparkles,
   Star,
 } from 'lucide-react';
 import { getCharacterById } from '../assets/wayangCharacters';
@@ -42,7 +41,7 @@ const COMMERCIAL_PLANS: Array<{
   target: string;
   pricingNote: string;
   highlights: string[];
-  icon: typeof Sparkles;
+  icon: typeof Crown;
 }> = [
   {
     id: 'freemium',
@@ -55,7 +54,7 @@ const COMMERCIAL_PLANS: Array<{
       'Level 1–5 dasar pengenalan gestur & kendali kelir',
       'Cerita Rakyat gratis: Pusaka Amarta & Pitutur Semar',
     ],
-    icon: Sparkles,
+    icon: BookOpen,
   },
   {
     id: 'lakon_pack',
@@ -396,7 +395,6 @@ export function LearningDashboardPage({
                     }
                     className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl border border-wayang-gold bg-white py-3 text-xs font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
                   >
-                    <Sparkles className="h-4 w-4 text-wayang-terracotta" />
                     Buka Pratinjau {level.packLabel}
                   </button>
                 ) : (

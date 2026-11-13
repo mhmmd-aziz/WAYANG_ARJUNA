@@ -1,4 +1,4 @@
-import { ArrowRight, Check, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, CheckCircle2 } from 'lucide-react';
 import { WAYANG_CHARACTERS } from '../assets/wayangCharacters';
 import { PuppetPreviewCanvas } from '../components/puppet/PuppetPreviewCanvas';
 import type { AppPage, PuppetCharacterId } from '../types';
@@ -92,8 +92,7 @@ export function CharacterSelectionPage({
                   </div>
 
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-wayang-gold-soft px-3 py-1 font-bold text-wayang-brown">
-                      <Sparkles className="h-3.5 w-3.5 text-wayang-terracotta" />
+                    <span className="rounded-full bg-wayang-gold-soft px-3 py-1 font-bold text-wayang-brown">
                       {char.specialMoveName}
                     </span>
                     <span className="rounded-full bg-wayang-cream-dark px-3 py-1 font-semibold text-wayang-brown">

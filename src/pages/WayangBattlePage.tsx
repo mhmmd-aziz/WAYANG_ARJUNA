@@ -5,7 +5,6 @@ import {
   Heart,
   RotateCcw,
   Shield,
-  Sparkles,
   Swords,
   Trophy,
   Users,
@@ -691,10 +690,9 @@ export function WayangBattlePage({
           />
 
           <div className="rounded-3xl border border-wayang-gold/35 bg-white p-4 shadow-card">
-            <div className="flex items-center gap-2 text-sm font-bold text-wayang-brown">
-              <Sparkles className="h-4 w-4 text-wayang-terracotta" />
+            <h3 className="text-sm font-bold text-wayang-brown">
               Tips Pertarungan 2 Tangan
-            </div>
+            </h3>
             <ul className="mt-2 space-y-1.5 text-xs leading-relaxed text-wayang-charcoal/85">
               <li>
                 • <strong>Tangan Kiri</strong> di depan kamera mengendalikan{' '}

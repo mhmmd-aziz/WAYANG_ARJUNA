@@ -6,7 +6,6 @@ import {
   Lock,
   Music,
   Play,
-  Sparkles,
   Square,
   Volume2,
   VolumeX,
@@ -316,7 +315,6 @@ export function StoryTheatrePage({
             onClick={() => onSelectPlan('lakon_pack')}
             className="flex items-center gap-2 rounded-2xl bg-wayang-terracotta px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark"
           >
-            <Sparkles className="h-4 w-4" />
             Aktifkan Pratinjau Paket Lakon (Demo)
           </button>
         </div>
