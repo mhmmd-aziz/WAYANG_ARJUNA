@@ -127,7 +127,7 @@ export function ResultPage({
             <button
               type="button"
               onClick={() => onNextLevel(nextLevelId)}
-              className="flex items-center gap-2 rounded-lg bg-wayang-terracotta px-7 py-3.5 text-base font-bold text-white transition hover:bg-wayang-terracotta-dark"
+              className="btn btn-lg btn-primary"
             >
               Lanjut ke Level {nextLevelId}
               <ArrowRight className="h-5 w-5" />
@@ -137,7 +137,7 @@ export function ResultPage({
           <button
             type="button"
             onClick={() => onRetry(result.levelId)}
-            className="flex items-center gap-2 rounded-lg border border-wayang-brown/20 bg-wayang-cream px-6 py-3.5 text-base font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+            className="btn btn-lg btn-secondary"
           >
             <RotateCcw className="h-4 w-4" />
             Main Lagi
@@ -146,7 +146,7 @@ export function ResultPage({
           <button
             type="button"
             onClick={onBackToDashboard}
-            className="flex items-center gap-2 rounded-lg bg-wayang-brown px-6 py-3.5 text-base font-bold text-wayang-cream transition hover:bg-wayang-brown-light"
+            className="btn btn-lg btn-ghost"
           >
             <Home className="h-4 w-4" />
             Dasbor Level

@@ -122,7 +122,7 @@ export function LearningDashboardPage({
             <button
               type="button"
               onClick={() => onNavigate('stories')}
-              className="flex items-center gap-2 rounded-lg bg-wayang-terracotta px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark"
+              className="btn btn-primary"
             >
               <BookOpenText className="h-4 w-4" />
               Buka Menu Cerita Bersuara
@@ -130,7 +130,7 @@ export function LearningDashboardPage({
             <button
               type="button"
               onClick={() => onNavigate('tutorial')}
-              className="flex items-center gap-2 rounded-lg bg-wayang-cream-dark px-4 py-2.5 text-sm font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+              className="btn btn-secondary"
             >
               <BookOpen className="h-4 w-4" />
               {progress.tutorialCompleted
@@ -140,7 +140,7 @@ export function LearningDashboardPage({
             <button
               type="button"
               onClick={onResetProgress}
-              className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/15 px-3.5 py-2.5 text-sm font-semibold text-wayang-brown/75 transition hover:bg-wayang-cream"
+              className="btn btn-ghost"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Reset Progres
@@ -252,10 +252,10 @@ export function LearningDashboardPage({
                 <button
                   type="button"
                   onClick={() => onSelectPlan(plan.id)}
-                  className={`mt-4 w-full rounded-lg py-2.5 text-sm font-bold transition ${
+                  className={`btn mt-4 w-full ${
                     isActive
                       ? 'bg-wayang-sage text-white'
-                      : 'bg-wayang-brown text-wayang-cream hover:bg-wayang-brown-light'
+                      : 'btn-secondary'
                   }`}
                 >
                   {isActive
@@ -380,7 +380,7 @@ export function LearningDashboardPage({
                   <button
                     type="button"
                     onClick={() => onStartLevel(level.id)}
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-wayang-terracotta py-3 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark active:scale-95"
+                    className="btn btn-primary mt-5 w-full"
                   >
                     <Play className="h-4 w-4" />
                     {lvlState.completed ? 'Mainkan Lagi' : 'Mulai Tantangan'}
@@ -393,7 +393,7 @@ export function LearningDashboardPage({
                         tier === 'episode_pack' ? 'lakon_pack' : 'institutional'
                       )
                     }
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg border border-wayang-gold bg-white py-3 text-sm font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+                    className="btn btn-secondary mt-5 w-full"
                   >
                     Buka Pratinjau {level.packLabel}
                   </button>
@@ -401,7 +401,7 @@ export function LearningDashboardPage({
                   <button
                     type="button"
                     disabled
-                    className="mt-5 flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-wayang-brown/15 py-3 text-sm font-bold text-wayang-brown/50"
+                    className="btn mt-5 w-full cursor-not-allowed bg-wayang-brown/10 text-wayang-brown/50"
                   >
                     <Lock className="h-4 w-4" />
                     Selesaikan Level {level.id - 1} Dulu

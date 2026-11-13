@@ -363,7 +363,7 @@ export function HandDetectionStudioPage({
             <button
               type="button"
               onClick={() => setShowIndices((prev) => !prev)}
-              className="flex items-center gap-2 rounded-lg border border-wayang-gold/50 bg-white px-4 py-2 text-sm font-bold text-wayang-brown shadow-sm transition hover:bg-wayang-gold-soft"
+              className="btn btn-secondary"
             >
               {showIndices ? (
                 <EyeOff className="h-4 w-4" />

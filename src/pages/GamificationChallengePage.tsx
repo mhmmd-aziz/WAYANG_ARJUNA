@@ -193,7 +193,7 @@ export function GamificationChallengePage({
           <button
             type="button"
             onClick={onExitToDashboard}
-            className="flex h-10 w-10 items-center justify-center rounded-lg bg-wayang-cream-dark text-wayang-brown transition hover:bg-wayang-gold-soft"
+            className="btn btn-secondary h-10 w-10 p-0"
             title="Kembali ke Dasbor"
           >
             <ArrowLeft className="h-5 w-5" />
@@ -228,7 +228,7 @@ export function GamificationChallengePage({
           <button
             type="button"
             onClick={handleRestart}
-            className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/20 px-3.5 py-2 text-sm font-bold text-wayang-brown transition hover:bg-wayang-cream"
+            className="btn btn-secondary"
           >
             <RotateCcw className="h-4 w-4" />
             Ulang
@@ -271,7 +271,7 @@ export function GamificationChallengePage({
                       playSceneCue: true,
                     })
                   }
-                  className="flex items-center gap-1 rounded-lg bg-white/10 px-2.5 py-1 text-xs font-bold text-wayang-gold-soft transition hover:bg-white/20"
+                  className="btn btn-sm btn-on-dark"
                 >
                   <Volume2 className="h-3.5 w-3.5" />
                   Dengarkan Suara

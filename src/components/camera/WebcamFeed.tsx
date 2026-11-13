@@ -130,7 +130,7 @@ export function WebcamFeed({
                 <button
                   type="button"
                   onClick={onStartCamera}
-                  className="mt-1 flex items-center gap-2 rounded-lg bg-wayang-gold px-6 py-3 text-base font-bold text-wayang-charcoal transition hover:bg-wayang-gold-soft active:scale-95"
+                  className="btn btn-lg btn-accent mt-1"
                 >
                   <Camera className="h-5 w-5" />
                   Izinkan & Aktifkan Kamera
@@ -166,7 +166,7 @@ export function WebcamFeed({
             <button
               type="button"
               onClick={onStartCamera}
-              className="mt-1 flex items-center gap-2 rounded-lg bg-wayang-terracotta px-5 py-2.5 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark"
+              className="btn btn-primary mt-1"
             >
               <RefreshCw className="h-4 w-4" />
               Coba Lagi
@@ -184,7 +184,7 @@ export function WebcamFeed({
           <button
             type="button"
             onClick={onStopCamera}
-            className="flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 font-semibold text-wayang-cream transition hover:bg-white/20"
+            className="btn btn-sm btn-on-dark"
           >
             <CameraOff className="h-3.5 w-3.5" />
             Matikan Kamera
@@ -193,7 +193,7 @@ export function WebcamFeed({
           <button
             type="button"
             onClick={onStartCamera}
-            className="flex items-center gap-1.5 rounded-lg bg-wayang-gold px-3 py-1.5 font-bold text-wayang-charcoal transition hover:bg-wayang-gold-soft"
+            className="btn btn-sm btn-accent"
           >
             <Camera className="h-3.5 w-3.5" />
             Nyalakan

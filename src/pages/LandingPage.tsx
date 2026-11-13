@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Award,
-  BookOpen,
   Camera,
   CheckCircle2,
   ChevronRight,
@@ -47,9 +46,8 @@ export function LandingPage({
               <button
                 type="button"
                 onClick={() => onNavigate('tutorial')}
-                className="flex items-center gap-2.5 rounded-lg bg-wayang-terracotta px-7 py-4 text-base font-bold text-white transition hover:bg-wayang-terracotta-dark active:scale-95"
+                className="btn btn-lg btn-primary"
               >
-                <BookOpen className="h-5 w-5" />
                 Mulai Latihan Dasar
                 <ArrowRight className="h-5 w-5" />
               </button>
@@ -57,9 +55,9 @@ export function LandingPage({
               <button
                 type="button"
                 onClick={() => onNavigate('studio')}
-                className="flex items-center gap-2 rounded-lg border border-wayang-brown/20 bg-wayang-cream px-6 py-4 text-base font-bold text-wayang-brown transition hover:border-wayang-gold hover:bg-wayang-gold-soft/50"
+                className="btn btn-lg btn-secondary"
               >
-                <Camera className="h-5 w-5 text-wayang-terracotta" />
+                <Camera className="h-5 w-5" />
                 Buka Studio Wayang
               </button>
             </div>
@@ -234,7 +232,7 @@ export function LandingPage({
           <button
             type="button"
             onClick={() => onNavigate('characters')}
-            className="flex items-center gap-1.5 rounded-lg border border-wayang-gold/60 bg-white px-4 py-2.5 text-sm font-bold text-wayang-brown shadow-sm transition hover:bg-wayang-gold-soft"
+            className="btn btn-secondary"
           >
             Lihat Semua Tokoh
             <ChevronRight className="h-4 w-4" />
@@ -275,10 +273,10 @@ export function LandingPage({
                     onSelectCharacter(char.id);
                     onNavigate('tutorial');
                   }}
-                  className={`mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg py-2.5 text-sm font-bold transition ${
+                  className={`btn mt-4 w-full ${
                     isSelected
-                      ? 'bg-wayang-terracotta text-white'
-                      : 'bg-wayang-cream-dark text-wayang-brown hover:bg-wayang-gold-soft'
+                      ? 'btn-primary'
+                      : 'btn-secondary'
                   }`}
                 >
                   {isSelected ? 'Sedang Dipilih • Mulai' : 'Pilih Tokoh Ini'}

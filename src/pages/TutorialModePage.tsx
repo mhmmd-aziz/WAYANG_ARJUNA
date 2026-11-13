@@ -261,7 +261,7 @@ export function TutorialModePage({
           <button
             type="button"
             onClick={handleRestartTutorial}
-            className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/20 px-4 py-2 text-sm font-bold text-wayang-brown transition hover:bg-wayang-cream"
+            className="btn btn-secondary"
           >
             <RotateCcw className="h-4 w-4" />
             Ulangi Tutorial
@@ -306,7 +306,7 @@ export function TutorialModePage({
             <button
               type="button"
               onClick={() => onStartLevel(1)}
-              className="flex items-center gap-2 rounded-lg bg-wayang-terracotta px-7 py-3.5 text-base font-bold text-white transition hover:bg-wayang-terracotta-dark"
+              className="btn btn-lg btn-primary"
             >
               Mulai Level 1: Kenalan dengan Wayang
               <ArrowRight className="h-5 w-5" />
@@ -314,7 +314,7 @@ export function TutorialModePage({
             <button
               type="button"
               onClick={() => onNavigate('dashboard')}
-              className="rounded-lg border border-wayang-gold bg-wayang-cream px-6 py-3.5 text-base font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+              className="btn btn-lg btn-secondary"
             >
               Ke Dasbor Level
             </button>

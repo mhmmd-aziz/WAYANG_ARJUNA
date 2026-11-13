@@ -365,7 +365,7 @@ export function WayangBattlePage({
           <button
             type="button"
             onClick={handleRestartBattle}
-            className="flex items-center gap-1.5 rounded-lg bg-wayang-terracotta px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark"
+            className="btn btn-primary"
           >
             <RotateCcw className="h-4 w-4" />
             Tanding Ulang
@@ -593,7 +593,7 @@ export function WayangBattlePage({
                   <button
                     type="button"
                     onClick={handleRestartBattle}
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-wayang-terracotta py-3 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark"
+                    className="btn btn-primary mt-5 w-full"
                   >
                     <RotateCcw className="h-4 w-4" />
                     Tanding Ulang Sekarang

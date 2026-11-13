@@ -33,7 +33,7 @@ export function CharacterSelectionPage({
         <button
           type="button"
           onClick={() => onNavigate('tutorial')}
-          className="flex items-center gap-2 rounded-lg bg-wayang-terracotta px-6 py-3.5 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark"
+          className="btn btn-primary"
         >
           Lanjut ke Latihan Dasar
           <ArrowRight className="h-4 w-4" />
@@ -105,10 +105,8 @@ export function CharacterSelectionPage({
                   <button
                     type="button"
                     onClick={() => onSelectCharacter(char.id)}
-                    className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg py-3 text-sm font-bold transition ${
-                      isSelected
-                        ? 'bg-wayang-sage text-white shadow-sm'
-                        : 'bg-wayang-brown text-wayang-cream hover:bg-wayang-brown-light'
+                    className={`btn flex-1 ${
+                      isSelected ? 'bg-wayang-sage text-white' : 'btn-secondary'
                     }`}
                   >
                     {isSelected && <Check className="h-4 w-4" />}
@@ -120,7 +118,7 @@ export function CharacterSelectionPage({
                       onSelectCharacter(char.id);
                       onNavigate('studio');
                     }}
-                    className="rounded-lg border border-wayang-gold/60 px-4 py-3 text-sm font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+                    className="btn btn-ghost"
                   >
                     Uji di Studio
                   </button>

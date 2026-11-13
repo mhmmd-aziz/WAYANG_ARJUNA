@@ -229,10 +229,10 @@ export function StoryTheatrePage({
             <button
               type="button"
               onClick={() => setAutoSpeak((v) => !v)}
-              className={`flex items-center gap-1.5 rounded-lg border px-3.5 py-2 text-sm font-bold transition ${
+              className={`btn border ${
                 autoSpeak
                   ? 'border-wayang-sage bg-wayang-sage/10 text-wayang-sage'
-                  : 'border-wayang-brown/20 bg-wayang-cream text-wayang-brown'
+                  : 'border-wayang-brown/20 bg-white text-wayang-brown hover:bg-wayang-gold-soft/50'
               }`}
             >
               {autoSpeak ? (
@@ -246,7 +246,7 @@ export function StoryTheatrePage({
             <button
               type="button"
               onClick={() => soundEffects.playGamelanPhrase()}
-              className="flex items-center gap-1.5 rounded-lg border border-wayang-gold/60 bg-wayang-gold-soft/60 px-3.5 py-2 text-sm font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+              className="btn btn-secondary"
             >
               <Music className="h-4 w-4 text-wayang-terracotta" />
               Bunyi Gamelan
@@ -313,7 +313,7 @@ export function StoryTheatrePage({
           <button
             type="button"
             onClick={() => onSelectPlan('lakon_pack')}
-            className="flex items-center gap-2 rounded-lg bg-wayang-terracotta px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-wayang-terracotta-dark"
+            className="btn btn-primary"
           >
             Aktifkan Pratinjau Paket Lakon (Demo)
           </button>
@@ -365,7 +365,7 @@ export function StoryTheatrePage({
                   <button
                     type="button"
                     onClick={() => storyAudio.stop()}
-                    className="flex items-center gap-1.5 rounded-lg bg-wayang-terracotta px-4 py-2 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark"
+                    className="btn btn-primary"
                   >
                     <Square className="h-3.5 w-3.5" />
                     Stop Suara
@@ -375,7 +375,7 @@ export function StoryTheatrePage({
                     type="button"
                     disabled={!isStoryUnlocked}
                     onClick={handleReplayAudio}
-                    className="flex items-center gap-1.5 rounded-lg bg-wayang-gold px-4 py-2 text-sm font-bold text-wayang-charcoal transition hover:bg-wayang-gold-soft disabled:opacity-50"
+                    className="btn btn-accent"
                   >
                     <Play className="h-3.5 w-3.5" />
                     Putar Suara Adegan
@@ -409,7 +409,7 @@ export function StoryTheatrePage({
                 type="button"
                 disabled={sceneIdx === 0}
                 onClick={() => setSceneIdx((i) => Math.max(0, i - 1))}
-                className="flex items-center gap-1.5 rounded-lg border border-white/20 px-4 py-2 text-sm font-bold text-wayang-cream transition hover:bg-white/10 disabled:opacity-40"
+                className="btn btn-on-dark"
               >
                 <ChevronLeft className="h-4 w-4" />
                 Adegan Sebelumnya
@@ -439,7 +439,7 @@ export function StoryTheatrePage({
                     Math.min(selectedStory.scenes.length - 1, i + 1)
                   )
                 }
-                className="flex items-center gap-1.5 rounded-lg bg-wayang-terracotta px-4 py-2 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark disabled:opacity-40"
+                className="btn btn-primary"
               >
                 Adegan Berikutnya
                 <ChevronRight className="h-4 w-4" />

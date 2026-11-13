@@ -19,6 +19,35 @@
   }
 }
 
+@layer components {
+  /* Button system: one base, three variants (+ two for dark surfaces), three sizes */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wayang-terracotta disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-sm {
+    @apply gap-1.5 px-3 py-1.5;
+  }
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+  .btn-primary {
+    @apply bg-wayang-terracotta text-white hover:bg-wayang-terracotta-dark;
+  }
+  .btn-secondary {
+    @apply border border-wayang-brown/20 bg-white text-wayang-brown hover:border-wayang-brown/35 hover:bg-wayang-gold-soft/50;
+  }
+  .btn-ghost {
+    @apply text-wayang-brown hover:bg-wayang-gold-soft/60;
+  }
+  /* Dark (brown/charcoal) surfaces only */
+  .btn-accent {
+    @apply bg-wayang-gold text-wayang-charcoal hover:bg-wayang-gold-soft;
+  }
+  .btn-on-dark {
+    @apply border border-white/20 text-wayang-cream hover:bg-white/10;
+  }
+}
+
 .wayang-kelir-bg {
   background: radial-gradient(
     circle at 50% 42%,
