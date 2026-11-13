@@ -117,11 +117,15 @@ export function WebcamFeed({
                   <Camera className="h-8 w-8" />
                 </div>
                 <h3 className="font-display text-xl font-bold">
-                  Nyalakan Kamera
+                  Panduan Sebelum Mengaktifkan Kamera
                 </h3>
-                <p className="max-w-xs text-sm text-wayang-cream/85">
-                  Kamera dipakai untuk membaca gerakan tanganmu secara langsung.
-                  Tidak ada video yang direkam atau disimpan.
+                <p className="max-w-xs text-xs leading-relaxed text-wayang-cream/90 sm:text-sm">
+                  Posisikan 1 atau 2 telapak tangan berjarak 40–60 cm di depan webcam
+                  dengan pencahayaan cukup dan latar belakang rapi agar seluruh jari terlihat.
+                </p>
+                <p className="max-w-xs rounded-xl bg-black/25 px-3 py-1.5 text-[11px] text-wayang-gold-soft">
+                  Privasi terjaga: pemrosesan dilakukan lokal di browser Anda, tanpa
+                  merekam atau mengunggah video ke server.
                 </p>
                 <button
                   type="button"
@@ -129,10 +133,17 @@ export function WebcamFeed({
                   className="mt-1 flex items-center gap-2 rounded-2xl bg-wayang-gold px-6 py-3 text-base font-bold text-wayang-charcoal shadow-md transition hover:bg-wayang-gold-soft active:scale-95"
                 >
                   <Camera className="h-5 w-5" />
-                  Aktifkan Kamera
+                  Izinkan & Aktifkan Kamera
                 </button>
               </>
             )}
+          </div>
+        )}
+
+        {isActive && modelStatus === 'ready' && !handDetected && (
+          <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-2xl bg-black/70 px-3 py-2 text-center text-[11px] font-medium text-wayang-cream backdrop-blur-sm">
+            Tangan belum terlihat — pastikan ruangan cukup terang, jarak 40–60 cm,
+            dan seluruh telapak tidak terpotong tepi kamera.
           </div>
         )}
 

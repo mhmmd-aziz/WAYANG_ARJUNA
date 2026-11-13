@@ -576,6 +576,21 @@ export function WayangStageCanvas({
       }
       controller.render(ctx, logicalW, logicalH);
 
+      if (zone && !secondaryController) {
+        const p = controller.getPose();
+        const dotX = p.x * logicalW;
+        const dotY = (p.y - 0.06) * logicalH;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(dotX, dotY, 6.5, 0, Math.PI * 2);
+        ctx.fillStyle = progress > 0.05 ? '#3D7A5A' : '#F7DF8D';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#4A2C1D';
+        ctx.stroke();
+        ctx.restore();
+      }
+
       if (snap && secondaryController) {
         const leftPose = secondaryController.getPose();
         const rightPose = controller.getPose();

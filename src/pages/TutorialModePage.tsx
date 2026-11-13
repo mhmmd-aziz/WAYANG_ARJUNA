@@ -146,6 +146,7 @@ export function TutorialModePage({
   const [stepIdx, setStepIdx] = useState(0);
   const [holdProgress, setHoldProgress] = useState(0);
   const [feedbackBanner, setFeedbackBanner] = useState<string | null>(null);
+  const [liveHint, setLiveHint] = useState<string | null>(null);
   const [tutorialDone, setTutorialDone] = useState(false);
 
   const lastUiUpdateRef = useRef(0);
@@ -191,9 +192,11 @@ export function TutorialModePage({
         }
         setStepIdx(result.stepIndex);
         setHoldProgress(0);
+        setLiveHint(null);
       } else if (performance.now() - lastUiUpdateRef.current > 80) {
         lastUiUpdateRef.current = performance.now();
         setHoldProgress(result.holdProgress);
+        setLiveHint(result.hintText);
       }
 
       if (result.levelFinished && result.passed && !tutorialDoneRef.current) {
@@ -229,6 +232,7 @@ export function TutorialModePage({
     setHoldProgress(0);
     setTutorialDone(false);
     setFeedbackBanner(null);
+    setLiveHint(null);
   };
 
   const currentStep =
@@ -343,6 +347,12 @@ export function TutorialModePage({
                   style={{ width: `${Math.round(holdProgress * 100)}%` }}
                 />
               </div>
+
+              {liveHint && (
+                <p className="mt-2.5 text-xs font-semibold text-wayang-terracotta">
+                  {liveHint}
+                </p>
+              )}
             </div>
 
             <WayangStageCanvas

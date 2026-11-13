@@ -150,7 +150,9 @@ const DEFAULT_STATIC_RULES: GestureRule[] = [
     description: 'Mengaktifkan gerakan khusus atau memegang pusaka wayang.',
     priority: 4,
     evaluate: ({ pinchRatio, curl }) => {
-      if (pinchRatio < 0.36 && (curl.middle < 0.7 || curl.ring < 0.7)) {
+      const relaxedFingers = curl.middle < 0.72 || curl.ring < 0.72;
+      const tightTipTouch = pinchRatio < 0.28 && curl.index < 0.72;
+      if (pinchRatio < 0.36 && (relaxedFingers || tightTipTouch)) {
         return clamp(1 - pinchRatio / 0.4, 0.7, 1);
       }
       return 0;
@@ -165,10 +167,10 @@ const DEFAULT_STATIC_RULES: GestureRule[] = [
       const avgFinger =
         (curl.index + curl.middle + curl.ring + curl.pinky) / 4;
       if (
-        curl.index > 0.58 &&
-        curl.middle > 0.58 &&
-        curl.ring > 0.58 &&
-        curl.pinky > 0.58
+        curl.index > 0.56 &&
+        curl.middle > 0.56 &&
+        curl.ring > 0.56 &&
+        curl.pinky > 0.56
       ) {
         return clamp(avgFinger, 0.72, 1);
       }
@@ -181,9 +183,9 @@ const DEFAULT_STATIC_RULES: GestureRule[] = [
     description: 'Menggerakkan wayang naik ke atas atau menunjuk arah.',
     priority: 2,
     evaluate: ({ curl, landmarks }) => {
-      const indexExtended = curl.index < 0.38;
+      const indexExtended = curl.index < 0.44;
       const othersCurled =
-        curl.middle > 0.54 && curl.ring > 0.54 && curl.pinky > 0.54;
+        curl.middle > 0.48 && curl.ring > 0.48 && curl.pinky > 0.48;
       const indexPointingUp =
         landmarks[HAND_LANDMARK.INDEX_TIP].y <
         landmarks[HAND_LANDMARK.INDEX_MCP].y;
@@ -206,11 +208,11 @@ const DEFAULT_STATIC_RULES: GestureRule[] = [
     priority: 1,
     evaluate: ({ curl, pinchRatio }) => {
       const fingersOpen =
-        curl.index < 0.42 &&
-        curl.middle < 0.42 &&
-        curl.ring < 0.45 &&
-        curl.pinky < 0.48;
-      if (fingersOpen && pinchRatio >= 0.34) {
+        curl.index < 0.5 &&
+        curl.middle < 0.5 &&
+        curl.ring < 0.52 &&
+        curl.pinky < 0.55;
+      if (fingersOpen && pinchRatio >= 0.32) {
         const openness =
           1 - (curl.index + curl.middle + curl.ring + curl.pinky) / 4;
         return clamp(openness, 0.72, 1);

@@ -24,11 +24,11 @@ const NAV_ITEMS: Array<{
   icon: typeof Home;
 }> = [
   { page: 'landing', label: 'Beranda', icon: Home },
-  { page: 'characters', label: 'Karakter', icon: Users },
+  { page: 'characters', label: 'Tokoh', icon: Users },
   { page: 'dashboard', label: 'Level', icon: Award },
-  { page: 'tutorial', label: 'Tutorial', icon: BookOpen },
+  { page: 'tutorial', label: 'Latihan', icon: BookOpen },
   { page: 'studio', label: 'Studio', icon: Camera },
-  { page: 'battle', label: 'Pertarungan', icon: Swords },
+  { page: 'battle', label: 'Adu Sabetan', icon: Swords },
 ];
 
 export function Navbar({
@@ -50,10 +50,10 @@ export function Navbar({
           </div>
           <div>
             <span className="font-display block text-xl font-bold leading-tight tracking-tight text-wayang-brown">
-              Dalang Cilik
+              ARJUNA
             </span>
             <span className="block text-[11px] font-semibold tracking-wide text-wayang-terracotta">
-              Wayang Interaktif Nusantara
+              Wayang Kulit Interaktif • BUDAYA GO! 2026
             </span>
           </div>
         </button>

@@ -192,5 +192,24 @@ describe('PuppetController & Skeletal Limits', () => {
     expect(leftPose.isGrabbing).toBe(false);
     expect(rightPose.isGrabbing).toBe(true);
   });
+
+  it('continues moving puppet position even when fingers curl into closed_fist', () => {
+    const controller = new PuppetController('arjuna');
+    // rawX = 0.78 -> mirrored X = 0.22 (far left side of stage)
+    const trackingLeft = makeTracking(0.78, 0.55);
+    const fistGesture: GestureState = {
+      ...getEmptyGestureState(),
+      primary: 'closed_fist',
+      staticGesture: 'closed_fist',
+      isFist: true,
+    };
+
+    let pose = controller.getPose();
+    for (let i = 0; i < 18; i++) {
+      pose = controller.updateFromTracking(trackingLeft, fistGesture, 0.033);
+    }
+
+    expect(pose.x).toBeLessThan(0.28);
+  });
 });
 

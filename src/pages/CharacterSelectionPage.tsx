@@ -35,9 +35,16 @@ export function CharacterSelectionPage({
           onClick={() => onNavigate('tutorial')}
           className="flex items-center gap-2 rounded-2xl bg-wayang-terracotta px-6 py-3.5 text-sm font-bold text-white shadow-md transition hover:bg-wayang-terracotta-dark"
         >
-          Lanjut ke Tutorial
+          Lanjut ke Latihan Dasar
           <ArrowRight className="h-4 w-4" />
         </button>
+      </div>
+
+      <div className="rounded-2xl border border-wayang-gold/40 bg-wayang-gold-soft/35 px-4 py-3 text-xs leading-relaxed text-wayang-brown">
+        <strong className="font-bold">Catatan Materi Budaya (Draf Edukasi):</strong>{' '}
+        Profil tokoh Pandawa dan Punakawan serta variasi gerak dasar pada versi awal
+        merupakan materi pengenalan yang disiapkan untuk ditinjau dan divalidasi lebih lanjut
+        bersama dalang maupun sanggar pewayangan.
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

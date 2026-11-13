@@ -214,5 +214,25 @@ describe('Gamification Engine', () => {
 
     expect(snap5.projectiles.some((p) => p.kind === 'arrow')).toBe(true);
   });
+
+  it('completes move_zone when puppet torso overlaps zone even with lower waist Y', () => {
+    const level1 = getLevelById(1);
+    const evaluator = new ChallengeEvaluator(level1);
+    const gesture = {
+      ...getEmptyGestureState(),
+      primary: 'open_palm' as const,
+      staticGesture: 'open_palm' as const,
+      isOpenPalm: true,
+    };
+
+    // Complete step 1 (detect_hand)
+    evaluator.update(1200, true, createDefaultPose(), gesture);
+
+    // Step 2 (l1-left: x 0.24, y 0.55, r 0.16) — waist Y at 0.68 means chest sits right inside 0.55
+    const lowerWaistLeftPose = { ...createDefaultPose(), x: 0.24, y: 0.68 };
+    const step2Update = evaluator.update(800, true, lowerWaistLeftPose, gesture);
+    expect(step2Update.stepJustCompleted).toBe(true);
+    expect(step2Update.stepIndex).toBe(2);
+  });
 });
 

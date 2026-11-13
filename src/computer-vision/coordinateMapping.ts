@@ -15,7 +15,7 @@ export interface StageMappingOptions {
 
 const DEFAULT_STAGE_OPTIONS: StageMappingOptions = {
   mirrorX: true,
-  inputMargin: 0.14,
+  inputMargin: 0.18,
   outputMinX: 0.12,
   outputMaxX: 0.88,
   outputMinY: 0.16,

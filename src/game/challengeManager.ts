@@ -15,7 +15,15 @@ export interface ChallengeFrameUpdate {
   levelFinished: boolean;
   passed: boolean;
   remainingSec: number;
+  hintText: string | null;
 }
+
+const GESTURE_SHORT_NAMES: Record<string, string> = {
+  open_palm: 'Telapak Terbuka',
+  closed_fist: 'Kepalan Tangan',
+  index_up: 'Telunjuk Atas',
+  pinch: 'Gerakan Jepit (Pinch)',
+};
 
 function matchesGestureRequirement(
   step: ChallengeStep,
@@ -25,21 +33,69 @@ function matchesGestureRequirement(
   if (gesture.primary === step.requiredGesture) return true;
   if (gesture.staticGesture === step.requiredGesture) return true;
   if (gesture.motionGesture === step.requiredGesture) return true;
+  if (step.requiredGesture === 'open_palm' && gesture.isOpenPalm) return true;
+  if (step.requiredGesture === 'closed_fist' && gesture.isFist) return true;
+  if (step.requiredGesture === 'index_up' && gesture.isIndexUp) return true;
+  if (step.requiredGesture === 'pinch' && gesture.isPinching) return true;
   return false;
 }
 
-function matchesZoneRequirement(
+function getZoneDistance(step: ChallengeStep, pose: PuppetPose): {
+  dist: number;
+  dx: number;
+  dy: number;
+  inZone: boolean;
+} {
+  if (!step.targetZone) {
+    return { dist: 0, dx: 0, dy: 0, inZone: true };
+  }
+  // Compare against the puppet's vertical visual body span (hip at pose.y up to chest at pose.y - 0.14)
+  // so any part of the wayang's torso touching the target circle registers naturally.
+  const closestY = clamp(step.targetZone.y, pose.y - 0.14, pose.y);
+  const dx = step.targetZone.x - pose.x;
+  const dy = step.targetZone.y - closestY;
+  const dist = distance2D(pose.x, closestY, step.targetZone.x, step.targetZone.y);
+  return {
+    dist,
+    dx,
+    dy,
+    inZone: dist <= step.targetZone.radius * 1.12,
+  };
+}
+
+function buildStepHint(
   step: ChallengeStep,
-  pose: PuppetPose
-): boolean {
-  if (!step.targetZone) return true;
-  const dist = distance2D(
-    pose.x,
-    pose.y,
-    step.targetZone.x,
-    step.targetZone.y
-  );
-  return dist <= step.targetZone.radius;
+  handDetected: boolean,
+  gestureOk: boolean,
+  zoneCheck: { dx: number; dy: number; inZone: boolean },
+  holdProgress: number
+): string | null {
+  if (!handDetected) {
+    return 'Arahkan tanganmu ke depan kamera terlebih dahulu.';
+  }
+  if (zoneCheck.inZone && gestureOk) {
+    return holdProgress > 0.15
+      ? 'Bagus! Pertahankan sebentar...'
+      : 'Tepat! Tahan posisi ini...';
+  }
+  if (step.targetZone && !zoneCheck.inZone) {
+    if (Math.abs(zoneCheck.dx) >= Math.abs(zoneCheck.dy)) {
+      return zoneCheck.dx < 0
+        ? 'Geser tangan lebih ke KIRI menuju lingkaran target'
+        : 'Geser tangan lebih ke KANAN menuju lingkaran target';
+    }
+    return zoneCheck.dy < 0
+      ? 'Angkat tangan lebih ke ATAS menuju lingkaran target'
+      : 'Turunkan tangan lebih ke BAWAH menuju lingkaran target';
+  }
+  if (step.requiredGesture && !gestureOk) {
+    const reqName =
+      GESTURE_SHORT_NAMES[step.requiredGesture] ?? step.requiredGesture;
+    return step.targetZone
+      ? `Sudah di posisi! Sekarang lakukan gestur ${reqName}`
+      : `Bentuk gestur ${reqName} di depan kamera`;
+  }
+  return null;
 }
 
 export class ChallengeEvaluator {
@@ -96,6 +152,7 @@ export class ChallengeEvaluator {
           0,
           Math.ceil((this.level.timeLimitSec * 1000 - this.elapsedMs) / 1000)
         ),
+        hintText: null,
       };
     }
 
@@ -114,6 +171,7 @@ export class ChallengeEvaluator {
         levelFinished: true,
         passed: false,
         remainingSec: 0,
+        hintText: null,
       };
     }
 
@@ -130,17 +188,22 @@ export class ChallengeEvaluator {
         levelFinished: true,
         passed: true,
         remainingSec: Math.ceil(remainingMs / 1000),
+        hintText: null,
       };
     }
 
     let conditionMet = false;
+    let gestureOk = false;
+    let zoneCheck = { dist: 0, dx: 0, dy: 0, inZone: true };
+
     if (handDetected) {
       if (step.type === 'detect_hand') {
         conditionMet = true;
+        gestureOk = true;
       } else {
-        const gestureOk = matchesGestureRequirement(step, gesture);
-        const zoneOk = matchesZoneRequirement(step, pose);
-        conditionMet = gestureOk && zoneOk;
+        gestureOk = matchesGestureRequirement(step, gesture);
+        zoneCheck = getZoneDistance(step, pose);
+        conditionMet = gestureOk && zoneCheck.inZone;
       }
     }
 
@@ -178,6 +241,7 @@ export class ChallengeEvaluator {
         levelFinished: allDone,
         passed: allDone,
         remainingSec: Math.ceil(remainingMs / 1000),
+        hintText: null,
       };
     }
 
@@ -190,6 +254,13 @@ export class ChallengeEvaluator {
       levelFinished: false,
       passed: false,
       remainingSec: Math.ceil(remainingMs / 1000),
+      hintText: buildStepHint(
+        step,
+        handDetected,
+        gestureOk,
+        zoneCheck,
+        holdProgress
+      ),
     };
   }
 }

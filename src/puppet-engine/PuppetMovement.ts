@@ -21,8 +21,12 @@ function buildArmSignal(
   handGesture: SingleHandGesture
 ): HandArmSignal {
   const wrist = landmarks[HAND_LANDMARK.WRIST];
+  const middleMcp = landmarks[HAND_LANDMARK.MIDDLE_MCP] ?? wrist;
   const indexTip = landmarks[HAND_LANDMARK.INDEX_TIP];
-  const stageWrist = mapCameraToStage(wrist.x, wrist.y);
+  // Track palm center (blended Wrist + Middle MCP) so puppet height aligns with where the user centers their hand
+  const palmX = wrist.x * 0.4 + middleMcp.x * 0.6;
+  const palmY = wrist.y * 0.4 + middleMcp.y * 0.6;
+  const stageWrist = mapCameraToStage(palmX, palmY);
   const stageIndex = mapCameraToStage(indexTip.x, indexTip.y);
 
   const avgCurl =
@@ -94,8 +98,19 @@ export function extractPuppetSignals(
       gesture.rightHand ?? gesture
     );
 
-    const midX = (leftSignal.wristX + rightSignal.wristX) / 2;
-    const midY = (leftSignal.wristY + rightSignal.wristY) / 2;
+    // If one hand is clenched idle/resting while the other hand is actively guiding, follow the active hand
+    const followRightOnly = leftSignal.isClosedFist && !rightSignal.isClosedFist;
+    const followLeftOnly = rightSignal.isClosedFist && !leftSignal.isClosedFist;
+    const midX = followRightOnly
+      ? rightSignal.wristX
+      : followLeftOnly
+        ? leftSignal.wristX
+        : (leftSignal.wristX + rightSignal.wristX) / 2;
+    const midY = followRightOnly
+      ? rightSignal.wristY
+      : followLeftOnly
+        ? leftSignal.wristY
+        : (leftSignal.wristY + rightSignal.wristY) / 2;
     const spanDx = Math.max(0.08, rightSignal.wristX - leftSignal.wristX);
     const spanDy = rightSignal.wristY - leftSignal.wristY;
     const twoHandTilt = clamp(radToDeg(Math.atan2(spanDy, spanDx)) * 0.65, -28, 28);
@@ -196,6 +211,10 @@ export function computeTargetPose(
     return clampPoseToLimits(
       {
         ...currentPose,
+        x: signals.handDetected ? signals.wristX : currentPose.x,
+        y: signals.handDetected
+          ? clamp(signals.wristY, 0.16, 0.85)
+          : currentPose.y,
         rotation: 0,
         headAngle: signals.isClosedFist ? 6 : 0,
         torsoAngle: 0,

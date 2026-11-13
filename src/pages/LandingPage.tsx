@@ -4,8 +4,11 @@ import {
   Award,
   BookOpen,
   Camera,
+  CheckCircle2,
   ChevronRight,
+  Clock,
   Hand,
+  ShieldCheck,
   Sparkles,
   Users,
 } from 'lucide-react';
@@ -31,20 +34,20 @@ export function LandingPage({
       <section className="relative overflow-hidden rounded-[2rem] border border-wayang-gold/50 bg-white p-6 shadow-card lg:p-10">
         <div className="grid items-center gap-8 lg:grid-cols-12">
           <div className="space-y-5 lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-wayang-gold/40 bg-wayang-gold-soft/60 px-4 py-1.5 text-xs font-bold text-wayang-brown">
+            <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-wayang-gold/40 bg-wayang-gold-soft/60 px-4 py-1.5 text-xs font-bold text-wayang-brown">
               <GununganIcon className="h-4 w-4 text-wayang-terracotta" />
-              Belajar Budaya Indonesia Lewat Gerakan Tangan
+              ARJUNA • BUDAYA GO! 2026 • Tim Pengen Terbang (Politeknik Negeri Lhokseumawe)
             </div>
 
             <h1 className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-wayang-brown sm:text-5xl">
-              Jadi <span className="text-wayang-terracotta">Dalang Cilik</span>{' '}
-              dan Hidupkan Wayangmu!
+              Platform Belajar <span className="text-wayang-terracotta">Wayang Kulit</span>{' '}
+              Berbasis Hand Tracking
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-wayang-charcoal/85 sm:text-lg">
-              Nyalakan kamera laptopmu, angkat satu atau dua tanganmu di udara,
-              dan lihat tokoh wayang kulit tradisional Indonesia menari
-              mengikuti setiap gerakan jari secara langsung.
+              ARJUNA mengajak pelajar, mahasiswa, dan masyarakat umum mengenal tokoh,
+              filosofi, serta mempraktikkan gerak dasar pedalangan (<em>sabetan</em>) secara
+              interaktif lewat kamera webcam tanpa alat atau penanda tambahan (<em>markerless</em>).
             </p>
 
             <div className="flex flex-wrap gap-3 pt-1">
@@ -54,7 +57,7 @@ export function LandingPage({
                 className="flex items-center gap-2.5 rounded-2xl bg-wayang-terracotta px-7 py-4 text-base font-bold text-white shadow-md transition hover:bg-wayang-terracotta-dark active:scale-95"
               >
                 <BookOpen className="h-5 w-5" />
-                Mulai Belajar Wayang
+                Mulai Latihan Dasar
                 <ArrowRight className="h-5 w-5" />
               </button>
 
@@ -64,7 +67,7 @@ export function LandingPage({
                 className="flex items-center gap-2 rounded-2xl border-2 border-wayang-brown/20 bg-wayang-cream px-6 py-4 text-base font-bold text-wayang-brown transition hover:border-wayang-gold hover:bg-wayang-gold-soft/50"
               >
                 <Camera className="h-5 w-5 text-wayang-terracotta" />
-                Buka Studio 2 Wayang
+                Buka Studio Wayang
               </button>
             </div>
 
@@ -74,21 +77,21 @@ export function LandingPage({
                   <Hand className="h-5 w-5" />
                 </div>
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
-                  Kendali 1 atau 2 Tangan
+                  Markerless Hand Tracking
                 </p>
                 <p className="mt-0.5 text-xs leading-relaxed text-wayang-charcoal/75">
-                  Deteksi hingga 42 titik jari untuk menggerakkan 2 wayang sekaligus.
+                  Deteksi 21 titik koordinat per tangan (hingga 2 tangan) langsung di browser.
                 </p>
               </div>
               <div className="rounded-2xl border border-wayang-gold/25 bg-wayang-cream/70 p-4">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-wayang-brown shadow-sm">
-                  <Users className="h-5 w-5" />
+                  <ShieldCheck className="h-5 w-5" />
                 </div>
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
-                  4 Tokoh Nusantara
+                  Privasi Terjaga di Browser
                 </p>
                 <p className="mt-0.5 text-xs leading-relaxed text-wayang-charcoal/75">
-                  Arjuna, Gatotkaca, Dewi Srikandi, dan Ki Lurah Semar.
+                  Citra webcam diproses lokal di perangkat; tidak direkam atau dikirim ke server.
                 </p>
               </div>
               <div className="rounded-2xl border border-wayang-gold/25 bg-wayang-cream/70 p-4">
@@ -96,10 +99,10 @@ export function LandingPage({
                   <Award className="h-5 w-5" />
                 </div>
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
-                  5 Level Tantangan
+                  5 Level Latihan Dasar
                 </p>
                 <p className="mt-0.5 text-xs leading-relaxed text-wayang-charcoal/75">
-                  Raih semua lencana hingga Piala Dalang Cilik!
+                  Kenali tokoh, latih kendali sabetan, dan kumpulkan lencana pembelajaran.
                 </p>
               </div>
             </div>
@@ -121,8 +124,7 @@ export function LandingPage({
               />
             </div>
             <p className="mt-2.5 text-center text-xs font-semibold text-wayang-brown-light">
-              Pratinjau 2 Tokoh Wayang di Kelir • Buka Studio untuk memainkan
-              keduanya dengan 2 tangan
+              Pratinjau 2 Tokoh Wayang di Kelir • Kamera hanya aktif setelah Anda mengizinkannya
             </p>
           </motion.div>
         </div>
@@ -134,31 +136,32 @@ export function LandingPage({
           <div className="md:col-span-7">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-gold/20 px-3 py-1 text-xs font-bold text-wayang-gold">
               <Sparkles className="h-3.5 w-3.5" />
-              Mengenal Budaya Nusantara
+              Landasan Budaya Nusantara
             </span>
             <h2 className="font-display mt-2.5 text-2xl font-bold sm:text-3xl">
-              Apa Itu Wayang Kulit dan Siapa Itu Dalang?
+              Wayang Kulit, Dalang, dan Kaidah Sabetan
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-wayang-cream/90 sm:text-base">
-              Wayang kulit adalah seni pertunjukan tradisional asli Indonesia
-              yang telah diakui dunia oleh UNESCO. Seorang{' '}
-              <strong className="text-wayang-gold">Dalang</strong> menggerakkan
-              tangan dan batang kayu kecil (<em>cempurit</em> dan{' '}
-              <em>tuding</em>) agar tokoh wayang terlihat hidup di depan layar
-              bercahaya (<em>kelir</em>) sambil bercerita tentang keberanian,
-              kejujuran, dan kebaikan.
+              <strong>Wayang kulit</strong> adalah seni pertunjukan tradisional Indonesia yang memadukan
+              rupa tatahan, sastra tutur, iringan, dan keterampilan{' '}
+              <strong className="text-wayang-gold">Dalang</strong> saat mengolah gerak (<em>sabetan</em>)
+              melalui <em>cempurit</em> dan <em>tuding</em> di layar bercahaya (<em>kelir</em>).
+            </p>
+            <p className="mt-2.5 text-xs leading-relaxed text-wayang-cream/80 sm:text-sm">
+              ARJUNA hadir sebagai media pendukung dokumentasi dan latihan dasar agar budaya pewayangan
+              tetap akrab bagi generasi muda — <strong>bukan pengganti dalang, sanggar, maupun pertunjukan langsung</strong>.
             </p>
           </div>
 
           <div className="space-y-3 rounded-3xl border border-wayang-gold/25 bg-white/10 p-5 md:col-span-5">
             <h3 className="font-display text-lg font-bold text-wayang-gold">
-              3 Langkah Menjadi Dalang Cilik
+              Alur Penggunaan ARJUNA
             </h3>
             <div className="space-y-2.5 text-sm">
               {[
-                'Pilih tokoh wayang favoritmu',
-                'Ikuti panduan gerakan tangan di Tutorial',
-                'Taklukkan 5 level tantangan & raih Piala!',
+                'Kenali karakter & latar budaya tokoh wayang',
+                'Pahami panduan penempatan tangan & izinkan webcam',
+                'Kendalikan wayang real-time dan selesaikan 5 level dasar',
               ].map((stepText, idx) => (
                 <div key={stepText} className="flex items-center gap-3">
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-wayang-gold text-xs font-bold text-wayang-charcoal">
@@ -168,6 +171,62 @@ export function LandingPage({
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Honest Product Status & Roadmap */}
+      <section className="rounded-[2rem] border-2 border-wayang-gold/35 bg-white p-6 shadow-card sm:p-8">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-wayang-terracotta">
+              Transparansi Tahap Produk
+            </span>
+            <h2 className="font-display mt-1 text-2xl font-bold text-wayang-brown">
+              Status Fitur Aktif & Peta Jalan Pengembangan
+            </h2>
+          </div>
+          <span className="rounded-full bg-wayang-cream px-3.5 py-1.5 text-xs font-semibold text-wayang-brown">
+            Versi Awal Web (Client-Side)
+          </span>
+        </div>
+
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          <div className="rounded-3xl border border-wayang-sage/35 bg-wayang-sage/5 p-5">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-sage">
+              <CheckCircle2 className="h-4 w-4" />
+              Berjalan Saat Ini
+            </div>
+            <ul className="mt-3 space-y-2 text-xs leading-relaxed text-wayang-charcoal/85 sm:text-sm">
+              <li>• Web interaktif berbasis browser & webcam desktop</li>
+              <li>• Pelacakan 21 titik tangan markerless via MediaPipe</li>
+              <li>• Pengenalan tokoh, Studio, Latihan Dasar, & 5 Level pemula</li>
+              <li>• Pemrosesan lokal di browser tanpa backend</li>
+            </ul>
+          </div>
+
+          <div className="rounded-3xl border border-wayang-gold/45 bg-wayang-gold-soft/35 p-5">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-brown">
+              <Clock className="h-4 w-4 text-wayang-terracotta" />
+              Rencana Tahap Menengah
+            </div>
+            <ul className="mt-3 space-y-2 text-xs leading-relaxed text-wayang-charcoal/85 sm:text-sm">
+              <li>• Modul rangkaian scene cerita pewayangan utuh</li>
+              <li>• Narasi & audio dialog karakter (antawacana) saat wayang digerakkan</li>
+              <li>• Penyempurnaan gerak sabetan & validasi bersama dalang/sanggar</li>
+            </ul>
+          </div>
+
+          <div className="rounded-3xl border border-wayang-brown/20 bg-wayang-cream p-5">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-brown-light">
+              <Users className="h-4 w-4 text-wayang-brown" />
+              Visi Jangka Panjang
+            </div>
+            <ul className="mt-3 space-y-2 text-xs leading-relaxed text-wayang-charcoal/85 sm:text-sm">
+              <li>• ARJUNA VR Experience & panggung pertunjukan virtual</li>
+              <li>• Ekspansi ke beragam tradisi wayang Nusantara</li>
+              <li>• Dukungan antarmuka dwibahasa Indonesia–Inggris</li>
+            </ul>
           </div>
         </div>
       </section>

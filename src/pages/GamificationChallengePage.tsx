@@ -56,6 +56,7 @@ export function GamificationChallengePage({
   const [holdProgress, setHoldProgress] = useState(0);
   const [remainingSec, setRemainingSec] = useState(level.timeLimitSec);
   const [banner, setBanner] = useState<string | null>(null);
+  const [liveHint, setLiveHint] = useState<string | null>(null);
 
   // Reset evaluator when level changes
   useEffect(() => {
@@ -65,6 +66,7 @@ export function GamificationChallengePage({
     setHoldProgress(0);
     setRemainingSec(level.timeLimitSec);
     setBanner(null);
+    setLiveHint(null);
   }, [level]);
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export function GamificationChallengePage({
     errorMessage: cameraError,
     startCamera,
     stopCamera,
-  } = useCamera(true);
+  } = useCamera(false);
 
   const handleTrackingFrame = useCallback(
     (tracking: HandTrackingResult, gestureState: GestureState, dtSec: number) => {
@@ -107,10 +109,12 @@ export function GamificationChallengePage({
         }
         setStepIdx(update.stepIndex);
         setHoldProgress(0);
+        setLiveHint(null);
       } else if (performance.now() - lastUiSyncRef.current > 85) {
         lastUiSyncRef.current = performance.now();
         setHoldProgress(update.holdProgress);
         setRemainingSec(update.remainingSec);
+        setLiveHint(update.hintText);
       }
 
       if (update.levelFinished && !completedRef.current) {
@@ -161,6 +165,7 @@ export function GamificationChallengePage({
     setHoldProgress(0);
     setRemainingSec(level.timeLimitSec);
     setBanner(null);
+    setLiveHint(null);
   };
 
   const currentStep =
@@ -269,6 +274,12 @@ export function GamificationChallengePage({
                 style={{ width: `${Math.round(holdProgress * 100)}%` }}
               />
             </div>
+
+            {liveHint && (
+              <p className="mt-2.5 text-xs font-semibold text-wayang-terracotta">
+                {liveHint}
+              </p>
+            )}
           </div>
 
           <WayangStageCanvas

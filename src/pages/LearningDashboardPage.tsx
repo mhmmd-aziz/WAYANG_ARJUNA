@@ -29,15 +29,15 @@ export function LearningDashboardPage({
       <div className="grid gap-4 rounded-3xl border-2 border-wayang-gold/40 bg-white p-6 shadow-card md:grid-cols-12">
         <div className="space-y-2 md:col-span-7">
           <span className="inline-block rounded-full bg-wayang-gold-soft px-3 py-1 text-xs font-bold text-wayang-brown">
-            Dasbor Belajar Dalang Cilik
+            Dasbor Pembelajaran ARJUNA
           </span>
           <h1 className="font-display text-3xl font-bold text-wayang-brown">
-            Perjalanan Menjadi Dalang Cilik
+            Latihan Sabetan & Level Pembelajaran
           </h1>
           <p className="text-sm text-wayang-charcoal/80">
-            Wayang aktif: <strong>{activeCharacter.name}</strong>. Selesaikan
-            semua 5 level tantangan untuk mengumpulkan seluruh lencana hingga
-            Piala Dalang Cilik!
+            Tokoh aktif: <strong>{activeCharacter.name}</strong>. Progres disimpan
+            lokal di browser (tanpa backend). Selesaikan 5 level dasar untuk melatih
+            pengenalan gestur, kendali posisi kelir, dan alur cerita awal.
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
             <button
@@ -170,6 +170,22 @@ export function LearningDashboardPage({
             );
           })}
         </div>
+      </section>
+
+      {/* Honest Roadmap Notice for Upcoming Scene & Antawacana Modules */}
+      <section className="rounded-3xl border border-wayang-gold/40 bg-wayang-gold-soft/30 p-5">
+        <span className="inline-block rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-wayang-terracotta">
+          Rencana Tahap Menengah (Belum Aktif)
+        </span>
+        <h2 className="font-display mt-2 text-lg font-bold text-wayang-brown">
+          Modul Rangkaian Scene Cerita & Audio Dialog (Antawacana)
+        </h2>
+        <p className="mt-1 text-xs leading-relaxed text-wayang-charcoal/85 sm:text-sm">
+          Pada tahap pengembangan berikutnya, level latihan dasar ini akan diperluas
+          menjadi rangkaian <em>scene</em> cerita pewayangan utuh lengkap dengan narasi dan
+          audio karakter (<em>antawacana</em>) yang berjalan selaras tanpa mengambil alih
+          kendali gerak tangan pengguna, serta divalidasi bersama dalang dan sanggar budaya.
+        </p>
       </section>
 
       {/* Achievement Badges */}
