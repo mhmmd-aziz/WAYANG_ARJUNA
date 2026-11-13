@@ -18,7 +18,7 @@ export function CharacterSelectionPage({
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-wayang-terracotta">
+          <span className="text-sm font-semibold text-wayang-terracotta">
             Pilih Tokoh Wayang
           </span>
           <h1 className="font-display mt-1 text-3xl font-bold text-wayang-brown">
@@ -40,7 +40,7 @@ export function CharacterSelectionPage({
         </button>
       </div>
 
-      <div className="rounded-lg border border-wayang-gold/40 bg-wayang-gold-soft/35 px-4 py-3 text-xs leading-relaxed text-wayang-brown">
+      <div className="rounded-lg border border-wayang-gold/40 bg-wayang-gold-soft/35 px-4 py-3 text-sm leading-relaxed text-wayang-brown">
         <strong className="font-bold">Catatan Materi Budaya (Draf Edukasi):</strong>{' '}
         Profil tokoh Pandawa dan Punakawan serta variasi gerak dasar pada versi awal
         merupakan materi pengenalan yang disiapkan untuk ditinjau dan divalidasi lebih lanjut
@@ -73,7 +73,7 @@ export function CharacterSelectionPage({
                       <h2 className="font-display text-2xl font-bold text-wayang-brown">
                         {char.name}
                       </h2>
-                      <p className="text-xs font-bold text-wayang-terracotta">
+                      <p className="text-sm font-bold text-wayang-terracotta">
                         {char.title} • {char.origin}
                       </p>
                     </div>
@@ -86,7 +86,7 @@ export function CharacterSelectionPage({
                     {char.culturalBackground}
                   </p>
 
-                  <div className="rounded-lg bg-wayang-cream p-3 text-xs text-wayang-brown">
+                  <div className="rounded-lg bg-wayang-cream p-3 text-sm text-wayang-brown">
                     <span className="font-bold">Tahukah Kamu? </span>
                     {char.funFact}
                   </div>

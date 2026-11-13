@@ -32,11 +32,11 @@ export function BadgeCard({ badge, earned }: BadgeCardProps) {
             {badge.name}
           </h4>
         </div>
-        <p className="mt-0.5 text-xs leading-relaxed text-wayang-charcoal/80">
+        <p className="mt-0.5 text-sm leading-relaxed text-wayang-charcoal/80">
           {badge.description}
         </p>
         <span
-          className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
+          className={`mt-2 inline-block rounded-full px-2.5 py-0.5 text-xs font-bold ${
             earned
               ? 'bg-wayang-sage/15 text-wayang-sage'
               : 'bg-wayang-brown/10 text-wayang-brown/60'

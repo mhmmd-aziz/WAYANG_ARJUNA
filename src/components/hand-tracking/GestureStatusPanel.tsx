@@ -32,7 +32,7 @@ export function GestureStatusPanel({
             <Hand className="h-5 w-5" />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-wayang-brown-light">
+            <p className="text-sm font-semibold text-wayang-brown-light">
               Gestur Terdeteksi
             </p>
             <h3 className="font-display text-lg font-bold text-wayang-brown">
@@ -48,7 +48,7 @@ export function GestureStatusPanel({
         )}
       </div>
 
-      <p className="mt-2 rounded-lg bg-wayang-cream px-3 py-2 text-xs font-medium text-wayang-charcoal/85">
+      <p className="mt-2 rounded-lg bg-wayang-cream px-3 py-2 text-sm font-medium text-wayang-charcoal/85">
         {handDetected
           ? gesture.description
           : 'Posisikan 1 atau 2 tangan di depan kamera dengan jarak sekitar 40-60 cm dan cahaya cukup.'}
@@ -57,7 +57,7 @@ export function GestureStatusPanel({
       {handDetected && gesture.handCount >= 2 && gesture.leftHand && gesture.rightHand && (
         <div className="mt-2.5 grid grid-cols-2 gap-2 text-xs">
           <div className="rounded-lg bg-wayang-sage/10 px-3 py-2">
-            <span className="block text-[10px] font-bold uppercase text-wayang-sage">
+            <span className="block text-xs font-semibold text-wayang-sage">
               Tangan Kiri Wayang
             </span>
             <span className="font-bold text-wayang-brown">
@@ -65,7 +65,7 @@ export function GestureStatusPanel({
             </span>
           </div>
           <div className="rounded-lg bg-wayang-terracotta/10 px-3 py-2">
-            <span className="block text-[10px] font-bold uppercase text-wayang-terracotta">
+            <span className="block text-xs font-semibold text-wayang-terracotta">
               Tangan Kanan Wayang
             </span>
             <span className="font-bold text-wayang-brown">
@@ -92,7 +92,7 @@ export function GestureStatusPanel({
                   }}
                 />
               </div>
-              <span className="mt-1 block text-[10px] font-semibold text-wayang-brown-light">
+              <span className="mt-1 block text-xs font-semibold text-wayang-brown-light">
                 {f.name}
               </span>
             </div>

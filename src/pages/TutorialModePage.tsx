@@ -261,7 +261,7 @@ export function TutorialModePage({
           <button
             type="button"
             onClick={handleRestartTutorial}
-            className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/20 px-4 py-2 text-xs font-bold text-wayang-brown transition hover:bg-wayang-cream"
+            className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/20 px-4 py-2 text-sm font-bold text-wayang-brown transition hover:bg-wayang-cream"
           >
             <RotateCcw className="h-4 w-4" />
             Ulangi Tutorial
@@ -348,7 +348,7 @@ export function TutorialModePage({
               </div>
 
               {liveHint && (
-                <p className="mt-2.5 text-xs font-semibold text-wayang-terracotta">
+                <p className="mt-2.5 text-sm font-semibold text-wayang-terracotta">
                   {liveHint}
                 </p>
               )}

@@ -54,7 +54,7 @@ export function Navbar({
             <span className="font-display block text-xl font-bold leading-tight tracking-tight text-wayang-brown">
               ARJUNA
             </span>
-            <span className="block text-[11px] font-semibold tracking-wide text-wayang-terracotta">
+            <span className="block text-xs font-semibold tracking-wide text-wayang-terracotta">
               Wayang Kulit Interaktif • BUDAYA GO! 2026
             </span>
           </div>

@@ -106,7 +106,7 @@ export function WebcamFeed({
                 <p className="font-display text-lg font-semibold">
                   Menyiapkan Kamera & Pelacak Tangan...
                 </p>
-                <p className="max-w-xs text-xs text-wayang-cream/80">
+                <p className="max-w-xs text-sm text-wayang-cream/80">
                   Mohon tunggu sebentar dan klik "Izinkan" jika browser meminta
                   izin kamera.
                 </p>
@@ -119,11 +119,11 @@ export function WebcamFeed({
                 <h3 className="font-display text-xl font-bold">
                   Panduan Sebelum Mengaktifkan Kamera
                 </h3>
-                <p className="max-w-xs text-xs leading-relaxed text-wayang-cream/90 sm:text-sm">
+                <p className="max-w-xs text-sm leading-relaxed text-wayang-cream/90 sm:text-sm">
                   Posisikan 1 atau 2 telapak tangan berjarak 40–60 cm di depan webcam
                   dengan pencahayaan cukup dan latar belakang rapi agar seluruh jari terlihat.
                 </p>
-                <p className="max-w-xs rounded-lg bg-black/25 px-3 py-1.5 text-[11px] text-wayang-gold-soft">
+                <p className="max-w-xs rounded-lg bg-black/25 px-3 py-1.5 text-sm text-wayang-gold-soft">
                   Privasi terjaga: pemrosesan dilakukan lokal di browser Anda, tanpa
                   merekam atau mengunggah video ke server.
                 </p>
@@ -141,14 +141,14 @@ export function WebcamFeed({
         )}
 
         {isActive && modelStatus === 'ready' && !handDetected && (
-          <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-lg bg-black/70 px-3 py-2 text-center text-[11px] font-medium text-wayang-cream backdrop-blur-sm">
+          <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-lg bg-black/70 px-3 py-2 text-center text-xs font-medium text-wayang-cream backdrop-blur-sm">
             Tangan belum terlihat — pastikan ruangan cukup terang, jarak 40–60 cm,
             dan seluruh telapak tidak terpotong tepi kamera.
           </div>
         )}
 
         {isActive && modelStatus === 'loading' && (
-          <div className="absolute inset-x-3 bottom-3 flex items-center justify-center gap-2 rounded-lg bg-wayang-brown/90 px-3 py-2 text-xs font-semibold text-wayang-gold-soft">
+          <div className="absolute inset-x-3 bottom-3 flex items-center justify-center gap-2 rounded-lg bg-wayang-brown/90 px-3 py-2 text-sm font-semibold text-wayang-gold-soft">
             <Loader2 className="h-4 w-4 animate-spin" />
             Memuat model MediaPipe Hand Landmarker...
           </div>

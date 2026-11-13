@@ -50,14 +50,14 @@ export function GestureInstructorDemo({
         </motion.div>
       </div>
       <div>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-brown px-2.5 py-0.5 text-[11px] font-bold text-wayang-gold">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-brown px-2.5 py-0.5 text-xs font-bold text-wayang-gold">
           <GraduationCap className="h-3.5 w-3.5" />
           Contoh Guru Dalang
         </span>
         <h4 className="font-display mt-1 text-base font-bold text-wayang-brown">
           {title}
         </h4>
-        <p className="text-xs leading-relaxed text-wayang-charcoal/85">{tip}</p>
+        <p className="text-sm leading-relaxed text-wayang-charcoal/85">{tip}</p>
       </div>
     </div>
   );

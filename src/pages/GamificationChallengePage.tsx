@@ -199,7 +199,7 @@ export function GamificationChallengePage({
             <ArrowLeft className="h-5 w-5" />
           </button>
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-wayang-terracotta">
+            <span className="text-sm font-semibold text-wayang-terracotta">
               {level.subtitle}
             </span>
             <h1 className="font-display text-xl font-bold text-wayang-brown sm:text-2xl">
@@ -228,7 +228,7 @@ export function GamificationChallengePage({
           <button
             type="button"
             onClick={handleRestart}
-            className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/20 px-3.5 py-2 text-xs font-bold text-wayang-brown transition hover:bg-wayang-cream"
+            className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/20 px-3.5 py-2 text-sm font-bold text-wayang-brown transition hover:bg-wayang-cream"
           >
             <RotateCcw className="h-4 w-4" />
             Ulang
@@ -271,7 +271,7 @@ export function GamificationChallengePage({
                       playSceneCue: true,
                     })
                   }
-                  className="flex items-center gap-1 rounded-lg bg-white/10 px-2.5 py-1 text-[11px] font-bold text-wayang-gold-soft transition hover:bg-white/20"
+                  className="flex items-center gap-1 rounded-lg bg-white/10 px-2.5 py-1 text-xs font-bold text-wayang-gold-soft transition hover:bg-white/20"
                 >
                   <Volume2 className="h-3.5 w-3.5" />
                   Dengarkan Suara
@@ -286,7 +286,7 @@ export function GamificationChallengePage({
           <div className="rounded-xl border border-wayang-terracotta/40 bg-white p-4">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wide text-wayang-terracotta">
+                <p className="text-sm font-semibold text-wayang-terracotta">
                   {currentStep.title}
                 </p>
                 <h2 className="font-display text-lg font-bold text-wayang-brown sm:text-xl">
@@ -306,7 +306,7 @@ export function GamificationChallengePage({
             </div>
 
             {liveHint && (
-              <p className="mt-2.5 text-xs font-semibold text-wayang-terracotta">
+              <p className="mt-2.5 text-sm font-semibold text-wayang-terracotta">
                 {liveHint}
               </p>
             )}

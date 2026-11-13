@@ -106,7 +106,7 @@ export function ResultPage({
               )}
             </div>
             <div>
-              <span className="text-xs font-bold uppercase tracking-wide text-wayang-terracotta">
+              <span className="text-sm font-semibold text-wayang-terracotta">
                 {result.newlyEarned
                   ? 'Penghargaan Baru Terbuka!'
                   : 'Penghargaan Dimiliki'}
@@ -114,7 +114,7 @@ export function ResultPage({
               <h2 className="font-display text-xl font-bold text-wayang-brown">
                 {result.earnedBadge.name}
               </h2>
-              <p className="text-xs text-wayang-charcoal/85">
+              <p className="text-sm text-wayang-charcoal/85">
                 {result.earnedBadge.description}
               </p>
             </div>

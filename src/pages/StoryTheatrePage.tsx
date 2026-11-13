@@ -220,7 +220,7 @@ export function StoryTheatrePage({
             <h1 className="font-display mt-0.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
               {selectedStory.title}
             </h1>
-            <p className="mt-0.5 text-xs text-wayang-charcoal/80 sm:text-sm">
+            <p className="mt-0.5 text-sm text-wayang-charcoal/80 sm:text-sm">
               {selectedStory.region} • {selectedStory.summary}
             </p>
           </div>
@@ -229,7 +229,7 @@ export function StoryTheatrePage({
             <button
               type="button"
               onClick={() => setAutoSpeak((v) => !v)}
-              className={`flex items-center gap-1.5 rounded-lg border px-3.5 py-2 text-xs font-bold transition ${
+              className={`flex items-center gap-1.5 rounded-lg border px-3.5 py-2 text-sm font-bold transition ${
                 autoSpeak
                   ? 'border-wayang-sage bg-wayang-sage/10 text-wayang-sage'
                   : 'border-wayang-brown/20 bg-wayang-cream text-wayang-brown'
@@ -246,7 +246,7 @@ export function StoryTheatrePage({
             <button
               type="button"
               onClick={() => soundEffects.playGamelanPhrase()}
-              className="flex items-center gap-1.5 rounded-lg border border-wayang-gold/60 bg-wayang-gold-soft/60 px-3.5 py-2 text-xs font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+              className="flex items-center gap-1.5 rounded-lg border border-wayang-gold/60 bg-wayang-gold-soft/60 px-3.5 py-2 text-sm font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
             >
               <Music className="h-4 w-4 text-wayang-terracotta" />
               Bunyi Gamelan
@@ -272,7 +272,7 @@ export function StoryTheatrePage({
               >
                 <div className="flex items-center justify-between gap-2">
                   <span
-                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold ${
+                    className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
                       story.tier === 'free'
                         ? 'bg-wayang-sage/15 text-wayang-sage'
                         : 'bg-wayang-gold-soft text-wayang-brown'
@@ -287,7 +287,7 @@ export function StoryTheatrePage({
                 <p className="font-display mt-2 text-sm font-bold text-wayang-brown">
                   {story.title}
                 </p>
-                <p className="mt-0.5 text-[11px] text-wayang-brown-light">
+                <p className="mt-0.5 text-sm text-wayang-brown-light">
                   {story.region} • {story.durationLabel}
                 </p>
               </button>
@@ -299,13 +299,13 @@ export function StoryTheatrePage({
       {!isStoryUnlocked && (
         <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-wayang-gold bg-wayang-gold-soft/45 p-5">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wide text-wayang-terracotta">
+            <span className="text-sm font-semibold text-wayang-terracotta">
               Pratinjau Komersialisasi • Paket Lakon Nusantara
             </span>
             <h2 className="font-display text-lg font-bold text-wayang-brown">
               Cerita Rakyat "{selectedStory.title}" Termasuk Paket Lakon Berbayar
             </h2>
-            <p className="mt-0.5 text-xs text-wayang-charcoal/85 sm:text-sm">
+            <p className="mt-0.5 text-sm text-wayang-charcoal/85 sm:text-sm">
               Pada simulasi model bisnis ARJUNA, paket lakon cerita rakyat bersuara dapat dibuka
               untuk pengguna paket episode B2C atau lisensi sanggar/sekolah B2B.
             </p>
@@ -340,7 +340,7 @@ export function StoryTheatrePage({
           <div className="rounded-xl border border-wayang-gold/45 bg-wayang-brown p-5 text-wayang-cream">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-wayang-gold">
+                <span className="text-sm font-semibold text-wayang-gold">
                   {currentScene.title} ({sceneIdx + 1}/
                   {selectedStory.scenes.length})
                 </span>
@@ -365,7 +365,7 @@ export function StoryTheatrePage({
                   <button
                     type="button"
                     onClick={() => storyAudio.stop()}
-                    className="flex items-center gap-1.5 rounded-lg bg-wayang-terracotta px-4 py-2 text-xs font-bold text-white transition hover:bg-wayang-terracotta-dark"
+                    className="flex items-center gap-1.5 rounded-lg bg-wayang-terracotta px-4 py-2 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark"
                   >
                     <Square className="h-3.5 w-3.5" />
                     Stop Suara
@@ -375,7 +375,7 @@ export function StoryTheatrePage({
                     type="button"
                     disabled={!isStoryUnlocked}
                     onClick={handleReplayAudio}
-                    className="flex items-center gap-1.5 rounded-lg bg-wayang-gold px-4 py-2 text-xs font-bold text-wayang-charcoal transition hover:bg-wayang-gold-soft disabled:opacity-50"
+                    className="flex items-center gap-1.5 rounded-lg bg-wayang-gold px-4 py-2 text-sm font-bold text-wayang-charcoal transition hover:bg-wayang-gold-soft disabled:opacity-50"
                   >
                     <Play className="h-3.5 w-3.5" />
                     Putar Suara Adegan
@@ -386,7 +386,7 @@ export function StoryTheatrePage({
 
             <div className="mt-4 space-y-3 rounded-lg bg-black/25 p-4">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wide text-wayang-gold">
+                <span className="text-xs font-semibold text-wayang-gold">
                   Narasi Ki Dalang
                 </span>
                 <p className="mt-0.5 text-sm leading-relaxed text-wayang-cream">
@@ -394,7 +394,7 @@ export function StoryTheatrePage({
                 </p>
               </div>
               <div className="border-t border-white/10 pt-2.5">
-                <span className="text-[11px] font-bold uppercase tracking-wide text-emerald-300">
+                <span className="text-xs font-semibold text-emerald-300">
                   Antawacana • {currentScene.speaker}
                 </span>
                 <p className="mt-0.5 font-display text-base italic text-wayang-gold-soft">
@@ -409,7 +409,7 @@ export function StoryTheatrePage({
                 type="button"
                 disabled={sceneIdx === 0}
                 onClick={() => setSceneIdx((i) => Math.max(0, i - 1))}
-                className="flex items-center gap-1.5 rounded-lg border border-white/20 px-4 py-2 text-xs font-bold text-wayang-cream transition hover:bg-white/10 disabled:opacity-40"
+                className="flex items-center gap-1.5 rounded-lg border border-white/20 px-4 py-2 text-sm font-bold text-wayang-cream transition hover:bg-white/10 disabled:opacity-40"
               >
                 <ChevronLeft className="h-4 w-4" />
                 Adegan Sebelumnya
@@ -439,7 +439,7 @@ export function StoryTheatrePage({
                     Math.min(selectedStory.scenes.length - 1, i + 1)
                   )
                 }
-                className="flex items-center gap-1.5 rounded-lg bg-wayang-terracotta px-4 py-2 text-xs font-bold text-white transition hover:bg-wayang-terracotta-dark disabled:opacity-40"
+                className="flex items-center gap-1.5 rounded-lg bg-wayang-terracotta px-4 py-2 text-sm font-bold text-white transition hover:bg-wayang-terracotta-dark disabled:opacity-40"
               >
                 Adegan Berikutnya
                 <ChevronRight className="h-4 w-4" />
@@ -447,7 +447,7 @@ export function StoryTheatrePage({
             </div>
           </div>
 
-          <p className="rounded-lg border border-wayang-gold/30 bg-white px-4 py-2.5 text-[11px] leading-relaxed text-wayang-brown-light">
+          <p className="rounded-lg border border-wayang-gold/30 bg-white px-4 py-2.5 text-sm leading-relaxed text-wayang-brown-light">
             <strong>Catatan Teknis & Budaya:</strong> Suara narasi &{' '}
             <em>antawacana</em> disintesis langsung oleh browser (Web Speech API `id-ID`)
             beserta efek gamelan Web Audio sembari tangan Anda tetap mengendalikan wayang.
@@ -475,11 +475,11 @@ export function StoryTheatrePage({
 
           <div className="rounded-xl border border-wayang-terracotta/35 bg-white p-4">
             <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-bold uppercase tracking-wide text-wayang-terracotta">
+              <span className="text-sm font-semibold text-wayang-terracotta">
                 Panduan Gerak Adegan Ini
               </span>
               {sceneCompleted && (
-                <span className="flex items-center gap-1 rounded-full bg-wayang-sage/15 px-2.5 py-0.5 text-[11px] font-bold text-wayang-sage">
+                <span className="flex items-center gap-1 rounded-full bg-wayang-sage/15 px-2.5 py-0.5 text-xs font-bold text-wayang-sage">
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   Sesuai Adegan
                 </span>
@@ -488,10 +488,10 @@ export function StoryTheatrePage({
             <p className="mt-1 text-sm font-bold text-wayang-brown">
               {currentScene.gestureCueLabel}
             </p>
-            <div className="mt-2.5 rounded-lg bg-wayang-cream p-3 text-xs leading-relaxed text-wayang-brown">
+            <div className="mt-2.5 rounded-lg bg-wayang-cream p-3 text-sm leading-relaxed text-wayang-brown">
               <strong>Konteks Budaya:</strong> {currentScene.culturalNote}
             </div>
-            <div className="mt-2.5 rounded-lg bg-wayang-gold-soft/40 p-3 text-xs leading-relaxed text-wayang-brown">
+            <div className="mt-2.5 rounded-lg bg-wayang-gold-soft/40 p-3 text-sm leading-relaxed text-wayang-brown">
               <strong>Nilai Cerita:</strong> {selectedStory.moralValue}
             </div>
           </div>

@@ -72,7 +72,7 @@ export function LandingPage({
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
                   Markerless Hand Tracking
                 </p>
-                <p className="mt-0.5 text-xs leading-relaxed text-wayang-charcoal/75">
+                <p className="mt-0.5 text-sm leading-relaxed text-wayang-charcoal/75">
                   Deteksi 21 titik koordinat per tangan (hingga 2 tangan) langsung di browser.
                 </p>
               </div>
@@ -83,7 +83,7 @@ export function LandingPage({
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
                   Privasi Terjaga di Browser
                 </p>
-                <p className="mt-0.5 text-xs leading-relaxed text-wayang-charcoal/75">
+                <p className="mt-0.5 text-sm leading-relaxed text-wayang-charcoal/75">
                   Citra webcam diproses lokal di perangkat; tidak direkam atau dikirim ke server.
                 </p>
               </div>
@@ -94,7 +94,7 @@ export function LandingPage({
                 <p className="font-display mt-2.5 text-sm font-bold text-wayang-brown">
                   5 Level Latihan Dasar
                 </p>
-                <p className="mt-0.5 text-xs leading-relaxed text-wayang-charcoal/75">
+                <p className="mt-0.5 text-sm leading-relaxed text-wayang-charcoal/75">
                   Kenali tokoh, latih kendali sabetan, dan kumpulkan lencana pembelajaran.
                 </p>
               </div>
@@ -116,7 +116,7 @@ export function LandingPage({
                 heightClass="h-80 sm:h-96"
               />
             </div>
-            <p className="mt-2.5 text-center text-xs font-semibold text-wayang-brown-light">
+            <p className="mt-2.5 text-center text-sm font-semibold text-wayang-brown-light">
               Pratinjau 2 Tokoh Wayang di Kelir • Kamera hanya aktif setelah Anda mengizinkannya
             </p>
           </motion.div>
@@ -136,7 +136,7 @@ export function LandingPage({
               <strong className="text-wayang-gold">Dalang</strong> saat mengolah gerak (<em>sabetan</em>)
               melalui <em>cempurit</em> dan <em>tuding</em> di layar bercahaya (<em>kelir</em>).
             </p>
-            <p className="mt-2.5 text-xs leading-relaxed text-wayang-cream/80 sm:text-sm">
+            <p className="mt-2.5 text-sm leading-relaxed text-wayang-cream/80 sm:text-sm">
               ARJUNA hadir sebagai media pendukung dokumentasi dan latihan dasar agar budaya pewayangan
               tetap akrab bagi generasi muda — <strong>bukan pengganti dalang, sanggar, maupun pertunjukan langsung</strong>.
             </p>
@@ -168,7 +168,7 @@ export function LandingPage({
       <section className="border-t border-wayang-gold/40 pt-8">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-wayang-terracotta">
+            <span className="text-sm font-semibold text-wayang-terracotta">
               Transparansi Tahap Produk
             </span>
             <h2 className="font-display mt-1 text-2xl font-bold text-wayang-brown">
@@ -182,11 +182,11 @@ export function LandingPage({
 
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           <div className="rounded-xl border border-wayang-sage/35 bg-wayang-sage/5 p-5">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-sage">
+            <div className="flex items-center gap-2 text-sm font-semibold text-wayang-sage">
               <CheckCircle2 className="h-4 w-4" />
               Berjalan Saat Ini
             </div>
-            <ul className="mt-3 space-y-2 text-xs leading-relaxed text-wayang-charcoal/85 sm:text-sm">
+            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-wayang-charcoal/85 sm:text-sm">
               <li>• Web interaktif berbasis browser & webcam desktop</li>
               <li>• Pelacakan 21 titik tangan markerless via MediaPipe</li>
               <li>• Pengenalan tokoh, Studio, Latihan Dasar, & 5 Level pemula</li>
@@ -195,11 +195,11 @@ export function LandingPage({
           </div>
 
           <div className="rounded-xl border border-wayang-gold/45 bg-wayang-gold-soft/35 p-5">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-brown">
+            <div className="flex items-center gap-2 text-sm font-semibold text-wayang-brown">
               <Clock className="h-4 w-4 text-wayang-terracotta" />
               Rencana Tahap Menengah
             </div>
-            <ul className="mt-3 space-y-2 text-xs leading-relaxed text-wayang-charcoal/85 sm:text-sm">
+            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-wayang-charcoal/85 sm:text-sm">
               <li>• Modul rangkaian scene cerita pewayangan utuh</li>
               <li>• Narasi & audio dialog karakter (antawacana) saat wayang digerakkan</li>
               <li>• Penyempurnaan gerak sabetan & validasi bersama dalang/sanggar</li>
@@ -207,11 +207,11 @@ export function LandingPage({
           </div>
 
           <div className="rounded-xl border border-wayang-brown/20 bg-wayang-cream p-5">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-wayang-brown-light">
+            <div className="flex items-center gap-2 text-sm font-semibold text-wayang-brown-light">
               <Users className="h-4 w-4 text-wayang-brown" />
               Visi Jangka Panjang
             </div>
-            <ul className="mt-3 space-y-2 text-xs leading-relaxed text-wayang-charcoal/85 sm:text-sm">
+            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-wayang-charcoal/85 sm:text-sm">
               <li>• ARJUNA VR Experience & panggung pertunjukan virtual</li>
               <li>• Ekspansi ke beragam tradisi wayang Nusantara</li>
               <li>• Dukungan antarmuka dwibahasa Indonesia–Inggris</li>
@@ -261,10 +261,10 @@ export function LandingPage({
                   <h3 className="font-display mt-3 text-lg font-bold text-wayang-brown">
                     {char.name}
                   </h3>
-                  <p className="text-xs font-semibold text-wayang-terracotta">
+                  <p className="text-sm font-semibold text-wayang-terracotta">
                     {char.title}
                   </p>
-                  <p className="mt-1.5 text-xs leading-relaxed text-wayang-charcoal/80">
+                  <p className="mt-1.5 text-sm leading-relaxed text-wayang-charcoal/80">
                     {char.shortDesc}
                   </p>
                 </div>

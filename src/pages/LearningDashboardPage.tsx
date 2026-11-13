@@ -140,7 +140,7 @@ export function LearningDashboardPage({
             <button
               type="button"
               onClick={onResetProgress}
-              className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/15 px-3.5 py-2.5 text-xs font-semibold text-wayang-brown/75 transition hover:bg-wayang-cream"
+              className="flex items-center gap-1.5 rounded-lg border border-wayang-brown/15 px-3.5 py-2.5 text-sm font-semibold text-wayang-brown/75 transition hover:bg-wayang-cream"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Reset Progres
@@ -180,7 +180,7 @@ export function LearningDashboardPage({
       <section className="border-t border-wayang-gold/40 pt-8">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-wayang-terracotta">
+            <span className="text-sm font-semibold text-wayang-terracotta">
               Model Bisnis & Komersialisasi ARJUNA (Simulasi Frontend)
             </span>
             <h2 className="font-display mt-1 text-2xl font-bold text-wayang-brown">
@@ -195,7 +195,7 @@ export function LearningDashboardPage({
           </span>
         </div>
 
-        <p className="mt-2 text-xs leading-relaxed text-wayang-charcoal/80 sm:text-sm">
+        <p className="mt-2 text-sm leading-relaxed text-wayang-charcoal/80 sm:text-sm">
           Sesuai peta jalan komersialisasi ARJUNA (Freemium B2C, Paket Cerita Premium B2C,
           dan Lisensi Institusional B2B untuk sekolah/sanggar), Anda dapat mencoba pratinjau
           akses tiap paket secara lokal di bawah ini.{' '}
@@ -220,7 +220,7 @@ export function LearningDashboardPage({
               >
                 <div>
                   <div className="flex items-center justify-between gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-gold-soft px-3 py-1 text-[11px] font-bold text-wayang-brown">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-gold-soft px-3 py-1 text-xs font-bold text-wayang-brown">
                       <Icon className="h-3.5 w-3.5 text-wayang-terracotta" />
                       {plan.badge}
                     </span>
@@ -235,14 +235,14 @@ export function LearningDashboardPage({
                   <h3 className="font-display mt-3 text-lg font-bold text-wayang-brown">
                     {plan.name}
                   </h3>
-                  <p className="text-xs font-semibold text-wayang-terracotta">
+                  <p className="text-sm font-semibold text-wayang-terracotta">
                     {plan.target}
                   </p>
-                  <p className="mt-1 rounded-lg bg-wayang-cream-dark/60 px-2.5 py-1 text-[11px] font-semibold text-wayang-brown">
+                  <p className="mt-1 rounded-lg bg-wayang-cream-dark/60 px-2.5 py-1 text-sm font-semibold text-wayang-brown">
                     {plan.pricingNote}
                   </p>
 
-                  <ul className="mt-3 space-y-1.5 text-xs leading-relaxed text-wayang-charcoal/85">
+                  <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-wayang-charcoal/85">
                     {plan.highlights.map((item) => (
                       <li key={item}>• {item}</li>
                     ))}
@@ -252,7 +252,7 @@ export function LearningDashboardPage({
                 <button
                   type="button"
                   onClick={() => onSelectPlan(plan.id)}
-                  className={`mt-4 w-full rounded-lg py-2.5 text-xs font-bold transition sm:text-sm ${
+                  className={`mt-4 w-full rounded-lg py-2.5 text-sm font-bold transition ${
                     isActive
                       ? 'bg-wayang-sage text-white'
                       : 'bg-wayang-brown text-wayang-cream hover:bg-wayang-brown-light'
@@ -286,7 +286,7 @@ export function LearningDashboardPage({
                 key={tab.id}
                 type="button"
                 onClick={() => setTierFilter(tab.id)}
-                className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition ${
+                className={`rounded-lg px-3.5 py-1.5 text-sm font-bold transition ${
                   tierFilter === tab.id
                     ? 'bg-wayang-brown text-wayang-gold shadow-sm'
                     : 'border border-wayang-gold/40 bg-white text-wayang-brown hover:bg-wayang-gold-soft/45'
@@ -343,7 +343,7 @@ export function LearningDashboardPage({
 
                   <div className="mt-2.5 flex flex-wrap gap-1.5">
                     <span
-                      className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold ${
+                      className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
                         tier === 'free'
                           ? 'bg-wayang-sage/15 text-wayang-sage'
                           : tier === 'episode_pack'
@@ -354,7 +354,7 @@ export function LearningDashboardPage({
                       {level.packLabel ?? 'Gratis (Freemium)'}
                     </span>
                     {level.culturalRegion && (
-                      <span className="rounded-full bg-wayang-cream px-2.5 py-0.5 text-[10px] font-semibold text-wayang-brown-light">
+                      <span className="rounded-full bg-wayang-cream px-2.5 py-0.5 text-xs font-semibold text-wayang-brown-light">
                         {level.culturalRegion}
                       </span>
                     )}
@@ -393,7 +393,7 @@ export function LearningDashboardPage({
                         tier === 'episode_pack' ? 'lakon_pack' : 'institutional'
                       )
                     }
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg border border-wayang-gold bg-white py-3 text-xs font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
+                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg border border-wayang-gold bg-white py-3 text-sm font-bold text-wayang-brown transition hover:bg-wayang-gold-soft"
                   >
                     Buka Pratinjau {level.packLabel}
                   </button>
