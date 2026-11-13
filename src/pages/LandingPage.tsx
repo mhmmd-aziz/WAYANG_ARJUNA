@@ -9,12 +9,10 @@ import {
   Clock,
   Hand,
   ShieldCheck,
-  Sparkles,
   Users,
 } from 'lucide-react';
 import { WAYANG_CHARACTERS } from '../assets/wayangCharacters';
 import { PuppetPreviewCanvas } from '../components/puppet/PuppetPreviewCanvas';
-import { GununganIcon } from '../components/ui/WayangIcons';
 import type { AppPage, PuppetCharacterId } from '../types';
 
 interface LandingPageProps {
@@ -34,11 +32,6 @@ export function LandingPage({
       <section className="relative overflow-hidden rounded-[2rem] border border-wayang-gold/50 bg-white p-6 shadow-card lg:p-10">
         <div className="grid items-center gap-8 lg:grid-cols-12">
           <div className="space-y-5 lg:col-span-7">
-            <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-wayang-gold/40 bg-wayang-gold-soft/60 px-4 py-1.5 text-xs font-bold text-wayang-brown">
-              <GununganIcon className="h-4 w-4 text-wayang-terracotta" />
-              ARJUNA • BUDAYA GO! 2026 • Tim Pengen Terbang (Politeknik Negeri Lhokseumawe)
-            </div>
-
             <h1 className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-wayang-brown sm:text-5xl">
               Platform Belajar <span className="text-wayang-terracotta">Wayang Kulit</span>{' '}
               Berbasis Hand Tracking
@@ -134,11 +127,7 @@ export function LandingPage({
       <section className="rounded-[2rem] border border-wayang-gold/40 bg-wayang-brown p-6 text-wayang-cream shadow-card sm:p-8">
         <div className="grid items-center gap-6 md:grid-cols-12">
           <div className="md:col-span-7">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-gold/20 px-3 py-1 text-xs font-bold text-wayang-gold">
-              <Sparkles className="h-3.5 w-3.5" />
-              Landasan Budaya Nusantara
-            </span>
-            <h2 className="font-display mt-2.5 text-2xl font-bold sm:text-3xl">
+            <h2 className="font-display text-2xl font-bold sm:text-3xl">
               Wayang Kulit, Dalang, dan Kaidah Sabetan
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-wayang-cream/90 sm:text-base">

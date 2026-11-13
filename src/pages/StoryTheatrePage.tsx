@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  BookOpenText,
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
@@ -216,11 +215,10 @@ export function StoryTheatrePage({
       <div className="rounded-3xl border-2 border-wayang-gold/40 bg-white p-5 shadow-card">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-gold-soft px-3 py-1 text-xs font-bold text-wayang-brown">
-              <BookOpenText className="h-3.5 w-3.5 text-wayang-terracotta" />
-              Panggung Cerita Rakyat Bersuara • Narasi Dalang & Antawacana
-            </span>
-            <h1 className="font-display mt-1.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
+            <p className="text-sm font-semibold text-wayang-terracotta">
+              Panggung Cerita
+            </p>
+            <h1 className="font-display mt-0.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
               {selectedStory.title}
             </h1>
             <p className="mt-0.5 text-xs text-wayang-charcoal/80 sm:text-sm">

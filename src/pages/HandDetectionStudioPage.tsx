@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { Eye, EyeOff, Hand, Sparkles, Users } from 'lucide-react';
+import { Eye, EyeOff, Hand, Users } from 'lucide-react';
 import { WAYANG_CHARACTERS } from '../assets/wayangCharacters';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
 import { GestureStatusPanel } from '../components/hand-tracking/GestureStatusPanel';
@@ -188,11 +188,7 @@ export function HandDetectionStudioPage({
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6">
       <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-wayang-gold/40 bg-white p-5 shadow-card">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-gold-soft/70 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-wayang-brown">
-            <Sparkles className="h-3.5 w-3.5 text-wayang-terracotta" />
-            Studio Deteksi Tangan Real-Time
-          </span>
-          <h1 className="font-display mt-1.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
+          <h1 className="font-display text-2xl font-bold text-wayang-brown sm:text-3xl">
             Panggung Wayang Interaktif
           </h1>
         </div>

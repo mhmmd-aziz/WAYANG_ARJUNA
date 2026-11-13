@@ -47,9 +47,9 @@ export function ResultPage({
           ))}
         </div>
 
-        <span className="mt-4 inline-block rounded-full bg-wayang-gold-soft px-4 py-1 text-xs font-bold text-wayang-brown">
-          Level {result.levelId} • {result.levelTitle}
-        </span>
+        <p className="mt-4 text-sm font-semibold text-wayang-terracotta">
+          Level {result.levelId}: {result.levelTitle}
+        </p>
 
         <h1 className="font-display mt-2 text-3xl font-bold text-wayang-brown sm:text-4xl">
           {result.passed ? 'Hebat! Tantangan Berhasil!' : 'Waktu Habis, Coba Lagi Yuk!'}

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowRight, CheckCircle2, RotateCcw, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, RotateCcw } from 'lucide-react';
 import { getCharacterById } from '../assets/wayangCharacters';
 import { WebcamFeed } from '../components/camera/WebcamFeed';
 import { GestureInstructorDemo } from '../components/game/GestureInstructorDemo';
@@ -248,11 +248,10 @@ export function TutorialModePage({
       <div className="rounded-3xl border-2 border-wayang-gold/40 bg-white p-5 shadow-card">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-gold-soft px-3 py-1 text-xs font-bold text-wayang-brown">
-              <Sparkles className="h-3.5 w-3.5 text-wayang-terracotta" />
-              Mode Belajar & Demonstrasi • {character.name}
-            </span>
-            <h1 className="font-display mt-1.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
+            <p className="text-sm font-semibold text-wayang-terracotta">
+              Tutorial gerakan bersama {character.name}
+            </p>
+            <h1 className="font-display mt-0.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
               {tutorialDone
                 ? 'Selamat! Tutorial Selesai!'
                 : currentStep.title}

@@ -111,9 +111,6 @@ export function LearningDashboardPage({
       {/* Top Progress Summary */}
       <div className="grid gap-4 rounded-3xl border-2 border-wayang-gold/40 bg-white p-6 shadow-card md:grid-cols-12">
         <div className="space-y-2 md:col-span-7">
-          <span className="inline-block rounded-full bg-wayang-gold-soft px-3 py-1 text-xs font-bold text-wayang-brown">
-            Dasbor Pembelajaran ARJUNA • {GAME_LEVELS.length} Level Progresif
-          </span>
           <h1 className="font-display text-3xl font-bold text-wayang-brown">
             Latihan Sabetan, Cerita Rakyat & Lencana
           </h1>

@@ -324,11 +324,7 @@ export function WayangBattlePage({
       {/* Top Title & Mode Switch */}
       <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-wayang-gold/40 bg-white p-5 shadow-card">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-wayang-terracotta/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-wayang-terracotta">
-            <Swords className="h-3.5 w-3.5" />
-            Arena Pertarungan Wayang
-          </span>
-          <h1 className="font-display mt-1.5 text-2xl font-bold text-wayang-brown sm:text-3xl">
+          <h1 className="font-display text-2xl font-bold text-wayang-brown sm:text-3xl">
             Tanding Jurus Wayang Kulit
           </h1>
         </div>
